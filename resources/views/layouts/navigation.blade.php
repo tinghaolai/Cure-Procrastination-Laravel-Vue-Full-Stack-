@@ -6,7 +6,7 @@
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/article">Article</a>
+            <a class="nav-link" href="/articles">Article</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Tomato</a>

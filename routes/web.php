@@ -10,13 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/articles', 'ArticleController@index');
 
 Route::get('/articles/{article}', 'ArticleController@show');
 
 
+Route::get('/articleadmin', 'ArticleadminController@index');
+Route::get('/articleadmin/create', 'ArticleadminController@create');
+Route::post('/articleadmin', 'ArticleadminController@store');
+Route::get('/articleadmin/{article}', 'ArticleadminController@show');
+Route::get('/articleadmin/{article}/edit', 'ArticleadminController@edit');
 
-Auth::routes();
+
+Route::patch('/articleadmin/{article}', 'ArticleadminController@update');
+Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

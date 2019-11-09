@@ -37207,7 +37207,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("a", { attrs: { href: "articles/" + _vm.id } }, [
+    _c("a", { attrs: { href: "/articles/" + _vm.id } }, [
       _vm._v(_vm._s(this.title))
     ])
   ])

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a :href="'articles/'+id">{{this.title}}</a>
+    <a :href="'/articles/'+id">{{this.title}}</a>
   </div>
 </template>
 

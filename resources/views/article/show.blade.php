@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            123
+            {{$article->title}} <br><br>
+            {{$article->body}} <br>
         </div>
         <div class="col col-lg-3">
             @include('layouts.sidebar')
