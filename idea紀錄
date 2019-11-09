@@ -1,3 +1,11 @@
 singlepage:計時器那些
 blog:不用singlepage
 blog index跟文章細節 或許該考慮用backend 因為如果用router, singlepage 需要一次載入所有資料
+上傳圖片
+記得responsive padding
+
+
+
+***
+Footer
+放git hub

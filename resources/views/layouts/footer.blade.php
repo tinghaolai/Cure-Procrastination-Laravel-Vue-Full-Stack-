@@ -1,1 +1,1 @@
-<div id="p13">footer</div>
+<div class="container-fluid" id="footer">footer</div>

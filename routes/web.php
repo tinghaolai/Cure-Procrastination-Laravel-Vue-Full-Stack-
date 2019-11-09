@@ -22,8 +22,6 @@ Route::get('/articleadmin/create', 'ArticleadminController@create');
 Route::post('/articleadmin', 'ArticleadminController@store');
 Route::get('/articleadmin/{article}', 'ArticleadminController@show');
 Route::get('/articleadmin/{article}/edit', 'ArticleadminController@edit');
-
-
 Route::patch('/articleadmin/{article}', 'ArticleadminController@update');
 Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy');
 

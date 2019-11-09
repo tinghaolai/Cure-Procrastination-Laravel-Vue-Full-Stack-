@@ -1,28 +1,21 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/articles">Article</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tomato</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">To Do list</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Clock</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About me</a>
-          </li>
-        </ul>
-        <button type="button" class="btn btn-primary">Login</button>
-        <button type="button" class="btn btn-primary">Register</button>
-      </div>
-    </nav>
+        <div class="container text-center rounded m-4 p-4 " id="navigation">
+                <div class="row">
+                  <div class="col-sm">
+                        <a href="#">Home</a>
+                  </div>
+                  <div class="col-sm">
+                        <a href="#">Tomato</a>
+                  </div>
+                  <div class="col-sm">
+                        <a href="#">To Do List</a>
+                  </div>
+                  <div class="col-sm">
+                        <a href="#">Clock</a>
+                  </div>
+                  <div class="col-sm">
+                        <a href="#">Ablout Me</a>
+                  </div>
+                </div>
+              </div>
   </div>

@@ -20,14 +20,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" class="container">
+    <div>
+        <div id="app" class="container">
 
-        @include('layouts.navigation')
+            @include('layouts.navigation')
 
-
-        @yield('content')
+            <br><br><br><br><br><br>
+            <br><br><br><br><br><br>
+            <br><br><br><br><br><br>
+            <br><br><br><br><br><br>
+            <br><br><br><br><br><br>
+            <br><br><br><br><br><br>
+            @yield('content')
+            @include('layouts.scrollup')
+        </div>
         @include('layouts.footer')
-        @include('layouts.scrollup')
     </div>
 </body>
 </html>
