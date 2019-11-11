@@ -9,7 +9,6 @@ use App\Tag;
 class TagController extends Controller
 {
 
-
     public function create()
     {
         $tags = Tag::all();
