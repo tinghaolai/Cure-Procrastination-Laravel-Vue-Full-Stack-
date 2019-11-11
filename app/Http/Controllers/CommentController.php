@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Article;
+use Illuminate\Http\Request;
 
-class TagController extends Controller
+class CommentController extends Controller
 {
     public function store($id)
     {
@@ -14,14 +14,6 @@ class TagController extends Controller
 
         return redirect(url()->previous());
     }
-
-    public function create()
-    {
-        $article = new Article();
-
-        return view('articleadmin.tag.create', compact('article'));
-    }
-
 
     protected function validateData()
     {

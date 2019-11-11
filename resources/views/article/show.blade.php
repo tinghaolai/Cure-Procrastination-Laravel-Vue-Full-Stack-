@@ -28,7 +28,7 @@
 
 
 
-            <form action="/tags/{{ $article->id}}" method="post">
+            <form action="/comments/{{$article->id}}" method="post">
                 <div>
                         <label for="title">Add Comments</label>
 

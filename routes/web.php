@@ -15,7 +15,12 @@ Auth::routes();
 Route::get('/articles', 'ArticleController@index');
 
 Route::get('/articles/{article}', 'ArticleController@show');
-Route::post('/tags/{id}', 'TagController@store');
+
+Route::post('/comments/{id}', 'CommentController@store');
+
+Route::get('/tags/create', 'TagController@create');
+Route::post('/tags', 'TagController@store');
+
 
 Route::get('/articleadmin', 'ArticleadminController@index');
 Route::get('/articleadmin/create', 'ArticleadminController@create');
