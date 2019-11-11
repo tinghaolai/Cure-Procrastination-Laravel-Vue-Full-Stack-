@@ -1,5 +1,9 @@
 
-<div id="p12">sidebar</div>
+<div id="sidebar">
+    <h3>Tag</h3>
+    <hr>
+
+</div>
 
 
 

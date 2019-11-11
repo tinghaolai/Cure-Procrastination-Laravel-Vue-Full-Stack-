@@ -21,16 +21,9 @@
 </head>
 <body>
     <div>
-        <div id="app" class="container">
+        <div id="app" >
+            <div class="container">@include('layouts.navigation')</div>
 
-            @include('layouts.navigation')
-
-            <br><br><br><br><br><br>
-            <br><br><br><br><br><br>
-            <br><br><br><br><br><br>
-            <br><br><br><br><br><br>
-            <br><br><br><br><br><br>
-            <br><br><br><br><br><br>
             @yield('content')
             @include('layouts.scrollup')
         </div>

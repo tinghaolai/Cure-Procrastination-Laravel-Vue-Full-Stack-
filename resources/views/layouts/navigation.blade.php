@@ -5,6 +5,9 @@
                         <a href="#">Home</a>
                   </div>
                   <div class="col-sm">
+                        <a href="#">Article</a>
+                  </div>
+                  <div class="col-sm">
                         <a href="#">Tomato</a>
                   </div>
                   <div class="col-sm">
