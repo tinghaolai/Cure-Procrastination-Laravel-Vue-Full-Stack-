@@ -5,7 +5,6 @@
     <div class="row" >
 
         <div class="col text-success" >
-
             <h2>{{$article->title}} </h2>
                 <br><br>
             <p>{{$article->body}}</p>
@@ -15,29 +14,32 @@
             <br><br>
             <br><br>
             <br><br>
-            <p class="text-success">Tag:</p>
+            <p class="text-success">Tag:
+                @forelse($article->tags as $tag)
+                    <span>{{$tag->name}}/</span>
 
+                @empty
+                    <p>No Tags</p>
+                @endforelse
+            </p>
+
+            <div></div>
             All Comments:
-            @forelse($comments as $comment)
+            @forelse($article->comments as $comment)
                 <div>{{$comment->body}}</div>
 
             @empty
                 <p>No Comments</p>
             @endforelse
-
-
-
-
+            <div></div>
             <form action="/comments/{{$article->id}}" method="post">
                 <div>
                         <label for="title">Add Comments</label>
-
-                        <div>
                         <label for="body"></label>
                         <textarea name="body" autocomplete="off" ></textarea>
                         @error('body') <p style="color:red;">{{ $message }}</p> @enderror
-                        </div>
-                        @csrf
+                </div>
+
                  <button>Leave comment</button>
             </form>
         </div>

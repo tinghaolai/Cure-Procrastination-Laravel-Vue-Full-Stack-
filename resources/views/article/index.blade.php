@@ -7,7 +7,8 @@
         <div class="col " >
             <b-card-group>
                 @foreach($articles as $article)
-                <Info title="{{$article->title}}" body="{{$article->body}}" id="{{$article->id}}"></Info>
+                <Info title="{{$article->title}}" body="{{$article->body}}" id="{{$article->id}}" :tags="{{ ($article->tags) }}"></Info>
+
                 @endforeach
             </b-card-group>
             <div class="col-12 text-center" >

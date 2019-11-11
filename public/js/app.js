@@ -1881,9 +1881,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Info",
-  props: ["title", "body", "id"]
+  props: ["title", "body", "id", "tags"],
+  computed: {}
 });
 
 /***/ }),
@@ -66078,6 +66082,19 @@ var render = function() {
         },
         [
           _c("b-card-text", [_vm._v(_vm._s(this.body.substr(0, 100)))]),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _vm._v("\n      tag:\n      "),
+              _vm._l(_vm.tags, function(tag, index) {
+                return _c("spam", { key: index }, [
+                  _vm._v(_vm._s(tag.name) + "/")
+                ])
+              })
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
             "b-button",

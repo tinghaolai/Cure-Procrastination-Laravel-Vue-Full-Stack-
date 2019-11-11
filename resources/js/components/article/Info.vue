@@ -10,7 +10,10 @@
       class="mb-2"
     >
       <b-card-text>{{this.body.substr(0,100)}}</b-card-text>
-
+      <div>
+        tag:
+        <spam v-for="(tag, index) in tags" :key="index">{{ tag.name }}/</spam>
+      </div>
       <b-button :href="'/articles/'+id" variant="primary">Read</b-button>
     </b-card>
   </div>
@@ -19,7 +22,8 @@
 <script>
 export default {
   name: "Info",
-  props: ["title", "body", "id"]
+  props: ["title", "body", "id", "tags"],
+  computed: {}
 };
 </script>
 
