@@ -4,11 +4,11 @@
 <div class="container-fluid">
     <div class="row" >
 
-        <div class="col " >
+        <div class="col text-success" >
 
-            <h2 class="text-success">{{$article->title}} </h2>
+            <h2>{{$article->title}} </h2>
                 <br><br>
-            <p class="text-success">{{$article->body}}</p>
+            <p>{{$article->body}}</p>
             <br><br>
             <br><br>
             <br><br>
@@ -16,6 +16,19 @@
             <br><br>
             <br><br>
             <p class="text-success">Tag:</p>
+
+            <form action="/tags/{{ $article->id}}" method="post">
+                <div>
+                        <label for="title">Comments</label>
+
+                        <div>
+                        <label for="body"></label>
+                        <textarea name="body" autocomplete="off" ></textarea>
+                        @error('body') <p style="color:red;">{{ $message }}</p> @enderror
+                        </div>
+                        @csrf
+                 <button>Leave comment</button>
+            </form>
         </div>
 
         <div class="col col-lg-3 rounded" id="sidebar">

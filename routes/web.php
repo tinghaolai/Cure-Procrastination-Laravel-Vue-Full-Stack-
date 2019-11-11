@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('/articles', 'ArticleController@index');
 
 Route::get('/articles/{article}', 'ArticleController@show');
-
+Route::post('/tags/{id}', 'TagController@store');
 
 Route::get('/articleadmin', 'ArticleadminController@index');
 Route::get('/articleadmin/create', 'ArticleadminController@create');
