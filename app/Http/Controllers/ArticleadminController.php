@@ -27,10 +27,13 @@ class ArticleadminController extends Controller
         return view('articleadmin.create', compact('article', 'tags'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $article = Article::create($this->validateData());
-
+        //$article->tags()->attach();
+        foreach ($request->input('tag') as $tag_id) {
+            $article->tags()->attach($tag_id);
+        }
         return redirect('/articleadmin/' . $article->id);
     }
 
@@ -42,7 +45,8 @@ class ArticleadminController extends Controller
 
     public function edit(Article $article)
     {
-        return view('articleadmin.edit', compact('article'));
+        $tags = Tag::all();
+        return view('articleadmin.edit', compact('article', 'tags'));
     }
 
 
