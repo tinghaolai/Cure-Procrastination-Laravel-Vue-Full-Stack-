@@ -17,9 +17,20 @@
             <br><br>
             <p class="text-success">Tag:</p>
 
+            All Comments:
+            @forelse($comments as $comment)
+                <div>{{$comment->body}}</div>
+
+            @empty
+                <p>No Comments</p>
+            @endforelse
+
+
+
+
             <form action="/tags/{{ $article->id}}" method="post">
                 <div>
-                        <label for="title">Comments</label>
+                        <label for="title">Add Comments</label>
 
                         <div>
                         <label for="body"></label>
