@@ -20,6 +20,7 @@ Route::post('/comments/{id}', 'CommentController@store');
 
 Route::get('/tags/create', 'TagController@create');
 Route::post('/tags', 'TagController@store');
+Route::delete('/tags/{tag}', 'TagController@destroy');
 
 
 Route::get('/articleadmin', 'ArticleadminController@index');

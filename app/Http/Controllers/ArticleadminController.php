@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleadminController extends Controller
@@ -22,8 +23,8 @@ class ArticleadminController extends Controller
     public function create()
     {
         $article = new Article();
-
-        return view('articleadmin.create', compact('article'));
+        $tags = Tag::all();
+        return view('articleadmin.create', compact('article', 'tags'));
     }
 
     public function store()

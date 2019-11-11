@@ -4,29 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Tag;
 
 class TagController extends Controller
 {
-    public function store($id)
-    {
 
-        Article::find($id)->comments()->create($this->validateData());
+
+    public function create()
+    {
+        $tags = Tag::all();
+        return view('articleadmin.tag.create', compact('tags'));
+    }
+
+
+    public function store()
+    {
+        $tag = Tag::create($this->validateData());
 
         return redirect(url()->previous());
     }
 
-    public function create()
+    public function destroy(Tag $tag)
     {
-        $article = new Article();
+        $tag->delete();
 
-        return view('articleadmin.tag.create', compact('article'));
+        return redirect(url()->previous());
     }
-
 
     protected function validateData()
     {
         return request()->validate([
-            'body' => 'required'
+            'name' => 'required'
         ]);
     }
 }
