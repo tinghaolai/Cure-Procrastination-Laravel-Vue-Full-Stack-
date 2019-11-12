@@ -1,6 +1,6 @@
 <h1>Add New Article</h1>
 
-<form action="/articleadmin" method="post">
+<form action="/articleadmin" method="post" enctype="multipart/form-data">
 
     @include('articleadmin.form')
 

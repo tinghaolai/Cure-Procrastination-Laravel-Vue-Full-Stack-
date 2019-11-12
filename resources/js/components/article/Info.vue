@@ -13,7 +13,7 @@
       <div>
         tag:
         <spam v-for="(tag, index) in tags" :key="index">
-          <a :href="'/tags/'+tag.id">{{ tag.name }}</a>
+          <a :href="'/tag/'+tag.id">{{ tag.name }}</a>
           /
         </spam>
       </div>

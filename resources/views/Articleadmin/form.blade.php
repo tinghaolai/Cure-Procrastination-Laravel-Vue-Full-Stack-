@@ -17,4 +17,11 @@
  <div>No Tags</div>
 @endforelse
 
+
+<div class="form-group">
+    <label for="image">Article Image</label>
+    <input type="file" name="image">
+    <div>{{$errors->first('image')}}</div>
+</div>
+
 @csrf

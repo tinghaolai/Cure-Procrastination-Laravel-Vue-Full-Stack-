@@ -66224,7 +66224,7 @@ var render = function() {
               _vm._v("\n      tag:\n      "),
               _vm._l(_vm.tags, function(tag, index) {
                 return _c("spam", { key: index }, [
-                  _c("a", { attrs: { href: "/tags/" + tag.id } }, [
+                  _c("a", { attrs: { href: "/tag/" + tag.id } }, [
                     _vm._v(_vm._s(tag.name))
                   ]),
                   _vm._v("\n        /\n      ")

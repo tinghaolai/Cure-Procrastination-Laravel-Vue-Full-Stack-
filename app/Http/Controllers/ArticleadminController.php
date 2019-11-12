@@ -10,7 +10,7 @@ class ArticleadminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     public function index()
@@ -31,9 +31,12 @@ class ArticleadminController extends Controller
     {
         $article = Article::create($this->validateData());
         //$article->tags()->attach();
-        foreach ($request->input('tag') as $tag_id) {
-            $article->tags()->attach($tag_id);
+        if ($request->has('tag')) {
+            foreach ($request->input('tag') as $tag_id) {
+                $article->tags()->attach($tag_id);
+            }
         }
+        $this->storeImage($article);
         return redirect('/articleadmin/' . $article->id);
     }
 
@@ -66,9 +69,39 @@ class ArticleadminController extends Controller
 
     protected function validateData()
     {
-        return request()->validate([
+        return tap(request()->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+        ]), function () {
+            if (request()->hasFile('image')) {
+                request()->validate([
+                    'image' => 'file|image|max:5000',
+                ]);
+            };
+        });
+
+
+        /* 與上相同碼
+        $validateData = request()->validate([
+            'title' => 'required',
+            'body' => 'required',
         ]);
+
+        if (request()->hasFile('image')) {
+            request()->validate([
+                'image' => 'file|image|max:5000',
+            ]);
+        };
+        return $validateData;
+        */
+    }
+
+    private function storeImage($article)
+    {
+        if (request()->has('image')) {
+            $article->update([
+                'image' => request()->image->store('uploads', 'public'),
+            ]);
+        }
     }
 }
