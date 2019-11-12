@@ -16,7 +16,9 @@
             <br><br>
             <p class="text-success">Tag:
                 @forelse($article->tags as $tag)
-                    <span>{{$tag->name}}/</span>
+                <span>
+                    <a href="/tags/{{$tag->id}}">{{$tag->name}}</a>
+                </span>
 
                 @empty
                     <p>No Tags</p>

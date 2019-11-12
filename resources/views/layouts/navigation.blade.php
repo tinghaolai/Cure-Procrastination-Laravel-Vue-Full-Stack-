@@ -2,22 +2,22 @@
         <div class="container text-center rounded m-4 p-4 " id="navigation">
                 <div class="row">
                   <div class="col-sm">
-                        <a href="#">Home</a>
+                        <a href="/home">Home</a>
                   </div>
                   <div class="col-sm">
-                        <a href="#">Article</a>
+                        <a href="/articles">Article</a>
                   </div>
                   <div class="col-sm">
-                        <a href="#">Tomato</a>
+                        <a href="/tomato">Tomato</a>
                   </div>
                   <div class="col-sm">
-                        <a href="#">To Do List</a>
+                        <a href="/todo">To Do List</a>
                   </div>
                   <div class="col-sm">
-                        <a href="#">Clock</a>
+                        <a href="/clock">Clock</a>
                   </div>
                   <div class="col-sm">
-                        <a href="#">Ablout Me</a>
+                        <a href="/about">Ablout Me</a>
                   </div>
                 </div>
               </div>

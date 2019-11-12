@@ -12,14 +12,13 @@
 */
 Auth::routes();
 
+
+
 Route::get('/articles', 'ArticleController@index');
 Route::get('/articles/{article}', 'ArticleController@show');
 Route::get('/tags/{tag_id}', 'ArticleController@tag_show');
 
-
 Route::post('/comments/{id}', 'CommentController@store');
-
-
 
 Route::get('/tags/create', 'TagController@create');
 Route::post('/tags', 'TagController@store');
@@ -35,4 +34,7 @@ Route::patch('/articleadmin/{article}', 'ArticleadminController@update');
 Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{any}', 'AppController@index')->where('any', '.*');
+
+
+//Route::get('/home', 'HomeController@index')->name('home');

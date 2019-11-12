@@ -3,7 +3,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="row" >
-
         <div class="col " >
             <b-card-group>
                 @foreach($articles as $article)

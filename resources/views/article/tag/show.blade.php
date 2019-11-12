@@ -7,7 +7,7 @@
     <div class="row" >
 
         <div class="col text-primary" >
-            123123
+
         </div>
 
         <div class="col col-lg-3 rounded" id="sidebar">
