@@ -62,6 +62,10 @@ class ArticleadminController extends Controller
                 $article->tags()->attach($tag_id);
             }
         }
+        if ($request->has('delImage')) {
+            $article->update(array('image' => ''));
+        }
+        $this->storeImage($article);
         return redirect('/articleadmin');
     }
 
@@ -71,6 +75,7 @@ class ArticleadminController extends Controller
 
         return redirect('/articleadmin');
     }
+
 
     protected function validateData()
     {
