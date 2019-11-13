@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@if($article->image)
+<div class="col-12"><img src="{{ asset('storage/' . $article->image)}}" alt="" class="img-thumbnail"></div>
+@endif
 <div class="container-fluid">
     <div class="row" >
 
@@ -17,7 +20,7 @@
             <p class="text-success">Tag:
                 @forelse($article->tags as $tag)
                 <span>
-                    <a href="/tags/{{$tag->id}}">{{$tag->name}}</a>
+                    <a href="/tag/{{$tag->id}}">{{$tag->name}}</a>
                 </span>
 
                 @empty
@@ -41,7 +44,7 @@
                         <textarea name="body" autocomplete="off" ></textarea>
                         @error('body') <p style="color:red;">{{ $message }}</p> @enderror
                 </div>
-
+                        @csrf
                  <button>Leave comment</button>
             </form>
         </div>

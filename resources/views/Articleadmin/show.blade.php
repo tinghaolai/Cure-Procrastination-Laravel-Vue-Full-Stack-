@@ -15,7 +15,11 @@
 <form action="/articleadmin/{{ $article->id }}" method="post">
     @method('DELETE')
     @csrf
-
     <button>Delete</button>
 </form>
+
+<img src="" alt="">
+    @if($article->image)
+    <div class="col-12"><img src="{{ asset('storage/' . $article->image)}}" alt="" class="img-thumbnail"></div>
+    @endif
 </div>

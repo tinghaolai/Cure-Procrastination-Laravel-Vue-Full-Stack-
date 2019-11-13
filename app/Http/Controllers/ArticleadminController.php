@@ -16,7 +16,6 @@ class ArticleadminController extends Controller
     public function index()
     {
         $articles = Article::all();
-
         return view('articleadmin.index', compact('articles'));
     }
 
@@ -46,17 +45,22 @@ class ArticleadminController extends Controller
         return view('articleadmin.show', compact('article'));
     }
 
-    public function edit(Article $article)
+    public function edit(Article $article, Request $request)
     {
         $tags = Tag::all();
         return view('articleadmin.edit', compact('article', 'tags'));
     }
 
 
-    public function update(Article $article)
+    public function update(Article $article, Request $request)
     {
-        $article->update($this->validateData());
 
+        $article->update($this->validateData());
+        if ($request->has('tag')) {
+            foreach ($request->input('tag') as $tag_id) {
+                $article->tags()->attach($tag_id);
+            }
+        }
         return redirect('/articleadmin');
     }
 
