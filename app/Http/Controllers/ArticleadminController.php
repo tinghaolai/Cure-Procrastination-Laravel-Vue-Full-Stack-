@@ -56,6 +56,7 @@ class ArticleadminController extends Controller
     {
 
         $article->update($this->validateData());
+        $article->tags()->detach();
         if ($request->has('tag')) {
             foreach ($request->input('tag') as $tag_id) {
                 $article->tags()->attach($tag_id);
