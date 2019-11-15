@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Tag;
+
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class ArticleadminController extends Controller
 {
@@ -79,31 +81,12 @@ class ArticleadminController extends Controller
 
     protected function validateData()
     {
-        return tap(request()->validate([
+
+        return request()->validate([
             'title' => 'required',
             'body' => 'required',
-        ]), function () {
-            if (request()->hasFile('image')) {
-                request()->validate([
-                    'image' => 'file|image|max:5000',
-                ]);
-            };
-        });
-
-
-        /* 與上相同碼
-        $validateData = request()->validate([
-            'title' => 'required',
-            'body' => 'required',
+            'image' => 'file|image|max:5000',
         ]);
-
-        if (request()->hasFile('image')) {
-            request()->validate([
-                'image' => 'file|image|max:5000',
-            ]);
-        };
-        return $validateData;
-        */
     }
 
     private function storeImage($article)
@@ -112,6 +95,8 @@ class ArticleadminController extends Controller
             $article->update([
                 'image' => request()->image->store('uploads', 'public'),
             ]);
+            $image = Image::make(public_path('storage/' . $article->image))->fit(400, 250);
+            $image->save();
         }
     }
 }

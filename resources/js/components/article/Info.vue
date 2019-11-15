@@ -2,7 +2,7 @@
   <div class="m-2">
     <b-card
       :title="title"
-      img-src="https://picsum.photos/600/300/?image=25"
+      :img-src="image"
       img-alt="Image"
       img-top
       tag="article"
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: "Info",
-  props: ["title", "body", "id", "tags"],
+  props: ["title", "body", "id", "tags", "image"],
   computed: {}
 };
 </script>

@@ -6,7 +6,11 @@
         <div class="col " >
             <b-card-group>
                 @foreach($articles as $article)
-                <Info title="{{$article->title}}" body="{{$article->body}}" id="{{$article->id}}" :tags="{{ ($article->tags) }}"></Info>
+                @if($article->image)
+                    <Info title="{{$article->title}}" body="{{$article->body}}" id="{{$article->id}}" :tags="{{ ($article->tags) }}" image={{asset('storage/'.$article->image)}}></Info>
+                @else
+                   <Info title="{{$article->title}}" body="{{$article->body}}" id="{{$article->id}}" :tags="{{ ($article->tags) }}" image={{asset('storage/defaults/0bR9RJ4.jpg')}}></Info>
+                @endif
 
                 @endforeach
             </b-card-group>

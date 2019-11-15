@@ -1949,7 +1949,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Info",
-  props: ["title", "body", "id", "tags"],
+  props: ["title", "body", "id", "tags", "image"],
   computed: {}
 });
 
@@ -66209,7 +66209,7 @@ var render = function() {
           staticStyle: { "max-width": "20rem" },
           attrs: {
             title: _vm.title,
-            "img-src": "https://picsum.photos/600/300/?image=25",
+            "img-src": _vm.image,
             "img-alt": "Image",
             "img-top": "",
             tag: "article"
