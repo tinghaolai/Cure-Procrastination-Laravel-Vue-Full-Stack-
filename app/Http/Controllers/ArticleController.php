@@ -27,13 +27,8 @@ class ArticleController extends Controller
 
         $article = tap(
             Article::with('comments', 'tags')->findOrFail($article),
-            function ($article) {;
-            }
+            function ($article) { }
         );
-
-
-
-
 
         $recent = $this->getRecentArticle();
         return view('article.show', compact('article', 'recent'));
@@ -55,6 +50,17 @@ class ArticleController extends Controller
 
     protected function getRecentArticle()
     {
-        return Article::all()->take($this->recentNum);
+        /*
+        return Article::all()->take($this->recentNum)->map(function ($article) {
+            $article->title = "123";
+        });
+        */
+
+        return tap(
+            Article::all()->take($this->recentNum),
+            function ($article) {
+                $article->title = "123";
+            }
+        );
     }
 }

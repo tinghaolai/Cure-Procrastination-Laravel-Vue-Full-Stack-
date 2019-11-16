@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Article;
 use App\Tag;
 use App\Http\View\Composers\ChannelsComposer;
 use Illuminate\Support\Facades\View;
@@ -31,8 +32,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('tags', Tag::all());
         });
 
-        Str::macro('TimeReformat', function ($time) {
-            return 'AB-';
+        Str::macro('getCreatedDay', function ($day, $title) {
+            //幾天的錢文章標題 3days ago title
+            return Article::getCreatedDay();
         });
     }
 }
