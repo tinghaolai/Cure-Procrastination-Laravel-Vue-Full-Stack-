@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Tag;
+use App\Http\View\Composers\ChannelsComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer(['article.index', 'article.show', 'article.index', 'articleadmin.edit', 'articleadmin.create'], function ($view) {
+            $view->with('tags', Tag::all());
+        });
     }
 }

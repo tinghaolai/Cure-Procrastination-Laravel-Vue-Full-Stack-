@@ -24,8 +24,7 @@ class ArticleadminController extends Controller
     public function create()
     {
         $article = new Article();
-        $tags = Tag::all();
-        return view('articleadmin.create', compact('article', 'tags'));
+        return view('articleadmin.create', compact('article'));
     }
 
     public function store(Request $request)
@@ -49,8 +48,7 @@ class ArticleadminController extends Controller
 
     public function edit(Article $article, Request $request)
     {
-        $tags = Tag::all();
-        return view('articleadmin.edit', compact('article', 'tags'));
+        return view('articleadmin.edit', compact('article'));
     }
 
 
