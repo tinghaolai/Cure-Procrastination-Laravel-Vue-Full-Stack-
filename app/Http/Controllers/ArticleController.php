@@ -6,6 +6,7 @@ use App\Article;
 use App\Comment;
 use Illuminate\Http\Request;
 use App\Tag;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -23,7 +24,17 @@ class ArticleController extends Controller
     public function show($article)
     {
         //$customer = \App\Customer::findOrFail($customerId);
-        $article = Article::with('comments', 'tags')->findOrFail($article);
+
+        $article = tap(
+            Article::with('comments', 'tags')->findOrFail($article),
+            function ($article) {;
+            }
+        );
+
+
+
+
+
         $recent = $this->getRecentArticle();
         return view('article.show', compact('article', 'recent'));
     }

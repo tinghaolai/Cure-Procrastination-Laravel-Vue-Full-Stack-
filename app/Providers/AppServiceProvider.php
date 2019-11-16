@@ -6,6 +6,7 @@ use App\Tag;
 use App\Http\View\Composers\ChannelsComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer(['article.index', 'article.show', 'article.index', 'articleadmin.edit', 'articleadmin.create'], function ($view) {
             $view->with('tags', Tag::all());
+        });
+
+        Str::macro('TimeReformat', function ($time) {
+            return 'AB-';
         });
     }
 }

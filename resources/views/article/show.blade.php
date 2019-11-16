@@ -27,7 +27,7 @@
                     <p>No Tags</p>
                 @endforelse
             </p>
-
+        <div>Time:{{$article->created_at}}</div>
             <div></div>
             All Comments:
             @forelse($article->comments as $comment)
