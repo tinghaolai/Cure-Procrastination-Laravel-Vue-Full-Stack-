@@ -28,9 +28,4 @@ class Article extends Model
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
-
-    public function getCreatedDay()
-    {
-        return Carbon::now()->subDays(30);
-    }
 }

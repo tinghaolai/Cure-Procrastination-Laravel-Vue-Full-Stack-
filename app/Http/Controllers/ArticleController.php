@@ -56,10 +56,24 @@ class ArticleController extends Controller
         });
         */
 
-        return tap(
-            Article::all()->take($this->recentNum),
+        /*
+        *****
+        Figure it out why this doesnt work, the next one works
+        *****
+        return Article::all()->take($this->recentNum)->map(
             function ($article) {
                 $article->title = "123";
+            }
+        );
+        */
+        return tap(
+            Article::all()->take($this->recentNum),
+            function ($recent) {
+                $recent->map(
+                    function ($article) {
+                        $article->title = Str::getCreatedDay($article->title, $article->created_at);
+                    }
+                );
             }
         );
     }
