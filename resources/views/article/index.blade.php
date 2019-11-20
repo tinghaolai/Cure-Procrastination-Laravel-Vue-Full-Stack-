@@ -4,6 +4,17 @@
 <div class="container-fluid">
     <div class="row" >
         <div class="col " >
+            <form action="/articles">
+                <input type="checkbox" name="with_image" value="true"> <span class="alert-primary">With Picture</span>
+                <select name="sort">
+                    <option value='{"filt":"asc","target":"title"}'>Title</option>
+                    <option value='{"filt":"desc","target":"title"}'>Title(desc)</option>
+                    <option value='{"filt":"asc","target":"created_at"}'>Date</option>
+                    <option value='{"filt":"desc","target":"created_at"}'>Date(desc)</option>
+                </select>
+                <input type="submit" value="sent">
+            </form>
+
             <b-card-group>
                 @foreach($articles as $article)
                 @if($article->image)

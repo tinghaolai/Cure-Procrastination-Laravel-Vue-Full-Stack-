@@ -34,8 +34,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Str::macro('getCreatedDay', function ($title, $date) {
-            //幾天的錢文章標題 3days ago title
-
             return $title . " (" . (Carbon::now()->format('d') -
                 Carbon::createFromFormat('Y-m-d', $date)->format('d')
                 . " days ago)");

@@ -10,13 +10,16 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-    protected $paginateNum = 6;
+    //protected $paginateNum = 6;
     protected $recentNum = -5;
 
     public function index()
     {
         //$articles = Article::paginate(6);
-        $articles = Article::with('tags')->paginate($this->paginateNum);
+        //$articles = Article::with('tags')->paginate($this->paginateNum);
+        //**********
+        //理解為何下面寫法不用with tags
+        $articles = Article::allArticles();
         $recent = $this->getRecentArticle();
         return view('article.index', compact('articles', 'recent'));
     }

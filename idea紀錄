@@ -30,7 +30,5 @@ tag的edit
 
 Articlecontroller getRecentArticle用APP service的 Str::macro中Article的 getCreatedDay
 
-C:\Program Files\Mozilla Firefox
-
-chrome:
-deasflth@gmail.com
+pipeline 首頁用sort 寫在vue router
+has image
