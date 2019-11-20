@@ -59,4 +59,24 @@ class ArticleadminRepository implements ArticleadminRepositoryInterface
             $image->save();
         }
     }
+
+    public function getAllDeleted()
+    {
+        return Article::onlyTrashed()->get();
+    }
+
+    public function findDeleted($article_id)
+    {
+        return Article::withTrashed()->find($article_id);
+    }
+
+    public function restore($article_id)
+    {
+        Article::withTrashed()->find($article_id)->restore();
+    }
+
+    public function forceDelete($article_id)
+    {
+        Article::withTrashed()->find($article_id)->forceDelete();
+    }
 }

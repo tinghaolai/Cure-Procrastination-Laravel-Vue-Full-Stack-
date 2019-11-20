@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Tag;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
 {
     protected $guarded = [];
-
+    use SoftDeletes;
 
     public function comments()
     {

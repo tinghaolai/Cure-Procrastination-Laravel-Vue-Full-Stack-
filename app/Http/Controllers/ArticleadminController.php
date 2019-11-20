@@ -61,4 +61,28 @@ class ArticleadminController extends Controller
         $article->delete();
         return redirect('/articleadmin');
     }
+
+    public function index_deleted()
+    {
+        $articles = $this->articleadminRepository->getAllDeleted();
+        return view('articleadmin.deleted.index_deleted', compact('articles'));
+    }
+
+    public function show_deleted($article_id)
+    {
+        $article = $this->articleadminRepository->findDeleted($article_id);
+        return view('articleadmin.deleted.show_deleted', compact('article'));
+    }
+
+    public function restore_deleted($article_id)
+    {
+        $this->articleadminRepository->restore($article_id);
+        return redirect('/articleadmin/deleted');
+    }
+
+    public function forceDelete_deleted($article_id)
+    {
+        $this->articleadminRepository->forceDelete($article_id);
+        return redirect('/articleadmin/deleted');
+    }
 }

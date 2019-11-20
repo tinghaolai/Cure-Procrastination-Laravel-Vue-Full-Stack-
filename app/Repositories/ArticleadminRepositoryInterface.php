@@ -13,4 +13,12 @@ interface ArticleadminRepositoryInterface
     public function validateData();
 
     public function storeImage($article);
+
+    public function getAllDeleted();
+
+    public function findDeleted($article_id);
+
+    public function restore($article_id);
+
+    public function forceDelete($article_id);
 }

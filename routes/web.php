@@ -28,10 +28,15 @@ Route::delete('/tags/{tag}', 'TagController@destroy');
 Route::get('/articleadmin', 'ArticleadminController@index');
 Route::get('/articleadmin/create', 'ArticleadminController@create');
 Route::post('/articleadmin', 'ArticleadminController@store');
+Route::get('/articleadmin/deleted', 'ArticleadminController@index_deleted');
+Route::get('/articleadmin/deleted/{article_id}', 'ArticleadminController@show_deleted');
 Route::get('/articleadmin/{article}', 'ArticleadminController@show');
 Route::get('/articleadmin/{article}/edit', 'ArticleadminController@edit');
+
 Route::patch('/articleadmin/{article}', 'ArticleadminController@update');
+Route::patch('/articleadmin/deleted/{article_id}', 'ArticleadminController@restore_deleted');
 Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy');
+Route::delete('/articleadmin/deleted/{article}', 'ArticleadminController@forceDelete_deleted');
 
 
 Route::get('/{any}', 'AppController@index')->where('any', '.*');
