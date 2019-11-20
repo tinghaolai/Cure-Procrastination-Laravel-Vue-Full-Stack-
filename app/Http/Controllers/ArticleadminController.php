@@ -7,17 +7,22 @@ use App\Tag;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Repositories\ArticleadminRepositoryInterface;
+
 
 class ArticleadminController extends Controller
 {
-    public function __construct()
+
+
+    public function __construct(ArticleadminRepositoryInterface $articleadminRepository)
     {
         //$this->middleware('auth');
+        $this->articleadminRepository = $articleadminRepository;
     }
 
     public function index()
     {
-        $articles = Article::all();
+        $articles = $this->articleadminRepository->all();
         return view('articleadmin.index', compact('articles'));
     }
 
@@ -29,14 +34,7 @@ class ArticleadminController extends Controller
 
     public function store(Request $request)
     {
-        $article = Article::create($this->validateData());
-        //$article->tags()->attach();
-        if ($request->has('tag')) {
-            foreach ($request->input('tag') as $tag_id) {
-                $article->tags()->attach($tag_id);
-            }
-        }
-        $this->storeImage($article);
+        $article = $this->articleadminRepository->store($request);
         return redirect('/articleadmin/' . $article->id);
     }
 
@@ -54,47 +52,13 @@ class ArticleadminController extends Controller
 
     public function update(Article $article, Request $request)
     {
-
-        $article->update($this->validateData());
-        $article->tags()->detach();
-        if ($request->has('tag')) {
-            foreach ($request->input('tag') as $tag_id) {
-                $article->tags()->attach($tag_id);
-            }
-        }
-        if ($request->has('delImage')) {
-            $article->update(array('image' => ''));
-        }
-        $this->storeImage($article);
+        $this->articleadminRepository->update($article, $request);
         return redirect('/articleadmin');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
-
         return redirect('/articleadmin');
-    }
-
-
-    protected function validateData()
-    {
-
-        return request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'image' => 'file|image|max:5000',
-        ]);
-    }
-
-    private function storeImage($article)
-    {
-        if (request()->has('image')) {
-            $article->update([
-                'image' => request()->image->store('uploads', 'public'),
-            ]);
-            $image = Image::make(public_path('storage/' . $article->image))->fit(400, 250);
-            $image->save();
-        }
     }
 }
