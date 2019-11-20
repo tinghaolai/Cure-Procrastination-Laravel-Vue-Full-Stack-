@@ -2,8 +2,6 @@ singlepage:計時器那些
 blog:不用singlepage
 blog index跟文章細節 或許該考慮用backend 因為如果用router, singlepage 需要一次載入所有資料
 
-上傳圖片,然後1對1文章
-comment 可以上傳圖片
 
 記得responsive padding
 
@@ -24,11 +22,6 @@ homepage
 公告目前feature完成 未來完成項目
 
 
-***
-tag的edit
 
 
-Articlecontroller getRecentArticle用APP service的 Str::macro中Article的 getCreatedDay
 
-pipeline 首頁用sort 寫在vue router
-has image
