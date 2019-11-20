@@ -5,7 +5,7 @@
     <div class="row" >
         <div class="col " >
             <form action="/articles">
-                <input type="checkbox" name="with_image" value="true"> <span class="alert-primary">With Picture</span>
+                <input type="checkbox" name="active" value="true"> <span class="alert-primary">With Picture</span>
                 <select name="sort">
                     <option value='{"filt":"asc","target":"title"}'>Title</option>
                     <option value='{"filt":"desc","target":"title"}'>Title(desc)</option>
@@ -26,7 +26,8 @@
                 @endforeach
             </b-card-group>
             <div class="col-12 text-center" >
-                {{$articles->links()}}
+                {{ $articles->appends(request()->input())->links()}}
+
             </div>
         </div>
 
@@ -36,3 +37,4 @@
     </div>
 </div>
 @endsection
+

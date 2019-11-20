@@ -38,6 +38,7 @@ class Article extends Model
         return $articles = app(Pipeline::class)
             ->send(Article::query())
             ->through([
+                \App\QueryFilters\Active::class,
                 \App\QueryFilters\Sort::class,
             ])
             ->thenReturn()
