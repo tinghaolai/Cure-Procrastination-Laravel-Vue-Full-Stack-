@@ -1,28 +1,36 @@
-singlepage:計時器那些
-blog:不用singlepage
-blog index跟文章細節 或許該考慮用backend 因為如果用router, singlepage 需要一次載入所有資料
-
-
-記得responsive padding
-
+做到telescope時 要記得test driven不能同時開
+做到event的時候 回來看e49 testunit
+auth可以特定資使用者ID或email
 
 
 ***
-Footer
-放git hub
+看能不能做
+e20, e24, e28, e29, e30, e41, e50
+
+可能不是那麼重要
+e34-36, e51
+
+了解看看 有興趣 但應該不會做
+e38
+
+作法順序:
+1. 加上test driven, e49搭配test driven
+2. auth (e21,22,23)
+3. policy e44
+
+--先看上面 決定接下來擺哪裡 order--
+
+3. Footer 放git hub
+4. 404完善
+5. homepage 公告目前feature完成 未來完成項目 但還是要漂亮
+6. Footer 放gallery e52 可能可以做multi upload
 
 
-***
-sidebar
-放推薦文章 自己設定1to1
 
-
-***
-homepage
-公告目前feature完成 未來完成項目
-
-***
-加上test driven
-
-
-
+-97 不用太完美的美化網站/tailwind css
+-98 找能用的api來做
+-99 做計時器
+-99. 記得responsive padding
+-100. 5.8 groundup e19 email
+-100 tailwind css e27
+-100 佈署 e31-33 /完美美化

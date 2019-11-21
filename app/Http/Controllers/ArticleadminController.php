@@ -16,7 +16,7 @@ class ArticleadminController extends Controller
 
     public function __construct(ArticleadminRepositoryInterface $articleadminRepository)
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->articleadminRepository = $articleadminRepository;
     }
 
@@ -77,7 +77,7 @@ class ArticleadminController extends Controller
     public function restore_deleted($article_id)
     {
         $this->articleadminRepository->restore($article_id);
-        return redirect('/articleadmin/deleted');
+        return redirect('/articleadmin/delPeted');
     }
 
     public function forceDelete_deleted($article_id)
