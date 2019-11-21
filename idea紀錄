@@ -1,3 +1,8 @@
+***
+commit紀錄
+login後進入login 改redirect: RedirectIfAuthenticated
+adminmiidleware
+
 做到telescope時 要記得test driven不能同時開
 做到event的時候 回來看e49 testunit
 auth可以特定資使用者ID或email 從而限制 還有testunit

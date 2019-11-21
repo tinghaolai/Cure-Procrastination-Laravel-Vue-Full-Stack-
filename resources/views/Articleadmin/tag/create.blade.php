@@ -1,3 +1,6 @@
+<a href="#" onclick="history.back();">Back</a>
+
+
 <h1>Add New Tag</h1>
 <br>
 

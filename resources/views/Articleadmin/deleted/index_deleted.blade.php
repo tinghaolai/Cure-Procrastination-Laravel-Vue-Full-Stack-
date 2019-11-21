@@ -1,3 +1,5 @@
+<a href="#" onclick="history.back();">Back</a>
+
 <h1>Deleted Articles</h1>
 
 <h1><a href="/articleadmin">Back</a></h1>

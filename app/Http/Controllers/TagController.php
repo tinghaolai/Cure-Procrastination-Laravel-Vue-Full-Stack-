@@ -12,6 +12,7 @@ class TagController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin')->only(['store', 'destroy']);
     }
     public function create()
     {
