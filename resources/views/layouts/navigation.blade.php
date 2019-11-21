@@ -5,7 +5,8 @@
                         <a href="/home">Home</a>
                   </div>
                   <div class="col-sm">
-                        <a href="/articles">Article</a>
+                    <!-- 不純寫ArticleController@index的好處是可以輕易go definition-->
+                    <a href="{{action([\App\Http\Controllers\ArticleController::class, 'index'])}}">Article</a>
                   </div>
                   <div class="col-sm">
                         <a href="/tomato">Tomato</a>

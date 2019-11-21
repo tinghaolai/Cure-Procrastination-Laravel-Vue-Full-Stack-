@@ -4,7 +4,7 @@
 <h1>Editing </h1>
 
 
-<form action="/articleadmin/{{$article->id}} " method="post" enctype="multipart/form-data">
+<form action="{{route('articleadmin.update', ['article' => $article])}} " method="post" enctype="multipart/form-data">
 
     @method('PATCH')
 

@@ -6,12 +6,11 @@
 
 <h1>Deleted Articles</h1>
 
-<h1><a href="/articleadmin">Back</a></h1>
 
 
 @forelse($articles as $article)
 <p><strong>
-        <a href="/articleadmin/deleted/{{ $article-> id}}">{{ $article-> title }}</a>
+        <a href="{{route('articleadmin.show_deleted', ['article' => $article])}}">{{ $article-> title }}</a>
     </strong>{{$article->id}}</p>
 @empty
 <p>No Articles to show</p>

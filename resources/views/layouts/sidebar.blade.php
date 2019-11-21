@@ -4,7 +4,7 @@
     <hr>
     @foreach ($tags as $tag)
     <div>
-    <a href="/tag/{{$tag->id}}">{{$tag->name}}</a>
+    <a href="{{route('tag.show', ['tag_id' => $tag])}}">{{$tag->name}}</a>
     </div>
 
     @endforeach
@@ -13,7 +13,7 @@
 
     @foreach ($recent as $article)
        <div>
-       <a href="/articles/{{$article->id}}"> {{$article->title}}</a>
+       <a href="{{route('article.show', ['article' => $article])}}}"> {{$article->title}}</a>
         </div>
     @endforeach
 

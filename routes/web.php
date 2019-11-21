@@ -14,29 +14,29 @@ Auth::routes();
 
 
 
-Route::get('/articles', 'ArticleController@index');
-Route::get('/articles/{article}', 'ArticleController@show');
-Route::get('/tag/{tag_id}', 'ArticleController@tag_show');
+Route::get('/articles', 'ArticleController@index')->name('article.index');
+Route::get('/articles/{article}', 'ArticleController@show')->name('article.show');
+Route::get('/tag/{tag_id}', 'ArticleController@tag_show')->name('tag.show');
 
-Route::post('/comments/{id}', 'CommentController@store');
+Route::post('/comments/{id}', 'CommentController@store')->name('comment.store');
 
-Route::get('/tags/create', 'TagController@create');
-Route::post('/tags', 'TagController@store');
-Route::delete('/tags/{tag}', 'TagController@destroy');
+Route::get('/tags/create', 'TagController@create')->name('tags.create');
+Route::post('/tags', 'TagController@store')->name('tags.store');
+Route::delete('/tags/{tag}', 'TagController@destroy')->name('tags.destroy');
 
 
-Route::get('/articleadmin', 'ArticleadminController@index');
-Route::get('/articleadmin/create', 'ArticleadminController@create');
-Route::post('/articleadmin', 'ArticleadminController@store');
-Route::get('/articleadmin/deleted', 'ArticleadminController@index_deleted');
-Route::get('/articleadmin/deleted/{article_id}', 'ArticleadminController@show_deleted');
-Route::get('/articleadmin/{article}', 'ArticleadminController@show');
-Route::get('/articleadmin/{article}/edit', 'ArticleadminController@edit');
+Route::get('/articleadmin', 'ArticleadminController@index')->name('articleadmin.index');
+Route::get('/articleadmin/create', 'ArticleadminController@create')->name('articleadmin.create');
+Route::post('/articleadmin', 'ArticleadminController@store')->name('articleadmin.store');
+Route::get('/articleadmin/deleted', 'ArticleadminController@index_deleted')->name('articleadmin.index_deleted');
+Route::get('/articleadmin/deleted/{article}', 'ArticleadminController@show_deleted')->name('articleadmin.show_deleted');
+Route::get('/articleadmin/{article}', 'ArticleadminController@show')->name('articleadmin.show');
+Route::get('/articleadmin/{article}/edit', 'ArticleadminController@edit')->name('articleadmin.edit');
 
-Route::patch('/articleadmin/{article}', 'ArticleadminController@update');
-Route::patch('/articleadmin/deleted/{article_id}', 'ArticleadminController@restore_deleted');
-Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy');
-Route::delete('/articleadmin/deleted/{article}', 'ArticleadminController@forceDelete_deleted');
+Route::patch('/articleadmin/{article}', 'ArticleadminController@update')->name('articleadmin.update');
+Route::patch('/articleadmin/deleted/{article}', 'ArticleadminController@restore_deleted')->name('articleadmin.restore_deleted');
+Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy')->name('articleadmin.destroy');
+Route::delete('/articleadmin/deleted/{article}', 'ArticleadminController@forceDelete_deleted')->name('articleadmin.forceDelete_deleted');
 
 
 Route::get('/{any}', 'AppController@index')->where('any', '.*');

@@ -20,7 +20,7 @@
             <p class="text-success">Tag:
                 @forelse($article->tags as $tag)
                 <span>
-                    <a href="/tag/{{$tag->id}}">{{$tag->name}}</a>
+                    <a href="{{route('tag.show', ['tag_id' => $tag])}}">{{$tag->name}}</a>
                 </span>
 
                 @empty
@@ -37,7 +37,7 @@
                 <p>No Comments</p>
             @endforelse
             <div></div>
-            <form action="/comments/{{$article->id}}" method="post">
+            <form action="{{route('comment.store', ['id' => $article])}}" method="post">
                 <div>
                         <label for="title">Add Comments</label>
                         <label for="body"></label>

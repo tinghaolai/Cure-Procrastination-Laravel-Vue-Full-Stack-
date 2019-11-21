@@ -17,7 +17,7 @@
           /
         </spam>
       </div>
-      <b-button :href="'/articles/'+id" variant="primary">Read</b-button>
+      <b-button :href="article_href" variant="primary">Read</b-button>
     </b-card>
   </div>
 </template>
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: "Info",
-  props: ["title", "body", "id", "tags", "image"],
+  props: ["title", "body", "article_href", "tags", "image"],
   computed: {}
 };
 </script>

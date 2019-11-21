@@ -1949,7 +1949,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Info",
-  props: ["title", "body", "id", "tags", "image"],
+  props: ["title", "body", "article_href", "tags", "image"],
   computed: {}
 });
 
@@ -66236,7 +66236,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-button",
-            { attrs: { href: "/articles/" + _vm.id, variant: "primary" } },
+            { attrs: { href: _vm.article_href, variant: "primary" } },
             [_vm._v("Read")]
           )
         ],

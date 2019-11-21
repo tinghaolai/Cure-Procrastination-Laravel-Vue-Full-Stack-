@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<a href="/articleadmin">Back</a>
+<a href="{{route('articleadmin.index')}}">Back</a>
 
 <strong>Title</strong>
 <p>{{ $article->title }}</p>
@@ -20,7 +20,7 @@
 
 
 <div>
-<a href="/articleadmin/{{ $article->id}}/edit">Edit</a>
+<a href="{{route('articleadmin.edit', ['article' => $article])}}">Edit</a>
 
 <form action="/articleadmin/{{ $article->id }}" method="post">
     @method('DELETE')

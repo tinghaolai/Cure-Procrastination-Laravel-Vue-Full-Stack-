@@ -4,7 +4,7 @@
 
 <h1>Article(Deleted)</h1>
 
-<a href="/articleadmin/deleted">Back</a>
+<a href="{{route('articleadmin.index_deleted')}}">Back</a>
 <br>
 <strong>Title</strong>
 <p>{{ $article->title }}</p>
@@ -14,14 +14,14 @@
 
 
 <div>
-<form action="/articleadmin/deleted/{{ $article->id }}" method="post">
+<form action="{{route('articleadmin.restore_deleted', ['article' => $article])}}" method="post">
     @method('PATCH')
     @csrf
     <button>Restore</button>
 </form>
 
 
-<form action="/articleadmin/deleted/{{ $article->id }}" method="post">
+<form action="{{route('articleadmin.forceDelete_deleted', ['article' => $article])}}}" method="post">
     @method('DELETE')
     @csrf
     <button>Fully Delete</button>

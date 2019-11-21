@@ -12,7 +12,7 @@
     </div>
 @endif
 <br>
-<form action="/tags" method="post">
+<form action="{{route('tags.store')}}" method="post">
 
 <div>
     <label for="name">Tag Name</label>
@@ -27,13 +27,13 @@
 <br>
 
 <div>
-    <a href="/articleadmin">Back</a>
+    <a href="{{route('articleadmin.index')}}">Back</a>
 </div>
 <br>
 <div>Current Tags:</div>
 @forelse ($tags as $tag)
     <div>
-        <form action="/tags/{{ $tag->id }}" method="post">
+        <form action="{{route('tags.destroy', ['tag' => $tag])}}" method="post">
             {{$tag->name}}
             @method('DELETE')
             @csrf

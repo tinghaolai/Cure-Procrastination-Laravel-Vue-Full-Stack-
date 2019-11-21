@@ -6,7 +6,7 @@
 
 <h1>Add New Article</h1>
 
-<form action="/articleadmin" method="post" enctype="multipart/form-data">
+<form action="{{route('articleadmin.store')}}" method="post" enctype="multipart/form-data">
 
     @include('articleadmin.form')
 
