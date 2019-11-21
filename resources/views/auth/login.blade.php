@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -62,6 +63,11 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
                             </div>
                         </div>
                     </form>

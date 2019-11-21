@@ -17,6 +17,7 @@ class ArticleadminController extends Controller
     public function __construct(ArticleadminRepositoryInterface $articleadminRepository)
     {
         $this->middleware('auth');
+        //middleware可以只用某些fucntion e22, 7分
         $this->articleadminRepository = $articleadminRepository;
     }
 

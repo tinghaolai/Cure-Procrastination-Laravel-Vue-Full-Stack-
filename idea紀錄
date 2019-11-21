@@ -1,7 +1,9 @@
 做到telescope時 要記得test driven不能同時開
 做到event的時候 回來看e49 testunit
-auth可以特定資使用者ID或email
+auth可以特定資使用者ID或email 從而限制 還有testunit
 
+把如何browse articleadmin 血在github上
+網站裡面 可註冊 可登入 可瀏覽 但是無法做任何行為 只有admin
 
 ***
 看能不能做
