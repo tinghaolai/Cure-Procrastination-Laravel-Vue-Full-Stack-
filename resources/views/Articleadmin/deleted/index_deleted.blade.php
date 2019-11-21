@@ -1,3 +1,7 @@
+@extends('layouts.app_articleadmin')
+
+@section('content')
+
 <a href="#" onclick="history.back();">Back</a>
 
 <h1>Deleted Articles</h1>
@@ -12,3 +16,4 @@
 @empty
 <p>No Articles to show</p>
 @endforelse
+@endsection

@@ -1,3 +1,7 @@
+@extends('layouts.app_articleadmin')
+
+@section('content')
+
 <h1>Articles</h1>
 
 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -18,6 +22,9 @@
 <h1><a href="/tags/create">Add New Tag</a></h1>
 <h1><a href="/articleadmin/deleted">Deleted Article</a></h1>
 
+<div class="alert alert-primary" role="alert">
+        This is a primary alert—check it out!
+</div>
 
 
 @forelse($articles as $article)
@@ -27,3 +34,5 @@
 @empty
     <p>No Articles to show</p>
 @endforelse
+
+@endsection

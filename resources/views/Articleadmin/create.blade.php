@@ -1,3 +1,6 @@
+@extends('layouts.app_articleadmin')
+
+@section('content')
 
 <a href="#" onclick="history.back();">Back</a>
 
@@ -10,3 +13,5 @@
     <button>Add New Article</button>
 
 </form>
+
+@endsection

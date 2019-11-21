@@ -1,5 +1,8 @@
-<a href="#" onclick="history.back();">Back</a>
+@extends('layouts.app_articleadmin')
 
+@section('content')
+
+<a href="#" onclick="history.back();">Back</a>
 
 <h1>Add New Tag</h1>
 <br>
@@ -35,3 +38,6 @@
 @empty
     <div>No Tags</div>
 @endforelse
+
+
+@endsection

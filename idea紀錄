@@ -4,10 +4,9 @@ commit紀錄
 
 做到telescope時 要記得test driven不能同時開
 做到event的時候 回來看e49 testunit
-auth可以特定資使用者ID或email 從而限制 還有testunit
 
 把如何browse articleadmin 血在github上
-網站裡面 可註冊 可登入 可瀏覽 但是無法做任何行為 只有admin
+
 
 ***
 看能不能做
@@ -20,9 +19,9 @@ e34-36, e51
 e38
 
 作法順序:
-1. 加上test driven, e49搭配test driven
-2. auth (e21,22,23)
-3. policy e44
+成功 1. 加上test driven, e49搭配test driven
+成功 2. auth (e21,22,23)
+成功 3. policy e44
 
 --先看上面 決定接下來擺哪裡 order--
 
@@ -30,7 +29,7 @@ e38
 4. 404完善
 5. homepage 公告目前feature完成 未來完成項目 但還是要漂亮
 6. Footer 放gallery e52 可能可以做multi upload
-
+7. 網站title
 
 
 -97 不用太完美的美化網站/tailwind css

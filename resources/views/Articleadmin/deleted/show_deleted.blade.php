@@ -1,3 +1,7 @@
+@extends('layouts.app_articleadmin')
+
+@section('content')
+
 <h1>Article(Deleted)</h1>
 
 <a href="/articleadmin/deleted">Back</a>
@@ -28,3 +32,5 @@
     <div class="col-12"><img src="{{ asset('storage/' . $article->image)}}" alt="" class="img-thumbnail"></div>
     @endif
 </div>
+
+@endsection
