@@ -25,7 +25,7 @@ class TagController extends Controller
     {
         $tag = Tag::create($this->validateData());
 
-        return redirect(url()->previous());
+        return redirect(url()->previous())->with('success', 'Tag added');
     }
 
     public function destroy(Tag $tag)

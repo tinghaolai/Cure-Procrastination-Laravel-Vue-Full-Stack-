@@ -4,6 +4,12 @@
 
 <h1>Article</h1>
 
+@if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session()->get('success')}}
+    </div>
+@endif
+
 <a href="/articleadmin">Back</a>
 
 <strong>Title</strong>

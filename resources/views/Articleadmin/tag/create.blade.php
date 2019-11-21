@@ -6,7 +6,12 @@
 
 <h1>Add New Tag</h1>
 <br>
-
+@if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session()->get('success')}}
+    </div>
+@endif
+<br>
 <form action="/tags" method="post">
 
 <div>

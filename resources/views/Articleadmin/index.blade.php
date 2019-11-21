@@ -9,6 +9,7 @@
     document.getElementById('logout-form').submit();">
     {{ __('Logout') }}
 </a>
+
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
@@ -22,10 +23,11 @@
 <h1><a href="/tags/create">Add New Tag</a></h1>
 <h1><a href="/articleadmin/deleted">Deleted Article</a></h1>
 
-<div class="alert alert-primary" role="alert">
-        This is a primary alert—check it out!
+@if(session()->has('success'))
+<div class="alert alert-success" role="alert">
+    {{ session()->get('success')}}
 </div>
-
+@endif
 
 @forelse($articles as $article)
 <p><strong>

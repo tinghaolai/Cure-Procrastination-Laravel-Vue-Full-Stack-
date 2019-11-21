@@ -38,7 +38,7 @@ class ArticleadminController extends Controller
         //$this->authorize('create', Article::class);
 
         $article = $this->articleadminRepository->store($request);
-        return redirect('/articleadmin/' . $article->id);
+        return redirect('/articleadmin/' . $article->id)->with('success', 'Article added');
     }
 
 
@@ -56,13 +56,13 @@ class ArticleadminController extends Controller
     public function update(Article $article, Request $request)
     {
         $this->articleadminRepository->update($article, $request);
-        return redirect('/articleadmin');
+        return redirect('/articleadmin')->with('success', 'Edit success');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect('/articleadmin');
+        return redirect('/articleadmin')->with('success', 'Article deleted(soft)');
     }
 
     public function index_deleted()
@@ -80,12 +80,12 @@ class ArticleadminController extends Controller
     public function restore_deleted($article_id)
     {
         $this->articleadminRepository->restore($article_id);
-        return redirect('/articleadmin/delPeted');
+        return redirect('/articleadmin')->with('success', 'Article restored');
     }
 
     public function forceDelete_deleted($article_id)
     {
         $this->articleadminRepository->forceDelete($article_id);
-        return redirect('/articleadmin/deleted');
+        return redirect('/articleadmin')->with('success', 'Article completely deleted');
     }
 }
