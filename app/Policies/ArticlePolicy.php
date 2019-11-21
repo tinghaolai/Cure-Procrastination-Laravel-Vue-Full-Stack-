@@ -41,7 +41,9 @@ class ArticlePolicy
      */
     public function create(User $user)
     {
-        //
+        return in_array($user->email, [
+            'admin@admin',
+        ]);
     }
 
     /**
