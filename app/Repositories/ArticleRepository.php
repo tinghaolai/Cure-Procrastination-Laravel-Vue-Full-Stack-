@@ -49,7 +49,7 @@ class ArticleRepository implements ArticleRepositoryInterface
             function ($recent) {
                 $recent->map(
                     function ($article) {
-                        $article->title = Str::getCreatedDay($article->title, $article->created_at);
+                        $article->sidebar_title = Str::getCreatedDay($article->title, $article->created_at);
                     }
                 );
             }

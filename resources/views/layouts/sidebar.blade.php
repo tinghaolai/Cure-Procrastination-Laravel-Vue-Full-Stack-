@@ -13,7 +13,7 @@
 
     @foreach ($recent as $article)
        <div>
-       <a href="{{route('article.show', ['article' => $article])}}"> {{$article->title}}</a>
+       <a href="{{ $article->path()}}"> {{$article->sidebar_title}}</a>
         </div>
     @endforeach
 

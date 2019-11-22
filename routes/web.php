@@ -15,7 +15,7 @@ Auth::routes();
 
 
 Route::get('/articles', 'ArticleController@index')->name('article.index');
-Route::get('/articles/{article}', 'ArticleController@show')->name('article.show');
+Route::get('/articles/{article}-{slug}', 'ArticleController@show')->name('article.show');
 Route::get('/tag/{tag_id}', 'ArticleController@tag_show')->name('tag.show');
 
 Route::post('/comments/{id}', 'CommentController@store')->name('comment.store');
