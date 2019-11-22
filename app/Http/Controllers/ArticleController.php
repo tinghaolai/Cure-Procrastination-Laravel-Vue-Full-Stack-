@@ -9,6 +9,7 @@ use App\Tag;
 use Illuminate\Support\Str;
 use App\Repositories\ArticleRepositoryInterface;
 use App\Events\ArticleViewedEvent;
+use Illuminate\Support\Facades\Session;
 
 class ArticleController extends Controller
 {
@@ -19,6 +20,7 @@ class ArticleController extends Controller
     public function __construct(ArticleRepositoryInterface $articleRepository)
     {
         $this->articleRepository = $articleRepository;
+        $this->middleware('locale');
     }
 
 
@@ -48,5 +50,11 @@ class ArticleController extends Controller
         $recent = $this->articleRepository->getRecentArticle();
         //return view('article.tag.show', compact('tag_article', 'tags', 'recent'));
         return view('article.index', compact('articles', 'recent'));
+    }
+
+
+    public function add_session($session)
+    {
+        return back()->with('locale', $session);
     }
 }

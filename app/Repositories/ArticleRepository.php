@@ -67,7 +67,7 @@ class ArticleRepository implements ArticleRepositoryInterface
 
     public function addViewCount($article)
     {
-        sleep(30);
+        //sleep(30);
         $newViewedCount = $article->viewed + 1;
         $article->update(['viewed' => $newViewedCount]);
     }

@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row" >
         <div class="col " >
-            <form action="{{ route('article.index')}}">
+            <form action="{{ route('article.index')}}" style="display: inline;">
                 <input type="checkbox" name="active" value="true"> <span class="alert-primary">With Picture</span>
                 <select name="sort">
                     <option value='{"filt":"asc","target":"title"}'>Title</option>
@@ -14,6 +14,9 @@
                 </select>
                 <input type="submit" value="sent">
             </form>
+
+        <div style="display: inline;"><a href="{{ route('add.session', ['session' => 'en'])}}">English</a></div>
+            <div style="display: inline;"><a href="{{ route('add.session', ['session' => 'zh'])}}">Chinese</a></div>
 
             <b-card-group>
                 @foreach($articles as $article)

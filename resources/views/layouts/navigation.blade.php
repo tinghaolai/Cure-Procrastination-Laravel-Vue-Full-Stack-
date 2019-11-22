@@ -1,8 +1,8 @@
 <div>
-        <div class="container text-center rounded m-4 p-4 " id="navigation">
+        123<div class="container text-center rounded m-4 p-4 " id="navigation">
                 <div class="row">
                   <div class="col-sm">
-                        <a href="/home">Home</a>
+                  <a href="/home">{{__('text.Home')}}</a>
                   </div>
                   <div class="col-sm">
                     <!-- 不純寫ArticleController@index的好處是可以輕易go definition-->
@@ -21,5 +21,6 @@
                         <a href="/about">Ablout Me</a>
                   </div>
                 </div>
-              </div>
+        </div>
+
   </div>
