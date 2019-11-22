@@ -63,4 +63,10 @@ class ArticleRepository implements ArticleRepositoryInterface
             $query->where('id', $tag_id);
         })->paginate($this->paginateNum);
     }
+
+    public function addViewCount($article)
+    {
+        $newViewedCount = $article->viewed + 1;
+        $article->update(['viewed' => $newViewedCount]);
+    }
 }

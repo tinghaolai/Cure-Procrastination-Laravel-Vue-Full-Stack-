@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Tag;
 use Illuminate\Support\Str;
 use App\Repositories\ArticleRepositoryInterface;
+use App\Events\ArticleViewedEvent;
 
 class ArticleController extends Controller
 {
@@ -34,6 +35,7 @@ class ArticleController extends Controller
     {
         $article = $this->articleRepository->searchArticle($article);
         $recent = $this->articleRepository->getRecentArticle();
+        event(new ArticleViewedEvent($article));
         return view('article.show', compact('article', 'recent'));
     }
 

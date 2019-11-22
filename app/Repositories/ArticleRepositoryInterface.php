@@ -11,4 +11,6 @@ interface ArticleRepositoryInterface
     public function getRecentArticle();
 
     public function getArticleByTag($tag_id);
+
+    public function addViewCount($article);
 }

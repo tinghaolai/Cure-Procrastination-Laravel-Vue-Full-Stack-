@@ -2,6 +2,9 @@
 commit紀錄
 
 
+用event紀錄瀏覽 新增migrate 欄位 觀看次數加1
+
+
 做到telescope時 要記得test driven不能同時開
 做到event的時候 回來看e49 testunit
 
@@ -10,7 +13,7 @@ commit紀錄
 可能可以做如果tag沒文章 要顯示
 ***
 看能不能做
-e20(done), e24, e28, e29, e30, e41, e50
+e20(done), e24(done), e28, e29, e30, e41, e50
 
 可能不是那麼重要
 e34-36, e51

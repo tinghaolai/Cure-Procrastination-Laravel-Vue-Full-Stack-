@@ -8,7 +8,8 @@
     <div class="row" >
 
         <div class="col text-success" >
-            <h2>{{$article->title}} </h2>
+        <h2>{{$article->title}} </h2>
+        <span>Viewed: {{$article->viewed}}</span>
                 <br><br>
             <p>{{$article->body}}</p>
             <br><br>
