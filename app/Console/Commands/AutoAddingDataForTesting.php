@@ -64,24 +64,21 @@ class AutoAddingDataForTesting extends Command
                 if (rand(1, 10) >= 5) {
                     $article->comments()->create(['body' => 'testComment']);
                 }
-
-                if (rand(1, 10) >= 5) {
-                    $article->tags()->attach($tech);
-                }
-
-                if (rand(1, 10) >= 5) {
-                    $article->tags()->attach($psycho);
-                }
-
-                if (rand(1, 10) >= 5) {
-                    $article->tags()->attach($health);
-                }
-
-                if (rand(1, 10) >= 5) {
-                    $article->update(['image' => 'defaults/' . rand(1, 3) . '.jpg']);
-                }
             }
         }
+
+        foreach (Article::all() as $article) {
+            foreach (\App\Tag::all() as $tag) {
+                if (rand(1, 10) >= 5) {
+                    $article->tags()->attach($tag->id);
+                }
+            }
+
+            if (rand(1, 10) >= 5) {
+                $article->update(['image' => 'defaults/' . rand(1, 3) . '.jpg']);
+            }
+        }
+
 
         $this->info("Data setup complete!");
     }

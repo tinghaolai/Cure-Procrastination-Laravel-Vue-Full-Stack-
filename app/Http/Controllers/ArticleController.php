@@ -28,6 +28,7 @@ class ArticleController extends Controller
     {
         //$articles = Article::with('tags')->paginate($this->paginateNum);
         //**********理解為何下面寫法不用with tags
+
         $articles = $this->articleRepository->allArticles();
         $recent = $this->articleRepository->getRecentArticle();
         return view('article.index', compact('articles', 'recent'));
