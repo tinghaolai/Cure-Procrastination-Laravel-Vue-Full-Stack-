@@ -14,7 +14,7 @@ class AddViewedToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->integer('viewed');
+            $table->integer('viewed')->default('0');
         });
     }
 

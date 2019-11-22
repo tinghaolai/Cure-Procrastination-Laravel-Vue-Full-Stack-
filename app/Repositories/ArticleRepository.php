@@ -59,6 +59,7 @@ class ArticleRepository implements ArticleRepositoryInterface
 
     public function getArticleByTag($tag_id)
     {
+
         return Article::whereHas('tags', function ($query) use ($tag_id) {
             $query->where('id', $tag_id);
         })->paginate($this->paginateNum);
@@ -66,6 +67,7 @@ class ArticleRepository implements ArticleRepositoryInterface
 
     public function addViewCount($article)
     {
+        sleep(30);
         $newViewedCount = $article->viewed + 1;
         $article->update(['viewed' => $newViewedCount]);
     }

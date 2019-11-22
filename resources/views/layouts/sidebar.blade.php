@@ -13,7 +13,7 @@
 
     @foreach ($recent as $article)
        <div>
-       <a href="{{route('article.show', ['article' => $article])}}}"> {{$article->title}}</a>
+       <a href="{{route('article.show', ['article' => $article])}}"> {{$article->title}}</a>
         </div>
     @endforeach
 
