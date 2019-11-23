@@ -20,23 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <div id="app" >
-            <div class="container">@include('layouts.navigation')</div>
-            @yield('content')
-            @include('layouts.scrollup')
-            @include('layouts.footer')
-        </div>
-
-
-
-    </div>
+<div id="app">
+ <vuefooter></vuefooter>
+</div>
 </body>
 </html>
-
-
-
-
-
-
-

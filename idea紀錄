@@ -1,14 +1,19 @@
 ***
 commit紀錄
-add viewed column
+首先vue component的name convention 只有第一個字母可以大血
+2.footer一直無法適用component是因為include不再app內
+甚至自己include app.js, div id=app也無效因為上面有一個已經掛載
 
-用event紀錄瀏覽 新增migrate 欄位 觀看次數加1
+api會network error因為Cross-Origin Request Blocked:
 
 
 做到telescope時 要記得test driven不能同時開
 做到event的時候 回來看e49 testunit
 
+
 把如何browse articleadmin 血在github上
+
+
 
 可能可以做如果tag沒文章 要顯示
 ***
@@ -19,7 +24,7 @@ e20(done), e24(done), e28(done), e29(d), e30(29附加 有需要再看), e41(tele
 e34-36(d), e51(d)
 
 了解看看 有興趣 但應該不會做
-e38
+e38(d)
 
 作法順序:
 成功 1. 加上test driven, e49搭配test driven
@@ -28,17 +33,52 @@ e38
 
 --先看上面 決定接下來擺哪裡 order--
 
+先看影片
+
+1. 找能用的api來做  vue,  axious  mounted e9
+autoformat 可以用在contact me+ email
+
+
+(總體article先改好 看起來怎樣 其他才能跟著改)
+1. article整關  切換中文改道layout app
+2. reminder clock 先想好怎麼發生
+    e15 如果要做計時器或是todolist之類的 可能可以參考這個
+
+autocomplete 給搜尋用的 e14
+
 3. Footer 放git hub
 4. 404完善
 5. homepage 公告目前feature完成 未來完成項目 但還是要漂亮
 6. Footer 放gallery e52 可能可以做multi upload
 7. 網站title
+8. 首頁放整體專案設計圖(先自己畫 再作圖)
 
 
+
+-99做中文化
 -97 不用太完美的美化網站/tailwind css
--98 找能用的api來做
 -99 做計時器
 -99. 記得responsive padding
 -100. 5.8 groundup e19 email
 -100 tailwind css e27
 -100 佈署 e31-33 /完美美化
+
+
+
+
+----
+@onlick
+v-text  {{}}
+v-if
+v-for
+:bind (artrribute)
+v-model
+computed
+method
+v-on:change e08
+emit event 看e08
+axious  mounted e9
+class and style binding e11 利用轉換class 來切換style 可以用在navigation
+autocomplete 給搜尋用的 e14
+e15 如果要做計時器或是todolist之類的 可能可以參考這個
+autoformat 可以用在contact me+ email

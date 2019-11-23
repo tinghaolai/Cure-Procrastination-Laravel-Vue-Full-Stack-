@@ -8,9 +8,7 @@
     </div>
 
     @endforeach
-
     <h3>Rencent Added:</h3>
-
     @foreach ($recent as $article)
        <div>
        <a href="{{ $article->path()}}"> {{$article->sidebar_title}}</a>

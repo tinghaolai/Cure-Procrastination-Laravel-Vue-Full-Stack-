@@ -1,5 +1,5 @@
 <div>
-        123<div class="container text-center rounded m-4 p-4 " id="navigation">
+        <div class="container text-center rounded m-4 p-4 " id="navigation">
                 <div class="row">
                   <div class="col-sm">
                   <a href="/home">{{__('text.Home')}}</a>

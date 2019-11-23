@@ -42,7 +42,6 @@ class ArticleController extends Controller
         return view('article.show', compact('article', 'recent'));
     }
 
-
     public function tag_show($tag_id)
     {
         //$article = Tag::with('articles')->findOrFail($tag_id)->articles;

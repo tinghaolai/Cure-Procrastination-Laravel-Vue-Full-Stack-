@@ -12,10 +12,10 @@
       <b-card-text>{{this.body.substr(0,100)}}</b-card-text>
       <div>
         tag:
-        <spam v-for="(tag, index) in tags" :key="index">
+        <span v-for="(tag, index) in tags" :key="index">
           <a :href="'/tag/'+tag.id">{{ tag.name }}</a>
           /
-        </spam>
+        </span>
       </div>
       <b-button :href="article_href" variant="primary">Read</b-button>
     </b-card>
