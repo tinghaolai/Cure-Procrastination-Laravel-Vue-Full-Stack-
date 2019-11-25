@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Unimplemented from './components/Unimplemented';
 import NotFound from './components/NotFound';
 import Courage from './components/article/Courage';
+import Clock from './components/Clock';
 
 Vue.use(VueRouter);
 
@@ -28,7 +29,7 @@ export default new VueRouter({
 		},
 		{
 			path: '/clock',
-			component: Unimplemented
+			component: Clock
 		},
 		{
 			path: '/about',

@@ -1,5 +1,8 @@
 ***
 commit紀錄
+tailwind css
+
+
 首先vue component的name convention 只有第一個字母可以大血
 2.footer一直無法適用component是因為include不再app內
 甚至自己include app.js, div id=app也無效因為上面有一個已經掛載
@@ -45,6 +48,9 @@ autoformat 可以用在contact me+ email
     e15 如果要做計時器或是todolist之類的 可能可以參考這個
 
 autocomplete 給搜尋用的 e14
+
+想回來做api的時候 可能先改用有影片教學的例如天氣api
+
 
 3. Footer 放git hub
 4. 404完善

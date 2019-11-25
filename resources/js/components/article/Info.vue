@@ -26,7 +26,10 @@
 export default {
   name: "Info",
   props: ["title", "body", "article_href", "tags", "image"],
-  computed: {}
+  computed: {},
+  mounted: function() {
+    //console.log(this.image);
+  }
 };
 </script>
 
