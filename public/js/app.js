@@ -2065,6 +2065,114 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Todo.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Todo.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_timeselector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-timeselector */ "./node_modules/vue-timeselector/dist/VueTimeSelector.js");
+/* harmony import */ var vue_timeselector__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_timeselector__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var track;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Timeselector: vue_timeselector__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  name: "Todo",
+  created: function created() {
+    setInterval(this.getNow, 1000);
+  },
+  computed: {},
+  mounted: function mounted() {},
+  data: function data() {
+    return {
+      time_origin_format: null,
+      time: null,
+      thing: null,
+      todoItems: [//{ thing: "123456789", time: "8:00", time_left: 0 },
+        //{ thing: "234567890", time: "18:00", time_left: 0 },
+        //{ thing: "345678901", time: "1:00", time_left: 0 }
+      ],
+      timestamp: ""
+    };
+  },
+  methods: {
+    getNow: function getNow() {
+      var today = new Date();
+      var date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date + " " + time;
+      this.timestamp = dateTime;
+
+      for (var i = 0; i < this.todoItems.length; i++) {
+        this.todoItems[i].time_left -= 1;
+      } //console.log(this.todoItems[0].time_left);
+
+    },
+    addTodoItem: function addTodoItem() {
+      var h_m = this.time.split(":");
+      var sec = Number(h_m[0]) * 3600 + Number(h_m[1]) * 60;
+      var today = new Date();
+      var time_left = sec - today.getHours() * 3600 - today.getMinutes() * 60 - today.getSeconds();
+
+      if (time_left < 0) {
+        time_left += 86400;
+      }
+
+      this.todoItems.push({
+        thing: this.thing,
+        time: this.time,
+        time_left: time_left
+      });
+    },
+    recordTime: function recordTime(e) {
+      this.time = e;
+    },
+    secToString: function secToString(sec) {
+      if (sec <= 0) {
+        return "Times up";
+      }
+
+      var hours = Math.floor(sec / 3600);
+      return "Hours:" + hours + "Minutes: " + (Math.floor(sec / 60) - hours * 60) + " Seconds: " + sec % 60;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Unimplemented.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Unimplemented.vue?vue&type=script&lang=js& ***!
@@ -66786,6 +66894,96 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Todo.vue?vue&type=template&id=56644c31&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Todo.vue?vue&type=template&id=56644c31&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "bg-blue-500" },
+    [
+      _c("div", [_vm._v("To Do List")]),
+      _vm._v(" "),
+      _c("h1", [_vm._v("Current time: " + _vm._s(_vm.timestamp))]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Thing to do")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.thing,
+            expression: "thing"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.thing },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.thing = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Time to finish")]),
+      _vm._v(" "),
+      _c("timeselector", {
+        attrs: { interval: { h: 1, m: 1, s: 1 }, returnFormat: "H:m" },
+        on: { formatedTime: _vm.recordTime },
+        model: {
+          value: _vm.time_origin_format,
+          callback: function($$v) {
+            _vm.time_origin_format = $$v
+          },
+          expression: "time_origin_format"
+        }
+      }),
+      _vm._v("\n  time:" + _vm._s(_vm.time) + "\n  "),
+      _c("button", { on: { click: _vm.addTodoItem } }, [_vm._v("Add")]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "ul",
+          _vm._l(_vm.todoItems, function(item, index) {
+            return _c("li", { key: index }, [
+              _c("span", [_vm._v(_vm._s(item.thing))]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Time to finish: " + _vm._s(item.time))]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v("Time left: " + _vm._s(_vm.secToString(item.time_left)))
+              ])
+            ])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Unimplemented.vue?vue&type=template&id=317b9824&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Unimplemented.vue?vue&type=template&id=317b9824&scoped=true& ***!
@@ -82293,6 +82491,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Todo.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/Todo.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Todo_vue_vue_type_template_id_56644c31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Todo.vue?vue&type=template&id=56644c31&scoped=true& */ "./resources/js/components/Todo.vue?vue&type=template&id=56644c31&scoped=true&");
+/* harmony import */ var _Todo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Todo.vue?vue&type=script&lang=js& */ "./resources/js/components/Todo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Todo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Todo_vue_vue_type_template_id_56644c31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Todo_vue_vue_type_template_id_56644c31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "56644c31",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Todo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Todo.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Todo.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Todo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Todo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Todo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Todo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Todo.vue?vue&type=template&id=56644c31&scoped=true&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Todo.vue?vue&type=template&id=56644c31&scoped=true& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Todo_vue_vue_type_template_id_56644c31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Todo.vue?vue&type=template&id=56644c31&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Todo.vue?vue&type=template&id=56644c31&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Todo_vue_vue_type_template_id_56644c31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Todo_vue_vue_type_template_id_56644c31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Unimplemented.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/Unimplemented.vue ***!
@@ -82654,6 +82921,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NotFound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/NotFound */ "./resources/js/components/NotFound.vue");
 /* harmony import */ var _components_article_Courage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/article/Courage */ "./resources/js/components/article/Courage.vue");
 /* harmony import */ var _components_Clock__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Clock */ "./resources/js/components/Clock.vue");
+/* harmony import */ var _components_Todo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Todo */ "./resources/js/components/Todo.vue");
+
 
 
 
@@ -82675,7 +82944,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     component: _components_article_Courage__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
     path: '/todo',
-    component: _components_Unimplemented__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_Todo__WEBPACK_IMPORTED_MODULE_6__["default"]
   }, {
     path: '/clock',
     component: _components_Clock__WEBPACK_IMPORTED_MODULE_5__["default"]

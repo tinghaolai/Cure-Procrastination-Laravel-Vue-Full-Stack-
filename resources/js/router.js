@@ -4,6 +4,7 @@ import Unimplemented from './components/Unimplemented';
 import NotFound from './components/NotFound';
 import Courage from './components/article/Courage';
 import Clock from './components/Clock';
+import Todo from './components/Todo';
 
 Vue.use(VueRouter);
 
@@ -25,7 +26,7 @@ export default new VueRouter({
 		},
 		{
 			path: '/todo',
-			component: Unimplemented
+			component: Todo
 		},
 		{
 			path: '/clock',
