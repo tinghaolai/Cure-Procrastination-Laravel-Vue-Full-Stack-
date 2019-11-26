@@ -9,7 +9,7 @@
                     <a href="{{action([\App\Http\Controllers\ArticleController::class, 'index'])}}">Article</a>
                   </div>
                   <div class="col-sm">
-                        <a href="/tomato">Tomato</a>
+                        <a href="/tomato">API</a>
                   </div>
                   <div class="col-sm">
                         <a href="/todo">To Do List</a>
