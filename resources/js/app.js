@@ -3,7 +3,6 @@ import router from './router';
 import Articleindex from './components/article/Articleindex';
 import BootstrapVue from 'bootstrap-vue';
 import Info from './components/article/Info';
-import Courage from './components/article/Courage';
 
 import App from './components/App';
 import vuefooter from './components/article/vuefooter';
@@ -21,7 +20,6 @@ const app = new Vue({
 		Articleindex,
 		Info,
 		vuefooter,
-		App,
-		Courage
+		App
 	}
 });

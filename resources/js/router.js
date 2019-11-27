@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Unimplemented from './components/Unimplemented';
 import NotFound from './components/NotFound';
-import Courage from './components/article/Courage';
+import Relax from './components/Relax';
 import Clock from './components/Clock';
 import Todo from './components/Todo';
 
@@ -21,8 +21,8 @@ export default new VueRouter({
 			component: Unimplemented
 		},
 		{
-			path: '/tomato',
-			component: Courage
+			path: '/relax',
+			component: Relax
 		},
 		{
 			path: '/todo',
@@ -31,10 +31,6 @@ export default new VueRouter({
 		{
 			path: '/clock',
 			component: Clock
-		},
-		{
-			path: '/about',
-			component: Unimplemented
 		},
 		{
 			path: '/*',

@@ -9,16 +9,13 @@
                     <a href="{{action([\App\Http\Controllers\ArticleController::class, 'index'])}}">Article</a>
                   </div>
                   <div class="col-sm">
-                        <a href="/tomato">API</a>
+                        <a href="/relax">Energy Refill</a>
                   </div>
                   <div class="col-sm">
                         <a href="/todo">To Do List</a>
                   </div>
                   <div class="col-sm">
                         <a href="/clock">Clock</a>
-                  </div>
-                  <div class="col-sm">
-                        <a href="/about">Ablout Me</a>
                   </div>
                 </div>
         </div>

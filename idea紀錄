@@ -38,18 +38,21 @@ e38(d)
 
 先看影片
 
-1. 找能用的api來做  vue,  axious  mounted e9
+(NOOOOOOOO)1. 找能用的api來做  vue,  axious  mounted e9
 autoformat 可以用在contact me+ email
+(done)2. reminder clock 先想好怎麼發生
+    e15 如果要做計時器或是todolist之類的 可能可以參考這個
+
 
 
 (總體article先改好 看起來怎樣 其他才能跟著改)
 1. article整關  切換中文改道layout app
-2. reminder clock 先想好怎麼發生
-    e15 如果要做計時器或是todolist之類的 可能可以參考這個
 
-autocomplete 給搜尋用的 e14
+(放著)autocomplete 給搜尋用的 e14
 
 想回來做api的時候 可能先改用有影片教學的例如天氣api
+隨機貓圖片+youtube看寵物影片專注的影片+relax music
+
 
 
 3. Footer 放git hub
