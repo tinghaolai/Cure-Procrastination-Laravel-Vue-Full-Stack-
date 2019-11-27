@@ -34951,17 +34951,18 @@ video {
 
 body {
   background-color: #1b1924;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 #navigation {
-  background-color: #901431;
+  background-color: black;
+  color: #feede5;
   -webkit-box-ordinal-group: 3;
           order: 2;
 }
 
 #navigation a {
   color: #feede5;
-  font-size: 125%;
 }
 
 #footer {

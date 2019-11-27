@@ -3,9 +3,10 @@ import router from './router';
 import Articleindex from './components/article/Articleindex';
 import BootstrapVue from 'bootstrap-vue';
 import Info from './components/article/Info';
-
 import App from './components/App';
-import vuefooter from './components/article/vuefooter';
+
+import vuefooter from './components/layout/vuefooter';
+import Navigation from './components/layout/Navigation';
 
 require('./bootstrap');
 
@@ -20,6 +21,7 @@ const app = new Vue({
 		Articleindex,
 		Info,
 		vuefooter,
+		Navigation,
 		App
 	}
 });

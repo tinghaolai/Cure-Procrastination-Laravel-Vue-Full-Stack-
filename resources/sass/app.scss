@@ -33,7 +33,7 @@
 */
 $backgroundcolor: rgb(27, 25, 36);
 
-$naviBC: rgb(144, 20, 49);
+$naviBC: rgb(0, 0, 0);
 $naviLink: rgb(254, 237, 229);
 
 $footerBC: rgb(40, 110, 190);
@@ -42,13 +42,14 @@ $sidebarBC: rgb(34, 31, 45);
 
 body {
   background-color: $backgroundcolor;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 #navigation {
   background-color: $naviBC;
+  color: $naviLink;
   a {
     color: $naviLink;
-    font-size: 125%;
   }
   order: 2;
 }

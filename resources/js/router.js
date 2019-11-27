@@ -5,6 +5,7 @@ import NotFound from './components/NotFound';
 import Relax from './components/Relax';
 import Clock from './components/Clock';
 import Todo from './components/Todo';
+import Homepage from './components/Homepage';
 
 Vue.use(VueRouter);
 
@@ -14,11 +15,11 @@ export default new VueRouter({
 	routes: [
 		{
 			path: '/',
-			component: Unimplemented
+			component: Homepage
 		},
 		{
 			path: '/home',
-			component: Unimplemented
+			component: Homepage
 		},
 		{
 			path: '/relax',

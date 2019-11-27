@@ -1,6 +1,6 @@
 ***
 commit紀錄
-tailwind css
+changing document structure, font, little bit navigation
 
 
 首先vue component的name convention 只有第一個字母可以大血
@@ -54,6 +54,7 @@ autoformat 可以用在contact me+ email
 隨機貓圖片+youtube看寵物影片專注的影片+relax music
 
 
+navigation要透明 黑
 
 3. Footer 放git hub
 4. 404完善
