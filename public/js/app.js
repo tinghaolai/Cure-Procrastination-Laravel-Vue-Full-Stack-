@@ -2392,6 +2392,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navigation",
   mounted: function mounted() {
@@ -2407,15 +2414,22 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     Link_names: function Link_names() {
       if (this.English) return this.transData[0];else return this.transData[1];
+    },
+    currentRoute: function currentRoute() {
+      return this.$router.currentRoute.path;
     }
   },
   methods: {
     get_link_name: function get_link_name(link) {
-      console.log(this.$router.currentRoute.path);
+      console.log(this.currentRoute);
       return this.Link_names[link];
     },
     updateScroll: function updateScroll() {
       this.scrollPosition = window.scrollY;
+    },
+    ifSameRoute: function ifSameRoute(routename) {
+      if (routename == this.currentRoute) return true;
+      return false;
     }
   }
 });
@@ -35100,7 +35114,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: red;\n}\n#outter[data-v-5dc3b6fe] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n#navi_links[data-v-5dc3b6fe] {\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: gray;\n  -webkit-transition: background-color 0.7s;\n  transition: background-color 0.7s;\n}\n.nowBrowsing[data-v-5dc3b6fe] {\n  text-decoration: underline;\n}\n", ""]);
 
 // exports
 
@@ -67966,43 +67980,69 @@ var render = function() {
           _c(
             "b-col",
             {
-              staticClass: "text-center text-sm m-0",
+              staticClass:
+                "flex justify-center items-center text-center text-sm m-0",
               class: { chinese: !_vm.English },
-              attrs: { cols: "6", id: "outter" }
+              attrs: { cols: "6" }
             },
             [
               _c(
                 "b-row",
-                { staticClass: "row", attrs: { id: "navi_links" } },
+                { staticClass: "row w-full" },
                 [
                   _c("b-col", { staticClass: "col-sm text-center" }, [
-                    _c("a", { attrs: { href: "/home" } }, [
-                      _vm._v(_vm._s(_vm.get_link_name(0)))
-                    ])
+                    _c(
+                      "a",
+                      {
+                        class: { nowBrowsing: _vm.ifSameRoute("/home") },
+                        attrs: { href: "/home" }
+                      },
+                      [_vm._v(_vm._s(_vm.get_link_name(0)))]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("b-col", { staticClass: "col-sm" }, [
-                    _c("a", { attrs: { href: "/articles" } }, [
-                      _vm._v(_vm._s(_vm.get_link_name(1)))
-                    ])
+                    _c(
+                      "a",
+                      {
+                        class: { nowBrowsing: _vm.ifSameRoute("/articles") },
+                        attrs: { href: "/articles" }
+                      },
+                      [_vm._v(_vm._s(_vm.get_link_name(1)))]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("b-col", { staticClass: "col-sm" }, [
-                    _c("a", { attrs: { href: "/relax" } }, [
-                      _vm._v(_vm._s(_vm.get_link_name(2)))
-                    ])
+                    _c(
+                      "a",
+                      {
+                        class: { nowBrowsing: _vm.ifSameRoute("/relax") },
+                        attrs: { href: "/relax" }
+                      },
+                      [_vm._v(_vm._s(_vm.get_link_name(2)))]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("b-col", { staticClass: "col-sm" }, [
-                    _c("a", { attrs: { href: "/todo" } }, [
-                      _vm._v(_vm._s(_vm.get_link_name(3)))
-                    ])
+                    _c(
+                      "a",
+                      {
+                        class: { nowBrowsing: _vm.ifSameRoute("/todo") },
+                        attrs: { href: "/todo" }
+                      },
+                      [_vm._v(_vm._s(_vm.get_link_name(3)))]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("b-col", { staticClass: "col-sm" }, [
-                    _c("a", { attrs: { href: "/clock" } }, [
-                      _vm._v(_vm._s(_vm.get_link_name(4)))
-                    ])
+                    _c(
+                      "a",
+                      {
+                        class: { nowBrowsing: _vm.ifSameRoute("/clock") },
+                        attrs: { href: "/clock" }
+                      },
+                      [_vm._v(_vm._s(_vm.get_link_name(4)))]
+                    )
                   ])
                 ],
                 1

@@ -6,22 +6,29 @@
   >
     <b-row>
       <b-col class="text-left text-xl font-black">Cure-Procrastination</b-col>
-      <b-col class="text-center text-sm m-0" cols="6" :class="{'chinese': ! English}" id="outter">
-        <b-row class="row" id="navi_links">
+      <b-col
+        class="flex justify-center items-center text-center text-sm m-0"
+        cols="6"
+        :class="{'chinese': ! English}"
+      >
+        <b-row class="row w-full">
           <b-col class="col-sm text-center">
-            <a href="/home">{{get_link_name(0)}}</a>
+            <a href="/home" :class="{'nowBrowsing': ifSameRoute('/home')}">{{get_link_name(0)}}</a>
           </b-col>
           <b-col class="col-sm">
-            <a href="/articles">{{get_link_name(1)}}</a>
+            <a
+              href="/articles"
+              :class="{'nowBrowsing': ifSameRoute('/articles')}"
+            >{{get_link_name(1)}}</a>
           </b-col>
           <b-col class="col-sm">
-            <a href="/relax">{{get_link_name(2)}}</a>
+            <a href="/relax" :class="{'nowBrowsing': ifSameRoute('/relax')}">{{get_link_name(2)}}</a>
           </b-col>
           <b-col class="col-sm">
-            <a href="/todo">{{get_link_name(3)}}</a>
+            <a href="/todo" :class="{'nowBrowsing': ifSameRoute('/todo')}">{{get_link_name(3)}}</a>
           </b-col>
           <b-col class="col-sm">
-            <a href="/clock">{{get_link_name(4)}}</a>
+            <a href="/clock" :class="{'nowBrowsing': ifSameRoute('/clock')}">{{get_link_name(4)}}</a>
           </b-col>
         </b-row>
       </b-col>
@@ -56,15 +63,22 @@ export default {
     Link_names: function() {
       if (this.English) return this.transData[0];
       else return this.transData[1];
+    },
+    currentRoute: function() {
+      return this.$router.currentRoute.path;
     }
   },
   methods: {
     get_link_name: function(link) {
-      console.log(this.$router.currentRoute.path);
+      console.log(this.currentRoute);
       return this.Link_names[link];
     },
     updateScroll() {
       this.scrollPosition = window.scrollY;
+    },
+    ifSameRoute(routename) {
+      if (routename == this.currentRoute) return true;
+      return false;
     }
   }
 };
@@ -75,15 +89,11 @@ export default {
   font-family: "Helvetica", "微軟正黑體";
 }
 .scrolled {
-  background-color: red;
-}
-#outter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: gray;
+  transition: background-color 0.7s;
 }
 
-#navi_links {
-  width: 100%;
+.nowBrowsing {
+  text-decoration: underline;
 }
 </style>
