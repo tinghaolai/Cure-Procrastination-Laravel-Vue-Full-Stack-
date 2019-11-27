@@ -2384,13 +2384,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navigation",
+  mounted: function mounted() {
+    window.addEventListener("scroll", this.updateScroll);
+  },
   data: function data() {
     return {
-      lang: "Chinese",
       English: true,
-      transData: [["Home", "Article", "Energy Refill", "To Do List", "Clock"], ["首頁", "文章", "能量補充", "時間規劃", "番茄鬧鐘"]]
+      transData: [["Home", "Article", "Energy Refill", "To Do List", "Clock", "中文"], ["首頁", "文章", "能量補充", "時間規劃", "番茄鬧鐘", "English"]],
+      scrollPosition: null
     };
   },
   computed: {
@@ -2400,7 +2411,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     get_link_name: function get_link_name(link) {
+      console.log(this.$router.currentRoute.path);
       return this.Link_names[link];
+    },
+    updateScroll: function updateScroll() {
+      this.scrollPosition = window.scrollY;
     }
   }
 });
@@ -35085,7 +35100,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\", sans-serif;\n}\n", ""]);
+exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: red;\n}\n#outter[data-v-5dc3b6fe] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n#navi_links[data-v-5dc3b6fe] {\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -67935,7 +67950,9 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "container-fluid p-5 text-center rounded",
+      staticClass:
+        "z-10 fixed left-0 top-0 static container-fluid p-3 content-center rounded",
+      class: { scrolled: _vm.scrollPosition },
       attrs: { id: "navigation" }
     },
     [
@@ -67949,64 +67966,67 @@ var render = function() {
           _c(
             "b-col",
             {
-              staticClass: "text-center text-lg",
+              staticClass: "text-center text-sm m-0",
               class: { chinese: !_vm.English },
-              attrs: { cols: "6" }
+              attrs: { cols: "6", id: "outter" }
             },
             [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm" }, [
-                  _c("a", { attrs: { href: "/home" } }, [
-                    _vm._v(_vm._s(_vm.get_link_name(0)))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm" }, [
-                  _c("a", { attrs: { href: "/articles" } }, [
-                    _vm._v(_vm._s(_vm.get_link_name(1)))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm" }, [
-                  _c("a", { attrs: { href: "/relax" } }, [
-                    _vm._v(_vm._s(_vm.get_link_name(2)))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm" }, [
-                  _c("a", { attrs: { href: "/todo" } }, [
-                    _vm._v(_vm._s(_vm.get_link_name(3)))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm" }, [
-                  _c("a", { attrs: { href: "/clock" } }, [
-                    _vm._v(_vm._s(_vm.get_link_name(4)))
-                  ])
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-col",
-            { staticClass: "text-right" },
-            [
               _c(
-                "b-button",
-                {
-                  staticClass: "bg-yellow-500 text-gray-900",
-                  on: {
-                    click: function($event) {
-                      _vm.English = !_vm.English
-                    }
-                  }
-                },
-                [_vm._v(_vm._s(_vm.lang))]
+                "b-row",
+                { staticClass: "row", attrs: { id: "navi_links" } },
+                [
+                  _c("b-col", { staticClass: "col-sm text-center" }, [
+                    _c("a", { attrs: { href: "/home" } }, [
+                      _vm._v(_vm._s(_vm.get_link_name(0)))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("b-col", { staticClass: "col-sm" }, [
+                    _c("a", { attrs: { href: "/articles" } }, [
+                      _vm._v(_vm._s(_vm.get_link_name(1)))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("b-col", { staticClass: "col-sm" }, [
+                    _c("a", { attrs: { href: "/relax" } }, [
+                      _vm._v(_vm._s(_vm.get_link_name(2)))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("b-col", { staticClass: "col-sm" }, [
+                    _c("a", { attrs: { href: "/todo" } }, [
+                      _vm._v(_vm._s(_vm.get_link_name(3)))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("b-col", { staticClass: "col-sm" }, [
+                    _c("a", { attrs: { href: "/clock" } }, [
+                      _vm._v(_vm._s(_vm.get_link_name(4)))
+                    ])
+                  ])
+                ],
+                1
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("b-col", { staticClass: "text-right" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-yellow-500 text-gray-900 hover:bg-yellow-600 active:bg-yellow-700 font-bold py-2 px-4 rounded",
+                class: { chinese: _vm.English },
+                on: {
+                  click: function($event) {
+                    _vm.English = !_vm.English
+                  }
+                }
+              },
+              [_vm._v(_vm._s(_vm.get_link_name(5)))]
+            )
+          ])
         ],
         1
       )

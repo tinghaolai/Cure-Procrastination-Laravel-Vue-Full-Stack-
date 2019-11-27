@@ -31,9 +31,9 @@
 
 
 */
-$backgroundcolor: rgb(27, 25, 36);
+$backgroundcolor: rgb(0, 0, 0);
 
-$naviBC: rgb(0, 0, 0);
+$naviBC: transparent;
 $naviLink: rgb(254, 237, 229);
 
 $footerBC: rgb(40, 110, 190);
@@ -41,16 +41,19 @@ $footerBC: rgb(40, 110, 190);
 $sidebarBC: rgb(34, 31, 45);
 
 body {
+  //目前能查到能解決fixed導致overlapping的大部分都是加入padding
+  //https://stackoverflow.com/questions/5311706/position-fixed-content-overlapping-problem
+  margin-top: 130px;
   background-color: $backgroundcolor;
   font-family: "Josefin Sans", sans-serif;
 }
 
 #navigation {
-  background-color: $naviBC;
   color: $naviLink;
   a {
     color: $naviLink;
   }
+
   order: 2;
 }
 

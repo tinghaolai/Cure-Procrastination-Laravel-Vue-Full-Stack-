@@ -20,11 +20,20 @@
 </head>
 <body>
     <div>
-        <div id="app" >
-            @include('layouts.navigation')
-            @yield('content')
+        <div id="app" class="flex flex-wrap overflow-hidden">
+
+            <div class="w-full overflow-hidden ">
+                @include('layouts.navigation')
+            </div>
+            <div class="w-full overflow-hidden">
+                @yield('content')
+            </div>
+            <div class="w-full overflow-hidden">
+                @include('layouts.footer')
+            </div>
             @include('layouts.scrollup')
-            @include('layouts.footer')
+
+
         </div>
 
 
