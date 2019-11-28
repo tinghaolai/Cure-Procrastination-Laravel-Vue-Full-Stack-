@@ -23,9 +23,9 @@
     <div>
         <div id="app" >
 
-                @include('layouts.navigation')
-                @yield('content')
-                @include('layouts.footer')
+            @include('layouts.navigation')
+            <div class="mt-24">@yield('content')</div>
+            @include('layouts.footer')
             @include('layouts.scrollup')
 
 

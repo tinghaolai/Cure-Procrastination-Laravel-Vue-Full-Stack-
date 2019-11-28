@@ -27,13 +27,6 @@
 
 <script>
 export default {
-  /*
-        Procrastination, or you can just call it "Lazy", I didn't know this term until recent years,
-        and I realize that procrastination has been here all the time, but I never tried to fix that.
-        This is both easiest and hardest problem to me, clearly know how to fix that but just can't, kind of like mental illness
-        But no matter what, I have to fight it no matter how many times I fail.
-
-    */
   name: "vuefooter",
   computed: {},
   mounted: function() {},

@@ -50,6 +50,7 @@ class ArticleRepository implements ArticleRepositoryInterface
                 $recent->map(
                     function ($article) {
                         $article->sidebar_title = Str::getCreatedDay($article->title, $article->created_at);
+                        $article->href = $article->path();
                     }
                 );
             }

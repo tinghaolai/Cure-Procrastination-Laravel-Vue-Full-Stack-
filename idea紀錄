@@ -2,6 +2,16 @@
 commit紀錄
 
 
+
+  /*
+        Procrastination, or you can just call it "Lazy", I didn't know this term until recent years,
+        and I realize that procrastination has been here all the time, but I never tried to fix that.
+        This is both easiest and hardest problem to me, clearly know how to fix that but just can't, kind of like mental illness
+        But no matter what, I have to fight it no matter how many times I fail.
+
+    */
+
+
 首先vue component的name convention 只有第一個字母可以大血
 2.footer一直無法適用component是因為include不再app內
 甚至自己include app.js, div id=app也無效因為上面有一個已經掛載
@@ -16,6 +26,7 @@ api會network error因為Cross-Origin Request Blocked:
 把如何browse articleadmin 血在github上
 
 
+homepage可以用類似向方格一樣 展示所有功能 然後點選會跳到頁面
 
 可能可以做如果tag沒文章 要顯示
 ***
@@ -31,7 +42,8 @@ e38(d)
 作法順序:
 成功 1. 加上test driven, e49搭配test driven
 成功 2. auth (e21,22,23)
-成功 3. policy e44
+
+
 
 --先看上面 決定接下來擺哪裡 order--
 
@@ -62,6 +74,7 @@ navigation要透明 黑
 7. 網站title
 8. 首頁放整體專案設計圖(先自己畫 再作圖)
   documentation 給normal user, admin
+  clock可以給健身使用 冥想
 
 vue injection
 -99做中文化
