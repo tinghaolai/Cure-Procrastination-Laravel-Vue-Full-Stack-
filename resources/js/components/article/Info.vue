@@ -1,24 +1,28 @@
 <template>
-  <div class="m-2">
-    <b-card
-      :title="title"
-      :img-src="image"
-      img-alt="Image"
-      img-top
-      tag="article"
-      style="max-width: 20rem;"
-      class="mb-2"
-    >
-      <b-card-text>{{this.body.substr(0,100)}}</b-card-text>
-      <div>
-        tag:
-        <span v-for="(tag, index) in tags" :key="index">
-          <a :href="'/tag/'+tag.id">{{ tag.name }}</a>
-          /
-        </span>
+  <div class="m-8">
+    <div class="md:flex">
+      <div class="md:flex-shrink-0">
+        <a class="p-0 m-0" :href="article_href">
+          <img class="rounded-lg md:w-56" :src="image" />
+        </a>
       </div>
-      <b-button :href="article_href" variant="primary">Read</b-button>
-    </b-card>
+      <div class="d:mt-0 md:ml-6">
+        <a
+          :href="article_href"
+          class="block text-2xl leading-tight font-semibold text-gray-900 hover:underline"
+        >{{title}}</a>
+        <p class="mt-2 text-base text-white">{{this.body.substr(0,200)}} ...</p>
+        <div
+          class="flex justify-end mt-3 uppercase tracking-wide text-sm text-indigo-600 font-bold"
+        >
+          <span>Tag:</span>
+          <span v-for="(tag, index) in tags" :key="index">
+            <a :href="'/tag/'+tag.id">{{ tag.name }}</a>
+            /
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

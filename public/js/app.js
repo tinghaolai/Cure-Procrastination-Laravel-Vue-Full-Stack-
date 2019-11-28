@@ -2335,6 +2335,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Info",
   props: ["title", "body", "article_href", "tags", "image"],
@@ -67948,53 +67952,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "m-2" },
-    [
-      _c(
-        "b-card",
-        {
-          staticClass: "mb-2",
-          staticStyle: { "max-width": "20rem" },
-          attrs: {
-            title: _vm.title,
-            "img-src": _vm.image,
-            "img-alt": "Image",
-            "img-top": "",
-            tag: "article"
-          }
-        },
-        [
-          _c("b-card-text", [_vm._v(_vm._s(this.body.substr(0, 100)))]),
-          _vm._v(" "),
-          _c(
-            "div",
-            [
-              _vm._v("\n      tag:\n      "),
-              _vm._l(_vm.tags, function(tag, index) {
-                return _c("span", { key: index }, [
-                  _c("a", { attrs: { href: "/tag/" + tag.id } }, [
-                    _vm._v(_vm._s(tag.name))
-                  ]),
-                  _vm._v("\n        /\n      ")
-                ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            { attrs: { href: _vm.article_href, variant: "primary" } },
-            [_vm._v("Read")]
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _c("div", { staticClass: "m-8" }, [
+    _c("div", { staticClass: "md:flex" }, [
+      _c("div", { staticClass: "md:flex-shrink-0" }, [
+        _c("a", { staticClass: "p-0 m-0", attrs: { href: _vm.article_href } }, [
+          _c("img", {
+            staticClass: "rounded-lg md:w-56",
+            attrs: { src: _vm.image }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d:mt-0 md:ml-6" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "block text-2xl leading-tight font-semibold text-gray-900 hover:underline",
+            attrs: { href: _vm.article_href }
+          },
+          [_vm._v(_vm._s(_vm.title))]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "mt-2 text-base text-white" }, [
+          _vm._v(_vm._s(this.body.substr(0, 200)) + " ...")
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex justify-end mt-3 uppercase tracking-wide text-sm text-indigo-600 font-bold"
+          },
+          [
+            _c("span", [_vm._v("Tag:")]),
+            _vm._v(" "),
+            _vm._l(_vm.tags, function(tag, index) {
+              return _c("span", { key: index }, [
+                _c("a", { attrs: { href: "/tag/" + tag.id } }, [
+                  _vm._v(_vm._s(tag.name))
+                ]),
+                _vm._v("\n          /\n        ")
+              ])
+            })
+          ],
+          2
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
