@@ -2449,7 +2449,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  /*
+        Procrastination, or you can just call it "Lazy", I didn't know this term until recent years,
+        and I realize that procrastination has been here all the time, but I never tried to fix that.
+        This is both easiest and hardest problem to me, clearly know how to fix that but just can't, kind of like mental illness
+        But no matter what, I have to fight it no matter how many times I fail.
+     */
   name: "vuefooter",
   computed: {},
   mounted: function mounted() {},
@@ -67965,7 +67993,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "z-10 fixed left-0 top-0 static container-fluid p-3 content-center rounded",
+        "z-10 fixed left-0 top-0 static container-fluid p-3 content-center",
       class: { scrolled: _vm.scrollPosition },
       attrs: { id: "navigation" }
     },
@@ -68096,9 +68124,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("123")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "flex mb-4 px-64 pt-12 text-white",
+        attrs: { id: "footer" }
+      },
+      [
+        _c("div", { staticClass: "w-1/2 h-48" }, [
+          _c("div", [
+            _c("div", [_vm._v("contact me")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("email")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("phone")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/2 h-48" }, [
+          _c("div", { staticClass: "text-xl font-bold" }, [
+            _vm._v("About the website")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-gray-600" }, [
+            _vm._v(
+              '\n      Procrastination, or you can just call it "Lazy", to overcome my procrastination problem,\n      I studied some research and tried to see if these theories and methods working on me,\n      so I decide to integrate some solution about procrastination,\n      and adding more features to origin thought.\n    '
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("i", {
+              staticClass: "fa fa-github",
+              staticStyle: { "font-size": "36px" },
+              attrs: { href: "." }
+            }),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "" } }, [_vm._v("Github")]),
+            _vm._v(" "),
+            _c("button")
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 

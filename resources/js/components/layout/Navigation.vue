@@ -1,6 +1,6 @@
 <template>
   <div
-    class="z-10 fixed left-0 top-0 static container-fluid p-3 content-center rounded"
+    class="z-10 fixed left-0 top-0 static container-fluid p-3 content-center"
     :class="{'scrolled': scrollPosition}"
     id="navigation"
   >
