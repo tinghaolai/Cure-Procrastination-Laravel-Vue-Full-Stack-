@@ -89,7 +89,7 @@ export default {
   font-family: "Helvetica", "微軟正黑體";
 }
 .scrolled {
-  background-color: gray;
+  background-color: black;
   transition: background-color 0.7s;
 }
 

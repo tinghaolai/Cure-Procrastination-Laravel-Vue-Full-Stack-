@@ -2471,6 +2471,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   /*
         Procrastination, or you can just call it "Lazy", I didn't know this term until recent years,
@@ -35142,7 +35143,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: gray;\n  -webkit-transition: background-color 0.7s;\n  transition: background-color 0.7s;\n}\n.nowBrowsing[data-v-5dc3b6fe] {\n  text-decoration: underline;\n}\n", ""]);
+exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: black;\n  -webkit-transition: background-color 0.7s;\n  transition: background-color 0.7s;\n}\n.nowBrowsing[data-v-5dc3b6fe] {\n  text-decoration: underline;\n}\n", ""]);
 
 // exports
 
@@ -68133,24 +68134,35 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass: "flex mb-4 px-64 pt-12 text-white",
-        attrs: { id: "footer" }
-      },
+      { staticClass: "flex px-64 pt-12 text-white", attrs: { id: "footer" } },
       [
         _c("div", { staticClass: "w-1/2 h-48" }, [
-          _c("div", [
-            _c("div", [_vm._v("contact me")]),
+          _c("div", { staticClass: "text-xl" }, [
+            _c("div", { staticClass: "pb-3 text-5xl text-green-100" }, [
+              _vm._v("Cure Procrastination")
+            ]),
             _vm._v(" "),
-            _c("div", [_vm._v("email")]),
+            _c("div", { staticClass: "text-xl" }, [_vm._v("Contact Me")]),
             _vm._v(" "),
-            _c("div", [_vm._v("phone")])
+            _c("i", {
+              staticClass: "fa fa-envelope",
+              staticStyle: { "font-size": "24px" }
+            }),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "text-lg text-gray-600",
+                attrs: { href: "mailto:analth355@gmail.com" }
+              },
+              [_vm._v("analth355@gmail.com")]
+            )
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "w-1/2 h-48" }, [
           _c("div", { staticClass: "text-xl font-bold" }, [
-            _vm._v("About the website")
+            _vm._v("About The Website")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "text-gray-600" }, [

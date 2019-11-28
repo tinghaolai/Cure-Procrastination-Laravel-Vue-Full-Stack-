@@ -35325,6 +35325,8 @@ body {
   margin-top: 130px;
   background-color: #828282;
   font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 #navigation {
@@ -35339,8 +35341,6 @@ body {
 
 #footer {
   background-color: black;
-  position: relative;
-  bottom: 0;
 }
 
 #sidebar {
