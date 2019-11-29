@@ -35565,44 +35565,78 @@ video {
   z-index: auto;
 }
 
-/*all color for backup
-
-***Blue***
-(16, 28, 55)
-(27, 25, 36)
-
-***Red***
-(144, 20, 49)
-
-
-
+/*
+Color that can't be changed here:
+Navigation scrolled
 */
 
 body {
   margin-top: 130px;
-  background-color: #828282;
+  background-image: linear-gradient(135deg, #5ab58a, #5a84b5);
   font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 #navigation {
-  color: #feede5;
   -webkit-box-ordinal-group: 3;
           order: 2;
 }
 
+#navigation .logo {
+  background-image: -webkit-gradient(linear, left top, right top, from(#191e39), to(#0e111a));
+  background-image: linear-gradient(90deg, #191e39, #0e111a);
+  border-bottom-right-radius: 100px 100%;
+}
+
+#navigation .logo a {
+  color: #f5f7e1;
+}
+
 #navigation a {
-  color: #feede5;
+  color: #f5f6e7;
+}
+
+#navigation button {
+  background-color: #5a84b5;
+  color: #c7d5e6;
+  border-color: #5a84b5;
+  border-width: 3px;
+  border-radius: 20px;
+}
+
+#navigation button:hover {
+  background-color: #6f94be;
+}
+
+#navigation button:active {
+  background-color: #4c77a9;
 }
 
 #footer {
-  background-color: black;
+  background-color: #0d191f;
 }
 
 #sidebar {
-  color: white;
-  background-color: #221f2d;
+  border-style: solid none none double;
+  border-width: 5px 10px 10px 10px;
+  border-color: #1c3e3f white white #678e98;
+  color: #d7c6d4;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#253337), to(#080b0c));
+  background-image: linear-gradient(0deg, #253337, #080b0c);
+}
+
+#sidebar a {
+  color: #d2d5c3;
+  border-width: 0px 0px 1px 0px;
+  border-color: black black #676c4b black;
+}
+
+#sidebar .title {
+  padding: 6px 10px 5px 10px;
+  background-image: linear-gradient(135deg, #161e20, #080b0c);
+  border: 3px solid #161e20;
+  border-radius: 10px 10px;
 }
 
 @media (min-width: 640px){

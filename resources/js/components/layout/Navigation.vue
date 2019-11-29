@@ -1,13 +1,15 @@
 <template>
   <div
-    class="z-10 fixed left-0 top-0 static container-fluid p-3 content-center"
+    class="z-10 fixed left-0 top-0 static container-fluid content-center"
     :class="{'scrolled': scrollPosition}"
     id="navigation"
   >
     <b-row>
-      <b-col class="text-left text-xl font-black">Cure-Procrastination</b-col>
+      <b-col class="pt-2 pl-4 pr-3 text-3xl font-black h-20 logo">
+        <a href="/home" class="hover:no-underline">Cure-Procrastination</a>
+      </b-col>
       <b-col
-        class="flex justify-center items-center text-center text-sm m-0"
+        class="flex justify-center items-center text-center text-base bold m-0"
         cols="6"
         :class="{'chinese': ! English}"
       >
@@ -32,10 +34,10 @@
           </b-col>
         </b-row>
       </b-col>
-      <b-col class="text-right">
+      <b-col class="mt-3 text-right">
         <button
           @click="English = ! English"
-          class="bg-yellow-500 text-gray-900 hover:bg-yellow-600 active:bg-yellow-700 font-bold py-2 px-4 rounded"
+          class="font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
           :class="{'chinese': English}"
         >{{get_link_name(5)}}</button>
       </b-col>
@@ -53,7 +55,7 @@ export default {
     return {
       English: true,
       transData: [
-        ["Home", "Article", "Energy Refill", "To Do List", "Clock", "中文"],
+        ["Home", "Article", "Energy Refill", "To Do List", "Clock", "Chinese"],
         ["首頁", "文章", "能量補充", "時間規劃", "番茄鬧鐘", "English"]
       ],
       scrollPosition: null
@@ -89,7 +91,7 @@ export default {
   font-family: "Helvetica", "微軟正黑體";
 }
 .scrolled {
-  background-color: black;
+  background-color: rgb(14, 17, 26);
   transition: background-color 0.7s;
 }
 

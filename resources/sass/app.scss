@@ -17,43 +17,80 @@
 
 @tailwind utilities;
 
-//note: place each component setting to each file, perhaps
-
-/*all color for backup
-
-***Blue***
-(16, 28, 55)
-(27, 25, 36)
-
-***Red***
-(144, 20, 49)
-
-
-
+//beetVfm
+/*
+Color that can't be changed here:
+Navigation scrolled
 */
-$backgroundcolor: rgb(130, 130, 130);
+//background-image: linear-gradient(red, yellow);
+$p: rgb(255, 192, 203);
+$transparent: transparent;
 
-$naviBC: transparent;
-$naviLink: rgb(254, 237, 229);
+$backgroundcolor: rgb(89, 177, 180);
+$backgroundcolor_degree30_1: rgb(90, 181, 138);
+$backgroundcolor_degree30_2: rgb(90, 132, 181);
+$backgroundcolor_light: rgb(167, 214, 215);
+$backgroundcolor_dark: rgb(36, 79, 81);
+$backgroundcolor_contrast: rgb(181, 93, 90);
+$backgroundcolor_3_phase_1: rgb(181, 90, 178);
+$backgroundcolor_3_phase_2: rgb(178, 181, 90);
 
-$footerBC: rgb(0, 0, 0);
+$footerBC: rgb(13, 25, 31);
+$footerBC_degree30_1: rgb(14, 17, 32);
+$footerBC_degree30_2: rgb(14, 32, 29);
+$footerBC_light: rgb(68, 130, 162);
+$footerBC_dark: rgb(0, 0, 0);
+$footerBC_contrast: rgb(32, 20, 14);
+$footerBC_3_phase_1: rgb(32, 14, 26);
+$footerBC_3_phase_2: rgb(26, 32, 14);
 
-$sidebarBC: rgb(34, 31, 45);
+$sidebarBC: rgb(22, 30, 32);
+$sidebarBC_degree30_1: rgb(23, 33, 30);
+$sidebarBC_degree30_2: rgb(23, 26, 33);
+$sidebarBC_light: rgb(103, 142, 152);
+$sidebarBC_dark: rgb(6, 9, 9);
+$sidebarBC_contrast: rgb(33, 25, 23);
+$sidebarBC_3_phase_1: rgb(31, 33, 23);
+$sidebarBC_3_phase_2: rgb(33, 23, 31);
+
+$light_5: rgb(245, 247, 225);
+$light_0: rgb(245, 246, 231);
 
 body {
   //目前能查到能解決fixed導致overlapping的大部分都是加入padding
   //https://stackoverflow.com/questions/5311706/position-fixed-content-overlapping-problem
   margin-top: 130px;
-  background-color: $backgroundcolor;
+
+  background-image: linear-gradient(135deg, rgb(90, 181, 138), rgb(90, 132, 181));
   font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 #navigation {
-  color: $naviLink;
+  .logo {
+    background-image: linear-gradient(90deg, rgb(25, 30, 57), rgb(14, 17, 26));
+    border-bottom-right-radius: 100px 100%;
+    a {
+      color: rgb(245, 247, 225);
+    }
+  }
+
   a {
-    color: $naviLink;
+    color: rgb(245, 246, 231);
+  }
+  button {
+    background-color: rgb(90, 132, 181);
+    color: rgb(199, 213, 230);
+    border-color: rgb(90, 132, 181);
+    border-width: 3px;
+    border-radius: 20px;
+    &:hover {
+      background-color: rgb(111, 148, 190);
+    }
+    &:active {
+      background-color: rgb(76, 119, 169);
+    }
   }
 
   order: 2;
@@ -64,6 +101,22 @@ body {
 }
 
 #sidebar {
-  color: white;
-  background-color: $sidebarBC;
+  border-style: solid none none double;
+  border-width: 5px 10px 10px 10px;
+  border-color: rgb(28, 62, 63) white white rgb(103, 142, 152);
+
+  color: rgb(215, 198, 212);
+  background-image: linear-gradient(0deg, rgb(37, 51, 55), rgb(8, 11, 12));
+  a {
+    color: rgb(210, 213, 195);
+    border-width: 0px 0px 1px 0px;
+    border-color: rgb(0, 0, 0) rgb(0, 0, 0) rgb(103, 108, 75) rgb(0, 0, 0);
+  }
+
+  .title {
+    padding: 6px 10px 5px 10px;
+    background-image: linear-gradient(135deg, rgb(22, 30, 32), rgb(8, 11, 12));
+    border: 3px solid rgb(22, 30, 32);
+    border-radius: 10px 10px;
+  }
 }

@@ -2403,6 +2403,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navigation",
   mounted: function mounted() {
@@ -2411,7 +2413,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       English: true,
-      transData: [["Home", "Article", "Energy Refill", "To Do List", "Clock", "中文"], ["首頁", "文章", "能量補充", "時間規劃", "番茄鬧鐘", "English"]],
+      transData: [["Home", "Article", "Energy Refill", "To Do List", "Clock", "Chinese"], ["首頁", "文章", "能量補充", "時間規劃", "番茄鬧鐘", "English"]],
       scrollPosition: null
     };
   },
@@ -2449,6 +2451,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -35175,7 +35181,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: black;\n  -webkit-transition: background-color 0.7s;\n  transition: background-color 0.7s;\n}\n.nowBrowsing[data-v-5dc3b6fe] {\n  text-decoration: underline;\n}\n", ""]);
+exports.push([module.i, ".chinese[data-v-5dc3b6fe] {\n  font-family: \"Helvetica\", \"\\5FAE\\8EDF\\6B63\\9ED1\\9AD4\";\n}\n.scrolled[data-v-5dc3b6fe] {\n  background-color: rgb(14, 17, 26);\n  -webkit-transition: background-color 0.7s;\n  transition: background-color 0.7s;\n}\n.nowBrowsing[data-v-5dc3b6fe] {\n  text-decoration: underline;\n}\n", ""]);
 
 // exports
 
@@ -68028,7 +68034,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "z-10 fixed left-0 top-0 static container-fluid p-3 content-center",
+        "z-10 fixed left-0 top-0 static container-fluid content-center",
       class: { scrolled: _vm.scrollPosition },
       attrs: { id: "navigation" }
     },
@@ -68036,15 +68042,23 @@ var render = function() {
       _c(
         "b-row",
         [
-          _c("b-col", { staticClass: "text-left text-xl font-black" }, [
-            _vm._v("Cure-Procrastination")
-          ]),
+          _c(
+            "b-col",
+            { staticClass: "pt-2 pl-4 pr-3 text-3xl font-black h-20 logo" },
+            [
+              _c(
+                "a",
+                { staticClass: "hover:no-underline", attrs: { href: "/home" } },
+                [_vm._v("Cure-Procrastination")]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c(
             "b-col",
             {
               staticClass:
-                "flex justify-center items-center text-center text-sm m-0",
+                "flex justify-center items-center text-center text-base bold m-0",
               class: { chinese: !_vm.English },
               attrs: { cols: "6" }
             },
@@ -68114,12 +68128,12 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("b-col", { staticClass: "text-right" }, [
+          _c("b-col", { staticClass: "mt-3 text-right" }, [
             _c(
               "button",
               {
                 staticClass:
-                  "bg-yellow-500 text-gray-900 hover:bg-yellow-600 active:bg-yellow-700 font-bold py-2 px-4 rounded",
+                  "font-bold py-2 px-4 focus:outline-none focus:shadow-outline",
                 class: { chinese: _vm.English },
                 on: {
                   click: function($event) {
@@ -68161,9 +68175,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "px-6 pt-12 pb-6", attrs: { id: "sidebar" } },
+    { staticClass: "px-6 pt-12 pb-6", attrs: { id: "sidebar-vue" } },
     [
-      _c("div", { staticClass: "text-3xl" }, [_vm._v("Tag")]),
+      _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.tags, function(tag, index) {
         return _c("div", { key: index, staticClass: "text-xl p-2" }, [
@@ -68173,9 +68187,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "text-3xl pt-12 pb-4" }, [
-        _vm._v("Recently Added")
-      ]),
+      _vm._m(1),
       _vm._v(" "),
       _vm._l(_vm.articles, function(article, index) {
         return _c("div", { key: index, staticClass: "text-lg p-2" }, [
@@ -68188,7 +68200,24 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-3xl pb-2" }, [
+      _c("span", { staticClass: "title" }, [_vm._v("Tag")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-3xl pt-12 pb-4" }, [
+      _c("span", { staticClass: "title" }, [_vm._v("Recently Added")])
+    ])
+  }
+]
 render._withStripped = true
 
 
