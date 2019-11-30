@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row" >
-        <div class="col " >
+        <div class="col" id="articles">
             <div class="inline-block flex justify-end ">
                 <form action="{{ route('article.index')}}" style="display: inline;">
                     <select class="mr-1 appearance-none bg-gray-200 border border-gray-200 text-gray-700 p-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="sort">
@@ -15,7 +15,7 @@
                     </select>
                     <span>Sort Articles</span>
                     <input type="checkbox" class="ml-6 form-checkbox" name="active" value="true"> <span>With Picture</span>
-                    <button type="submit" value="sent" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Sent</button>
+                    <button type="submit" value="sent" class="font-bold ml-3 px-2 py-1 focus:outline-none" type="button">Sent</button>
                 </form>
             </div>
 

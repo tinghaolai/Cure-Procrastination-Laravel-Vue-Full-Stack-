@@ -2,7 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -17,3 +17,36 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+// Color Design Base
+$transparent: transparent;
+
+$backgroundcolor: rgb(89, 177, 180);
+$backgroundcolor_degree30_1: rgb(90, 181, 138);
+$backgroundcolor_degree30_2: rgb(90, 132, 181);
+$backgroundcolor_light: rgb(167, 214, 215);
+$backgroundcolor_dark: rgb(36, 79, 81);
+$backgroundcolor_contrast: rgb(181, 93, 90);
+$backgroundcolor_3_phase_1: rgb(181, 90, 178);
+$backgroundcolor_3_phase_2: rgb(178, 181, 90);
+
+$footerBC: rgb(13, 25, 31);
+$footerBC_degree30_1: rgb(14, 17, 32);
+$footerBC_degree30_2: rgb(14, 32, 29);
+$footerBC_light: rgb(68, 130, 162);
+$footerBC_dark: rgb(0, 0, 0);
+$footerBC_contrast: rgb(32, 20, 14);
+$footerBC_3_phase_1: rgb(32, 14, 26);
+$footerBC_3_phase_2: rgb(26, 32, 14);
+
+$sidebarBC: rgb(22, 30, 32);
+$sidebarBC_degree30_1: rgb(23, 33, 30);
+$sidebarBC_degree30_2: rgb(23, 26, 33);
+$sidebarBC_light: rgb(103, 142, 152);
+$sidebarBC_dark: rgb(6, 9, 9);
+$sidebarBC_contrast: rgb(33, 25, 23);
+$sidebarBC_3_phase_1: rgb(31, 33, 23);
+$sidebarBC_3_phase_2: rgb(33, 23, 31);
+
+$light_5: rgb(245, 247, 225);
+$light_0: rgb(245, 246, 231);

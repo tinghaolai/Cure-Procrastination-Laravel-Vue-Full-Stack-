@@ -2516,6 +2516,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "vuefooter",
   computed: {},
@@ -67958,7 +67961,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "m-8" }, [
+  return _c("div", { staticClass: "m-8 w-full", attrs: { id: "Info" } }, [
     _c("div", { staticClass: "md:flex" }, [
       _c("div", { staticClass: "md:flex-shrink-0" }, [
         _c("a", { staticClass: "p-0 m-0", attrs: { href: _vm.article_href } }, [
@@ -67974,13 +67977,13 @@ var render = function() {
           "a",
           {
             staticClass:
-              "block text-2xl leading-tight font-semibold text-gray-900 hover:underline",
+              "title block text-2xl leading-tight font-semibold text-gray-900 hover:underline",
             attrs: { href: _vm.article_href }
           },
           [_vm._v(_vm._s(_vm.title))]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "mt-2 text-base text-white" }, [
+        _c("p", { staticClass: "content mt-2 text-base" }, [
           _vm._v(_vm._s(this.body.substr(0, 200)) + " ...")
         ]),
         _vm._v(" "),
@@ -68252,11 +68255,11 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "w-1/2 h-48" }, [
           _c("div", { staticClass: "text-xl" }, [
-            _c("div", { staticClass: "pb-3 text-5xl text-green-100" }, [
+            _c("div", { staticClass: "pb-3 text-5xl text-green-100 logo" }, [
               _vm._v("Cure Procrastination")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "text-xl" }, [_vm._v("Contact Me")]),
+            _c("div", { staticClass: "text-xl title" }, [_vm._v("Contact Me")]),
             _vm._v(" "),
             _c("i", {
               staticClass: "fa fa-envelope",
@@ -68266,7 +68269,7 @@ var staticRenderFns = [
             _c(
               "a",
               {
-                staticClass: "text-lg text-gray-600",
+                staticClass: "text-lg text-gray-600 content",
                 attrs: { href: "mailto:analth355@gmail.com" }
               },
               [_vm._v("analth355@gmail.com")]
@@ -68275,11 +68278,11 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "w-1/2 h-48" }, [
-          _c("div", { staticClass: "text-xl font-bold" }, [
+          _c("div", { staticClass: "text-xl font-bold title" }, [
             _vm._v("About The Website")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "text-gray-600" }, [
+          _c("div", { staticClass: "text-gray-600 content" }, [
             _vm._v(
               '\n      Procrastination, or you can just call it "Lazy", to overcome my procrastination problem,\n      I studied some research and tried to see if these theories and methods working on me,\n      so I decide to integrate some solution about procrastination,\n      and adding more features to origin thought.\n    '
             )

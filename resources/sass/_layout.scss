@@ -1,0 +1,56 @@
+body {
+  //目前能查到能解決fixed導致overlapping的大部分都是加入padding
+  //https://stackoverflow.com/questions/5311706/position-fixed-content-overlapping-problem
+  margin-top: 130px;
+  background-image: linear-gradient(135deg, rgb(90, 181, 138), rgb(90, 132, 181));
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#navigation {
+  .logo {
+    background-image: linear-gradient(90deg, rgb(25, 30, 57), rgb(14, 17, 26));
+    border-bottom-right-radius: 100px 100%;
+    a {
+      color: rgb(245, 247, 225);
+    }
+  }
+
+  a {
+    color: rgb(245, 246, 231);
+  }
+  button {
+    background-color: rgb(90, 132, 181);
+    color: rgb(199, 213, 230);
+    border-color: rgb(90, 132, 181);
+    border-width: 3px;
+    border-radius: 20px;
+    &:hover {
+      background-color: rgb(111, 148, 190);
+    }
+    &:active {
+      background-color: rgb(76, 119, 169);
+    }
+  }
+
+  order: 2;
+}
+
+#footer {
+  background-image: linear-gradient(0deg, rgb(23, 43, 54), rgb(5, 9, 11));
+
+  .logo {
+    color: rgb(235, 214, 203);
+    text-shadow: 2px 2px 10px rgb(183, 122, 92);
+  }
+  .title {
+    color: rgb(239, 220, 233);
+  }
+  .content {
+    color: rgb(122, 133, 102);
+  }
+  a:hover {
+    color: rgb(235, 214, 203);
+  }
+}

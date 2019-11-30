@@ -1,5 +1,5 @@
 <template>
-  <div class="m-8">
+  <div class="m-8 w-full" id="Info">
     <div class="md:flex">
       <div class="md:flex-shrink-0">
         <a class="p-0 m-0" :href="article_href">
@@ -9,9 +9,9 @@
       <div class="d:mt-0 md:ml-6">
         <a
           :href="article_href"
-          class="block text-2xl leading-tight font-semibold text-gray-900 hover:underline"
+          class="title block text-2xl leading-tight font-semibold text-gray-900 hover:underline"
         >{{title}}</a>
-        <p class="mt-2 text-base text-white">{{this.body.substr(0,200)}} ...</p>
+        <p class="content mt-2 text-base">{{this.body.substr(0,200)}} ...</p>
         <div
           class="flex justify-end mt-3 uppercase tracking-wide text-sm text-indigo-600 font-bold"
         >
