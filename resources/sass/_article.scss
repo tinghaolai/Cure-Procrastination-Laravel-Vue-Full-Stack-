@@ -1,0 +1,44 @@
+#article {
+  background-color: rgba(249, 241, 241, 0.6);
+  border-color: rgba(249, 241, 241, 0.6);
+  border-width: 0px 0px 0px 0px;
+  border-radius: 0px 0px 20px 20px;
+  #image {
+    border-width: 0px 0px 0px 0px;
+  }
+  .title {
+    color: rgb(22, 30, 32);
+  }
+  .fa {
+    color: rgb(69, 48, 65);
+  }
+  .info {
+    color: rgb(91, 96, 67);
+  }
+  #content {
+    color: rgb(37, 51, 55);
+  }
+  #comments {
+    background-color: rgba(237, 247, 247, 0.5);
+    color: rgb(46, 21, 21);
+    .comment {
+      background-color: rgba(178, 181, 90, 0.3);
+      border-color: rgba(178, 181, 90, 0.3);
+      border-width: 10px;
+      border-radius: 20px;
+      background-clip: padding-box;
+      .fa {
+        color: rgb(16, 25, 35);
+      }
+      .user {
+        color: rgb(30, 47, 67);
+      }
+      .content {
+        color: rgb(65, 102, 144);
+      }
+      .time {
+        color: rgb(59, 60, 27);
+      }
+    }
+  }
+}

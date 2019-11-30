@@ -104,3 +104,12 @@ class and style binding e11 利用轉換class 來切換style 可以用在navigat
 autocomplete 給搜尋用的 e14
 e15 如果要做計時器或是todolist之類的 可能可以參考這個
 autoformat 可以用在contact me+ email
+
+
+
+
+
+
+            <div class="w-full flex justify-center bg-black" id="image">
+                <img class="w-1/2" src="{{ asset('storage/' . $article->image)}}" alt="" class="img-thumbnail">
+            </div>

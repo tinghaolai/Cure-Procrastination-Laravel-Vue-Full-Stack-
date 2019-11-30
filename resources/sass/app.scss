@@ -1,9 +1,10 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-
 @import "variables";
 @import "layout";
 @import "articles";
+@import "article";
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
@@ -23,4 +24,3 @@
 Color that can't be changed here:
 Navigation scrolled
 */
-//background-image: linear-gradient(red, yellow);
