@@ -35795,6 +35795,12 @@ Color that can't be changed here:
 Navigation scrolled
 */
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @media (min-width: 640px){
   .sm\:sr-only{
     position: absolute;

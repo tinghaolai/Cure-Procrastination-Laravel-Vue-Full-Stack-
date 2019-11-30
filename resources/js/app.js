@@ -8,6 +8,7 @@ import App from './components/App';
 import vuefooter from './components/layout/vuefooter';
 import Navigation from './components/layout/Navigation';
 import Sidebar from './components/layout/Sidebar';
+import Scrollup from './components/layout/Scrollup';
 
 require('./bootstrap');
 
@@ -24,6 +25,7 @@ const app = new Vue({
 		vuefooter,
 		Navigation,
 		App,
-		Sidebar
+		Sidebar,
+		Scrollup
 	}
 });

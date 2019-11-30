@@ -72,7 +72,6 @@ export default {
   },
   methods: {
     get_link_name: function(link) {
-      console.log(this.currentRoute);
       return this.Link_names[link];
     },
     updateScroll() {
@@ -90,9 +89,13 @@ export default {
 .chinese {
   font-family: "Helvetica", "微軟正黑體";
 }
+
+#navigation {
+  transition: background-color 0.7s;
+}
 .scrolled {
   background-color: rgb(14, 17, 26);
-  transition: background-color 0.7s;
+  transition: background-color 0.5s;
 }
 
 .nowBrowsing {

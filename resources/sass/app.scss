@@ -24,3 +24,9 @@
 Color that can't be changed here:
 Navigation scrolled
 */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
