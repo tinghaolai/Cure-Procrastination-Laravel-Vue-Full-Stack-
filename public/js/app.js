@@ -67972,7 +67972,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "d:mt-0 md:ml-6" }, [
+      _c("div", { staticClass: "d:mt-0 md:ml-6 w-full" }, [
         _c(
           "a",
           {

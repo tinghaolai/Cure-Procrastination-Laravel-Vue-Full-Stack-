@@ -6,7 +6,7 @@
           <img class="rounded-lg md:w-56" :src="image" />
         </a>
       </div>
-      <div class="d:mt-0 md:ml-6">
+      <div class="d:mt-0 md:ml-6 w-full">
         <a
           :href="article_href"
           class="title block text-2xl leading-tight font-semibold text-gray-900 hover:underline"
