@@ -15,11 +15,11 @@
       <div class="text-xl font-bold title">About The Website</div>
       <div class="text-gray-600 content">
         Procrastination, or you can just call it "Lazy", to overcome my procrastination problem,
-        I studied some research and tried to see if these theories and methods working on me,
+        I did some research and tried to see if these theories and methods working on me,
         so I decide to integrate some solution about procrastination,
         and adding more features to origin thought.
       </div>
-      <div>
+      <div class="mt-3">
         <i href="." class="fa fa-github" style="font-size:36px"></i>
         <a href>Github</a>
         <button></button>

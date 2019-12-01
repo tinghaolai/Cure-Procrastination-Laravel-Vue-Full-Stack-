@@ -1,25 +1,73 @@
 <template>
-  <div class="bg-blue-500">
-    <div>To Do List</div>
-    <h1>Current time: {{ timestamp }}</h1>
-    <span>Thing to do</span>
-    <input v-model="thing" type="text" />
-    <span>Time to finish</span>
-    <timeselector
-      v-model="time_origin_format"
-      :interval="{h:1, m:1, s:1}"
-      returnFormat="H:m"
-      @formatedTime="recordTime"
-    ></timeselector>
-    time:{{time}}
-    <button @click="addTodoItem">Add</button>
+  <div class="m-5 p-5 text-center" id="todo">
+    <div class="text-3xl font-bold" id="title">To Do List</div>
+    <div id="now">
+      <span class="text-xl mr-2">Current time:</span>
+      <span class="text-xl">{{ timestamp }}</span>
+    </div>
+    <div class="py-2 px-40 m-2 text-lg" id="add">
+      <div class="form-text m-2">Thing to do</div>
+      <input
+        class="appearance-none block w-full bg-gray-00 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        id="grid-city"
+        type="text"
+        placeholder="Write My Homework"
+        v-model="thing"
+      />
+      <div class="form-text m-2">Time to finish</div>
+      <div class="flex justify-center">
+        <timeselector
+          v-model="time_origin_format"
+          :interval="{h:1, m:1, s:1}"
+          returnFormat="H:m"
+          @formatedTime="recordTime"
+        ></timeselector>
+      </div>
+
+      <button
+        @click="addTodoItem"
+        class="m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+      >Add</button>
+    </div>
 
     <div>
       <ul>
-        <li v-for="(item, index) in todoItems" :key="index">
-          <span>{{item.thing}}</span>
-          <span>Time to finish: {{item.time}}</span>
-          <span>Time left: {{secToString(item.time_left)}}</span>
+        <li
+          class="flex justify-center items-center text-center m-5"
+          v-for="(item, index) in todoItems"
+          :key="index"
+        >
+          <button
+            :id="index"
+            @click="clearQuest($event)"
+            class="done text-base mx-2 font-bold py-2 px-4 rounded-full h-16 w-16 flex items-center justify-center"
+          >Done</button>
+          <span class="text-lg inline-flex items-center px-4 py-2 m-3 deadline">{{item.time}}</span>
+
+          <span class="mx-2 inline-block w-3/4">
+            <div
+              class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-2 py-1 shadow-md"
+              role="alert"
+            >
+              <div class="flex">
+                <div class="w-full">
+                  <div class="w-full flex justify-end">
+                    <div
+                      class="w-1/4 bg-red-100 border border-red-400 text-red-700 px-4 py-1 rounded"
+                      role="alert"
+                    >
+                      <strong class="font-bold">Time left:</strong>
+                      <span>{{secToString(item.time_left)}}</span>
+                    </div>
+                  </div>
+                  <div class="w-full flex justify-start">
+                    <span class="text-2xl quest font-extrabold">Quest {{index+1}}:</span>
+                    <span class="text-lg inline-flex items-end quest-name">{{item.thing}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
         </li>
       </ul>
     </div>
@@ -47,11 +95,17 @@ export default {
       time: null,
       thing: null,
       todoItems: [
-        //{ thing: "123456789", time: "8:00", time_left: 0 },
-        //{ thing: "234567890", time: "18:00", time_left: 0 },
-        //{ thing: "345678901", time: "1:00", time_left: 0 }
+        /*
+        {
+          thing: "123456789wefwegww",
+          time: "8:00",
+          time_left: 0
+        },
+        { thing: "234567890", time: "18:00", time_left: 0 },
+        { thing: "345678901", time: "1:00", time_left: 0 }
+        */
       ],
-      timestamp: ""
+      timestamp: "1970-01-01 00:00:00"
     };
   },
   methods: {
@@ -101,13 +155,11 @@ export default {
       }
       let hours = Math.floor(sec / 3600);
       return (
-        "Hours:" +
-        hours +
-        "Minutes: " +
-        (Math.floor(sec / 60) - hours * 60) +
-        " Seconds: " +
-        (sec % 60)
+        hours + ":" + (Math.floor(sec / 60) - hours * 60) + ":" + (sec % 60)
       );
+    },
+    clearQuest(event) {
+      this.todoItems.splice(event.currentTarget.id, 1);
     }
   }
 };

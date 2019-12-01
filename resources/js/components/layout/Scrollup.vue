@@ -18,7 +18,6 @@ export default {
   methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY;
-      console.log(this.scrollPosition);
     },
     top() {
       document.body.scrollTop = 0;

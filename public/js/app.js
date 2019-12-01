@@ -2188,6 +2188,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var track;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2205,11 +2253,18 @@ var track;
       time_origin_format: null,
       time: null,
       thing: null,
-      todoItems: [//{ thing: "123456789", time: "8:00", time_left: 0 },
-        //{ thing: "234567890", time: "18:00", time_left: 0 },
-        //{ thing: "345678901", time: "1:00", time_left: 0 }
+      todoItems: [
+        /*
+        {
+          thing: "123456789wefwegww",
+          time: "8:00",
+          time_left: 0
+        },
+        { thing: "234567890", time: "18:00", time_left: 0 },
+        { thing: "345678901", time: "1:00", time_left: 0 }
+        */
       ],
-      timestamp: ""
+      timestamp: "1970-01-01 00:00:00"
     };
   },
   methods: {
@@ -2250,7 +2305,10 @@ var track;
       }
 
       var hours = Math.floor(sec / 3600);
-      return "Hours:" + hours + "Minutes: " + (Math.floor(sec / 60) - hours * 60) + " Seconds: " + sec % 60;
+      return hours + ":" + (Math.floor(sec / 60) - hours * 60) + ":" + sec % 60;
+    },
+    clearQuest: function clearQuest(event) {
+      this.todoItems.splice(event.currentTarget.id, 1);
     }
   }
 });
@@ -2469,7 +2527,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     updateScroll: function updateScroll() {
       this.scrollPosition = window.scrollY;
-      console.log(this.scrollPosition);
     },
     top: function top() {
       document.body.scrollTop = 0;
@@ -67912,70 +67969,192 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-blue-500" },
+    { staticClass: "m-5 p-5 text-center", attrs: { id: "todo" } },
     [
-      _c("div", [_vm._v("To Do List")]),
+      _c("div", { staticClass: "text-3xl font-bold", attrs: { id: "title" } }, [
+        _vm._v("To Do List")
+      ]),
       _vm._v(" "),
-      _c("h1", [_vm._v("Current time: " + _vm._s(_vm.timestamp))]),
+      _c("div", { attrs: { id: "now" } }, [
+        _c("span", { staticClass: "text-xl mr-2" }, [_vm._v("Current time:")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-xl" }, [_vm._v(_vm._s(_vm.timestamp))])
+      ]),
       _vm._v(" "),
-      _c("span", [_vm._v("Thing to do")]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.thing,
-            expression: "thing"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.thing },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      _c(
+        "div",
+        { staticClass: "py-2 px-40 m-2 text-lg", attrs: { id: "add" } },
+        [
+          _c("div", { staticClass: "form-text m-2" }, [_vm._v("Thing to do")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.thing,
+                expression: "thing"
+              }
+            ],
+            staticClass:
+              "appearance-none block w-full bg-gray-00 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+            attrs: {
+              id: "grid-city",
+              type: "text",
+              placeholder: "Write My Homework"
+            },
+            domProps: { value: _vm.thing },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.thing = $event.target.value
+              }
             }
-            _vm.thing = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("span", [_vm._v("Time to finish")]),
-      _vm._v(" "),
-      _c("timeselector", {
-        attrs: { interval: { h: 1, m: 1, s: 1 }, returnFormat: "H:m" },
-        on: { formatedTime: _vm.recordTime },
-        model: {
-          value: _vm.time_origin_format,
-          callback: function($$v) {
-            _vm.time_origin_format = $$v
-          },
-          expression: "time_origin_format"
-        }
-      }),
-      _vm._v("\n  time:" + _vm._s(_vm.time) + "\n  "),
-      _c("button", { on: { click: _vm.addTodoItem } }, [_vm._v("Add")]),
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-text m-2" }, [
+            _vm._v("Time to finish")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex justify-center" },
+            [
+              _c("timeselector", {
+                attrs: { interval: { h: 1, m: 1, s: 1 }, returnFormat: "H:m" },
+                on: { formatedTime: _vm.recordTime },
+                model: {
+                  value: _vm.time_origin_format,
+                  callback: function($$v) {
+                    _vm.time_origin_format = $$v
+                  },
+                  expression: "time_origin_format"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow",
+              on: { click: _vm.addTodoItem }
+            },
+            [_vm._v("Add")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("div", [
         _c(
           "ul",
           _vm._l(_vm.todoItems, function(item, index) {
-            return _c("li", { key: index }, [
-              _c("span", [_vm._v(_vm._s(item.thing))]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Time to finish: " + _vm._s(item.time))]),
-              _vm._v(" "),
-              _c("span", [
-                _vm._v("Time left: " + _vm._s(_vm.secToString(item.time_left)))
-              ])
-            ])
+            return _c(
+              "li",
+              {
+                key: index,
+                staticClass: "flex justify-center items-center text-center m-5"
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "done text-base mx-2 font-bold py-2 px-4 rounded-full h-16 w-16 flex items-center justify-center",
+                    attrs: { id: index },
+                    on: {
+                      click: function($event) {
+                        return _vm.clearQuest($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Done")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "text-lg inline-flex items-center px-4 py-2 m-3 deadline"
+                  },
+                  [_vm._v(_vm._s(item.time))]
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "mx-2 inline-block w-3/4" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-2 py-1 shadow-md",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _c("div", { staticClass: "flex" }, [
+                        _c("div", { staticClass: "w-full" }, [
+                          _c(
+                            "div",
+                            { staticClass: "w-full flex justify-end" },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "w-1/4 bg-red-100 border border-red-400 text-red-700 px-4 py-1 rounded",
+                                  attrs: { role: "alert" }
+                                },
+                                [
+                                  _c("strong", { staticClass: "font-bold" }, [
+                                    _vm._v("Time left:")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(_vm.secToString(item.time_left))
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "w-full flex justify-start" },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "text-2xl quest font-extrabold"
+                                },
+                                [_vm._v("Quest " + _vm._s(index + 1) + ":")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-lg inline-flex items-end quest-name"
+                                },
+                                [_vm._v(_vm._s(item.thing))]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
           }),
           0
         )
       ])
-    ],
-    1
+    ]
   )
 }
 var staticRenderFns = []
@@ -68411,11 +68590,11 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "text-gray-600 content" }, [
             _vm._v(
-              '\n      Procrastination, or you can just call it "Lazy", to overcome my procrastination problem,\n      I studied some research and tried to see if these theories and methods working on me,\n      so I decide to integrate some solution about procrastination,\n      and adding more features to origin thought.\n    '
+              '\n      Procrastination, or you can just call it "Lazy", to overcome my procrastination problem,\n      I did some research and tried to see if these theories and methods working on me,\n      so I decide to integrate some solution about procrastination,\n      and adding more features to origin thought.\n    '
             )
           ]),
           _vm._v(" "),
-          _c("div", [
+          _c("div", { staticClass: "mt-3" }, [
             _c("i", {
               staticClass: "fa fa-github",
               staticStyle: { "font-size": "36px" },

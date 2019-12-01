@@ -1,0 +1,47 @@
+#todo {
+  background-color: rgba(234, 239, 246, 0.9);
+  border-radius: 20px;
+  #title {
+    color: rgb(43, 67, 95);
+  }
+  #now {
+    span {
+      color: rgb(51, 113, 84);
+    }
+  }
+  #add {
+    background-color: rgb(38, 39, 17);
+    border-radius: 20px;
+    .form-text {
+      color: rgb(250, 244, 250);
+    }
+    input {
+    }
+    button {
+      color: rgb(17, 38, 39);
+    }
+  }
+  .done {
+    background-color: rgb(200, 203, 139);
+    color: rgb(241, 241, 249);
+    box-shadow: 0px 0px 15px 2px rgb(140, 144, 65);
+  }
+  .deadline {
+    background-color: rgb(90, 132, 181);
+    border-radius: 10px;
+    border: 2px double rgb(53, 79, 130);
+    color: rgb(236, 204, 167);
+    box-shadow: 2px 2px 0px 2px rgb(53, 79, 130);
+  }
+  .quest {
+    padding: 4px;
+    margin: 5px;
+    color: rgb(36, 79, 81);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 2px rgb(36, 79, 81);
+  }
+  .quest-name {
+    margin: 5px 5px 5px 15px;
+    color: rgb(102, 107, 0);
+  }
+}
