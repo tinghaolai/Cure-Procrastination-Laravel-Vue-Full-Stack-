@@ -1953,6 +1953,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var track;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2038,7 +2075,7 @@ var track;
       this.timerState = "stopped";
     },
     secToString: function secToString(sec) {
-      return "Minutes: " + Math.floor(sec / 60) + " Seconds: " + sec % 60;
+      return Math.floor(sec / 60) + " Minutes: " + sec % 60 + " Seconds";
     }
   }
 });
@@ -67490,18 +67527,61 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticStyle: { "background-color": "white" } }, [
+  return _c("div", { attrs: { id: "clock" } }, [
     _c("div", { staticClass: "flex justify-center" }, [
       _c(
         "div",
         {
           staticClass:
-            "w-1/2 bg-blue-900 rounded-lg shadow px-6 py-12 flex flex-col items-center"
+            "relative w-1/2 rounded-lg shadow px-6 py-12 flex flex-col items-center",
+          attrs: { id: "shell" }
         },
         [
+          _vm.currentPage == "timer"
+            ? _c("span", [
+                _vm.intervalPointer
+                  ? _c(
+                      "span",
+                      {
+                        staticClass:
+                          "text-lg font-extrabold absolute top-0 left-0",
+                        attrs: { id: "status" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "rounded-lg alert-success p-2" },
+                          [_vm._v("Take a break")]
+                        )
+                      ]
+                    )
+                  : _c(
+                      "span",
+                      {
+                        staticClass:
+                          "text-lg font-extrabold absolute top-0 left-0",
+                        attrs: { id: "status" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "rounded-lg alert-danger p-2",
+                            attrs: { id: "working" }
+                          },
+                          [_vm._v("Time for Working")]
+                        )
+                      ]
+                    )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "bg-gray-400 rounded-full flex justify-around p-1" },
+            {
+              staticClass: "bg-gray-400 rounded-full flex justify-around p-1",
+              attrs: { id: "bar" }
+            },
             [
               _c(
                 "button",
@@ -67543,314 +67623,339 @@ var render = function() {
           _vm._v(" "),
           _vm.currentPage == "timer"
             ? _c("div", { staticClass: "w-full pt-8 text-white text-center" }, [
-                _c("div", { staticClass: "w-full" }, [_vm._v("Time Interval")]),
+                _c("div", { staticClass: "flex flex-wrap overflow-hidden" }, [
+                  _c(
+                    "div",
+                    { staticClass: "w-1/2 overflow-hidden font-bold" },
+                    [_vm._v("Working Time")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "w-1/2 overflow-hidden font-bold" },
+                    [_vm._v("Break Time")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/2 overflow-hidden font-lg" }, [
+                    _vm._v(_vm._s(_vm.secToString(_vm.work_break_Interval[0])))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/2 overflow-hidden font-lg" }, [
+                    _vm._v(_vm._s(_vm.secToString(_vm.work_break_Interval[1])))
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    "Working Time: " +
-                      _vm._s(_vm.secToString(_vm.work_break_Interval[0])) +
-                      " seconds"
+                _c("div", { staticClass: "m-5" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "text-4xl mx-10",
+                      attrs: { id: "timeleft" }
+                    },
+                    [_vm._v(_vm._s(_vm.formattedTime))]
                   )
                 ]),
                 _vm._v(" "),
                 _c("div", [
-                  _vm._v(
-                    "Break Time: " +
-                      _vm._s(_vm.secToString(_vm.work_break_Interval[1])) +
-                      " seconds"
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-5 text-lg focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          return _vm.start()
+                        }
+                      }
+                    },
+                    [_vm._v("Start")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-5 text-lg focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          return _vm.pause()
+                        }
+                      }
+                    },
+                    [_vm._v("Pause")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-5 text-lg focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          return _vm.reset()
+                        }
+                      }
+                    },
+                    [_vm._v("Reset")]
                   )
-                ]),
-                _vm._v(" "),
-                _vm.intervalPointer
-                  ? _c("div", { staticClass: "alert-success" }, [
-                      _vm._v("Take a break")
-                    ])
-                  : _c("div", { staticClass: "alert-danger" }, [
-                      _vm._v("Time for Working")
-                    ]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(_vm.formattedTime))]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.start()
-                      }
-                    }
-                  },
-                  [_vm._v("Start")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.pause()
-                      }
-                    }
-                  },
-                  [_vm._v("Pause")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.reset()
-                      }
-                    }
-                  },
-                  [_vm._v("Reset")]
-                )
+                ])
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.currentPage == "setting"
-            ? _c("div", { staticClass: "w-full pt-8 text-white text-center" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.LoopAlarm,
-                      expression: "LoopAlarm"
-                    }
-                  ],
-                  attrs: { type: "checkbox", id: "Loop" },
-                  domProps: {
-                    checked: Array.isArray(_vm.LoopAlarm)
-                      ? _vm._i(_vm.LoopAlarm, null) > -1
-                      : _vm.LoopAlarm
-                  },
-                  on: {
-                    change: function($event) {
-                      var $$a = _vm.LoopAlarm,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = null,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.LoopAlarm = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.LoopAlarm = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.LoopAlarm = $$c
-                      }
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "Loop" } }, [
-                  _vm._v("Loop the Alarm: " + _vm._s(_vm.LoopAlarm))
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.work_break_Music[0],
-                          expression: "work_break_Music[0]"
-                        }
-                      ],
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.work_break_Music,
-                            0,
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v(_vm._s(_vm.work_break_Music[0]))
-                      ]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("AlarmClock")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("AnalogyClock")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("ClockTower")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("CuckooClock")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("DigitalClock")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("Work Alarm: " + _vm._s(_vm.work_break_Music[0]))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.work_break_Music[1],
-                          expression: "work_break_Music[1]"
-                        }
-                      ],
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.work_break_Music,
-                            1,
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v(_vm._s(_vm.work_break_Music[1]))
-                      ]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("AlarmClock")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("AnalogyClock")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("ClockTower")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("CuckooClock")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("DigitalClock")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("Break Alarm: " + _vm._s(_vm.work_break_Music[1]))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "text-black" },
-                  [
-                    _c("div", {
-                      domProps: {
-                        textContent: _vm._s(
-                          "Working Time: " + _vm.work_break_Interval[0]
-                        )
-                      }
-                    }),
-                    _vm._v(" "),
+            ? _c(
+                "div",
+                {
+                  staticClass: "w-full pt-8 px-56 text-white text-center",
+                  attrs: { id: "setting" }
+                },
+                [
+                  _c("div", { staticClass: "text-black" }, [
                     _c(
-                      "Timeselector",
-                      {
-                        attrs: {
-                          interval: { h: 1, m: 1, s: 1 },
-                          displayHours: false,
-                          displaySeconds: true,
-                          displayFormat: "mm : ss",
-                          returnFormat: "m:s:0"
-                        },
-                        on: { formatedTime: _vm.recordTime },
-                        model: {
-                          value: _vm.time,
-                          callback: function($$v) {
-                            _vm.time = $$v
+                      "div",
+                      { staticClass: "flex justify-between" },
+                      [
+                        _c("span", {
+                          domProps: {
+                            textContent: _vm._s(
+                              "Working Time: " + _vm.work_break_Interval[0]
+                            )
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("Timeselector", {
+                          staticClass: "Timeselector",
+                          attrs: {
+                            interval: { h: 1, m: 1, s: 1 },
+                            displayHours: false,
+                            displaySeconds: true,
+                            displayFormat: "mm : ss",
+                            returnFormat: "m:s:0"
                           },
-                          expression: "time"
-                        }
-                      },
-                      [_vm._v(">")]
+                          on: { formatedTime: _vm.recordTime },
+                          model: {
+                            value: _vm.time,
+                            callback: function($$v) {
+                              _vm.time = $$v
+                            },
+                            expression: "time"
+                          }
+                        })
+                      ],
+                      1
                     ),
                     _vm._v(" "),
-                    _c("div", {
-                      domProps: {
-                        textContent: _vm._s(
-                          "Break Time: " + _vm.work_break_Interval[1]
+                    _c(
+                      "div",
+                      { staticClass: "flex justify-between" },
+                      [
+                        _c("span", {
+                          domProps: {
+                            textContent: _vm._s(
+                              "Break Time: " + _vm.work_break_Interval[1]
+                            )
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "Timeselector",
+                          {
+                            staticClass: "Timeselector",
+                            attrs: {
+                              interval: { h: 1, m: 1, s: 1 },
+                              displayHours: false,
+                              displaySeconds: true,
+                              displayFormat: "mm : ss",
+                              returnFormat: "m:s:1"
+                            },
+                            on: { formatedTime: _vm.recordTime },
+                            model: {
+                              value: _vm.time,
+                              callback: function($$v) {
+                                _vm.time = $$v
+                              },
+                              expression: "time"
+                            }
+                          },
+                          [_vm._v(">")]
                         )
-                      }
-                    }),
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-between" }, [
+                    _c("span", [
+                      _vm._v("Work Alarm: " + _vm._s(_vm.work_break_Music[0]))
+                    ]),
                     _vm._v(" "),
                     _c(
-                      "Timeselector",
+                      "select",
                       {
-                        attrs: {
-                          interval: { h: 1, m: 1, s: 1 },
-                          displayHours: false,
-                          displaySeconds: true,
-                          displayFormat: "mm : ss",
-                          returnFormat: "m:s:1"
-                        },
-                        on: { formatedTime: _vm.recordTime },
-                        model: {
-                          value: _vm.time,
-                          callback: function($$v) {
-                            _vm.time = $$v
-                          },
-                          expression: "time"
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.work_break_Music[0],
+                            expression: "work_break_Music[0]"
+                          }
+                        ],
+                        staticClass:
+                          "block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-0 px-4 pr-0 my-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.work_break_Music,
+                              0,
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
                         }
                       },
-                      [_vm._v(">")]
+                      [
+                        _c("option", { attrs: { disabled: "", value: "" } }, [
+                          _vm._v(_vm._s(_vm.work_break_Music[0]))
+                        ]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("AlarmClock")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("AnalogyClock")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("ClockTower")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("CuckooClock")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("DigitalClock")])
+                      ]
                     )
-                  ],
-                  1
-                )
-              ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-between" }, [
+                    _c("span", [
+                      _vm._v("Break Alarm: " + _vm._s(_vm.work_break_Music[1]))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.work_break_Music[1],
+                            expression: "work_break_Music[1]"
+                          }
+                        ],
+                        staticClass:
+                          "block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-0 px-4 pr-0 my-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.work_break_Music,
+                              1,
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { disabled: "", value: "" } }, [
+                          _vm._v(_vm._s(_vm.work_break_Music[1]))
+                        ]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("AlarmClock")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("AnalogyClock")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("ClockTower")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("CuckooClock")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("DigitalClock")])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between items-center" },
+                    [
+                      _c("span", { attrs: { for: "Loop" } }, [
+                        _vm._v("Loop the Alarm: " + _vm._s(_vm.LoopAlarm))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "pt-2" }, [
+                        _c(
+                          "label",
+                          { staticClass: "switch", attrs: { for: "Loop" } },
+                          [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.LoopAlarm,
+                                  expression: "LoopAlarm"
+                                }
+                              ],
+                              attrs: { type: "checkbox", id: "Loop" },
+                              domProps: {
+                                checked: Array.isArray(_vm.LoopAlarm)
+                                  ? _vm._i(_vm.LoopAlarm, null) > -1
+                                  : _vm.LoopAlarm
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.LoopAlarm,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        (_vm.LoopAlarm = $$a.concat([$$v]))
+                                    } else {
+                                      $$i > -1 &&
+                                        (_vm.LoopAlarm = $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1)))
+                                    }
+                                  } else {
+                                    _vm.LoopAlarm = $$c
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "slider round" })
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              )
             : _vm._e()
         ]
       )
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-success rounded text-white font-bold hover:bg-dark px-4 py-2",
-          on: {
-            click: function($event) {
-              return _vm.playSound()
-            }
-          }
-        },
-        [_vm._v("Click")]
-      ),
-      _vm._v(" "),
-      _vm.played
-        ? _c("div", [_c("p", [_vm._v("Your music played")])])
-        : _vm._e()
     ])
   ])
 }

@@ -1,8 +1,23 @@
 <template>
-  <div style="background-color:white;">
+  <div id="clock">
     <div class="flex justify-center">
-      <div class="w-1/2 bg-blue-900 rounded-lg shadow px-6 py-12 flex flex-col items-center">
-        <div class="bg-gray-400 rounded-full flex justify-around p-1">
+      <div
+        class="relative w-1/2 rounded-lg shadow px-6 py-12 flex flex-col items-center"
+        id="shell"
+      >
+        <span v-if="currentPage == 'timer'">
+          <span
+            class="text-lg font-extrabold absolute top-0 left-0"
+            id="status"
+            v-if="intervalPointer"
+          >
+            <span class="rounded-lg alert-success p-2">Take a break</span>
+          </span>
+          <span class="text-lg font-extrabold absolute top-0 left-0" id="status" v-else>
+            <span class="rounded-lg alert-danger p-2" id="working">Time for Working</span>
+          </span>
+        </span>
+        <div class="bg-gray-400 rounded-full flex justify-around p-1" id="bar">
           <button
             @click="currentPage = 'timer'"
             class="rounded-full text-xs font-bold px-6 py-1 uppercase focus:outline-none"
@@ -16,23 +31,66 @@
         </div>
         <!-- Timer -->
         <div class="w-full pt-8 text-white text-center" v-if="currentPage == 'timer'">
-          <div class="w-full">Time Interval</div>
-          <div>Working Time: {{secToString(work_break_Interval[0])}} seconds</div>
-          <div>Break Time: {{secToString(work_break_Interval[1])}} seconds</div>
-          <div class="alert-success" v-if="intervalPointer">Take a break</div>
-          <div class="alert-danger" v-else>Time for Working</div>
+          <div class="flex flex-wrap overflow-hidden">
+            <div class="w-1/2 overflow-hidden font-bold">Working Time</div>
 
-          <div>{{formattedTime}}</div>
-          <button @click="start()">Start</button>
-          <button @click="pause()">Pause</button>
-          <button @click="reset()">Reset</button>
+            <div class="w-1/2 overflow-hidden font-bold">Break Time</div>
+
+            <div class="w-1/2 overflow-hidden font-lg">{{secToString(work_break_Interval[0])}}</div>
+
+            <div class="w-1/2 overflow-hidden font-lg">{{secToString(work_break_Interval[1])}}</div>
+          </div>
+          <div class="m-5">
+            <span class="text-4xl mx-10" id="timeleft">{{formattedTime}}</span>
+          </div>
+
+          <div>
+            <button class="mx-5 text-lg focus:outline-none" @click="start()">Start</button>
+            <button class="mx-5 text-lg focus:outline-none" @click="pause()">Pause</button>
+            <button class="mx-5 text-lg focus:outline-none" @click="reset()">Reset</button>
+          </div>
         </div>
         <!-- Setting -->
-        <div class="w-full pt-8 text-white text-center" v-if="currentPage == 'setting'">
-          <input type="checkbox" id="Loop" v-model="LoopAlarm" />
-          <label for="Loop">Loop the Alarm: {{ LoopAlarm }}</label>
-          <div>
-            <select v-model="work_break_Music[0]">
+        <div
+          id="setting"
+          class="w-full pt-8 px-56 text-white text-center"
+          v-if="currentPage == 'setting'"
+        >
+          <div class="text-black">
+            <div class="flex justify-between">
+              <span v-text="'Working Time: ' + work_break_Interval[0]"></span>
+              <Timeselector
+                class="Timeselector"
+                v-model="time"
+                :interval="{h:1, m:1, s:1}"
+                :displayHours="false"
+                :displaySeconds="true"
+                :displayFormat="'mm : ss'"
+                returnFormat="m:s:0"
+                @formatedTime="recordTime"
+              ></Timeselector>
+            </div>
+            <div class="flex justify-between">
+              <span v-text="'Break Time: ' + work_break_Interval[1]"></span>
+              <Timeselector
+                class="Timeselector"
+                v-model="time"
+                :interval="{h:1, m:1, s:1}"
+                :displayHours="false"
+                :displaySeconds="true"
+                :displayFormat="'mm : ss'"
+                returnFormat="m:s:1"
+                @formatedTime="recordTime"
+              >></Timeselector>
+            </div>
+          </div>
+
+          <div class="flex justify-between">
+            <span>Work Alarm: {{ work_break_Music[0] }}</span>
+            <select
+              v-model="work_break_Music[0]"
+              class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-0 px-4 pr-0 my-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            >
               <option disabled value>{{work_break_Music[0]}}</option>
               <option>AlarmClock</option>
               <option>AnalogyClock</option>
@@ -40,10 +98,13 @@
               <option>CuckooClock</option>
               <option>DigitalClock</option>
             </select>
-            <span>Work Alarm: {{ work_break_Music[0] }}</span>
           </div>
-          <div>
-            <select v-model="work_break_Music[1]">
+          <div class="flex justify-between">
+            <span>Break Alarm: {{ work_break_Music[1] }}</span>
+            <select
+              v-model="work_break_Music[1]"
+              class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-0 px-4 pr-0 my-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            >
               <option disabled value>{{work_break_Music[1]}}</option>
               <option>AlarmClock</option>
               <option>AnalogyClock</option>
@@ -51,41 +112,17 @@
               <option>CuckooClock</option>
               <option>DigitalClock</option>
             </select>
-            <span>Break Alarm: {{ work_break_Music[1] }}</span>
           </div>
-          <div class="text-black">
-            <div v-text="'Working Time: ' + work_break_Interval[0]"></div>
-            <Timeselector
-              v-model="time"
-              :interval="{h:1, m:1, s:1}"
-              :displayHours="false"
-              :displaySeconds="true"
-              :displayFormat="'mm : ss'"
-              returnFormat="m:s:0"
-              @formatedTime="recordTime"
-            >></Timeselector>
-            <div v-text="'Break Time: ' + work_break_Interval[1]"></div>
-            <Timeselector
-              v-model="time"
-              :interval="{h:1, m:1, s:1}"
-              :displayHours="false"
-              :displaySeconds="true"
-              :displayFormat="'mm : ss'"
-              returnFormat="m:s:1"
-              @formatedTime="recordTime"
-            >></Timeselector>
+          <div class="flex justify-between items-center">
+            <span for="Loop">Loop the Alarm: {{ LoopAlarm }}</span>
+            <div class="pt-2">
+              <label class="switch" for="Loop">
+                <input type="checkbox" id="Loop" v-model="LoopAlarm" />
+                <div class="slider round"></div>
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div>
-      <button
-        @click="playSound()"
-        class="bg-success rounded text-white font-bold hover:bg-dark px-4 py-2"
-      >Click</button>
-      <div v-if="played">
-        <p>Your music played</p>
       </div>
     </div>
   </div>
@@ -181,7 +218,7 @@ export default {
       this.timerState = "stopped";
     },
     secToString(sec) {
-      return "Minutes: " + Math.floor(sec / 60) + " Seconds: " + (sec % 60);
+      return Math.floor(sec / 60) + " Minutes: " + (sec % 60) + " Seconds";
     }
   }
 };

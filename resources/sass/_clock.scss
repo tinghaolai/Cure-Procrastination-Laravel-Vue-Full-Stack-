@@ -1,0 +1,96 @@
+#clock {
+  margin: 50px;
+  #shell {
+    background-image: linear-gradient(315deg, rgb(103, 162, 228), rgb(6, 24, 45));
+    #bar {
+      background-color: rgb(152, 219, 220);
+    }
+    #timeleft {
+      background-color: rgba(130, 227, 182, 0.7);
+      border-color: rgba(130, 227, 182, 0.7);
+      border-radius: 20px;
+      border-width: 10px 30px 10px 30px;
+      background-clip: padding-box;
+    }
+    #status {
+      border-radius: 10px;
+      padding: 5px;
+      margin: 10px;
+      border: 10px solid rgb(9, 29, 51);
+      box-shadow: 0px 0px 15px 5px rgb(9, 29, 51);
+      #working {
+        background-color: rgb(181, 93, 90);
+        color: rgb(225, 189, 188);
+      }
+    }
+    #setting {
+      span {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+      }
+      .vtimeselector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .vtimeselector__input {
+          background-color: rgb(237, 242, 247);
+          border-radius: 10px;
+          text-align: center;
+          color: rgb(101, 85, 104);
+        }
+        .vtimeselector__clear {
+          display: none;
+        }
+      }
+      .switch {
+        display: block;
+        height: 34px;
+        position: relative;
+        width: 60px;
+        input {
+          display: none;
+        }
+      }
+
+      .slider {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.4s;
+
+        &:before {
+          background-color: #fff;
+          bottom: 4px;
+          content: "";
+          height: 26px;
+          left: 4px;
+          position: absolute;
+          transition: 0.4s;
+          width: 26px;
+        }
+      }
+
+      input:checked + .slider {
+        background-color: #66bb6a;
+
+        &:before {
+          transform: translateX(26px);
+        }
+      }
+
+      .slider.round {
+        border-radius: 34px;
+
+        &:before {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
