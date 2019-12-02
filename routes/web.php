@@ -41,7 +41,11 @@ Route::delete('/articleadmin/{article}', 'ArticleadminController@destroy')->name
 Route::delete('/articleadmin/deleted/{article}', 'ArticleadminController@forceDelete_deleted')->name('articleadmin.forceDelete_deleted');
 
 
+Route::get('/test', function () {
+    return view('test');
+});
 Route::get('/{any}', 'AppController@index')->where('any', '.*');
+
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

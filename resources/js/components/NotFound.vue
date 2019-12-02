@@ -1,5 +1,5 @@
 <template>
-  <h1 class="alert-primary">Not Found</h1>
+  <div class="mx-56 py-20">404 NOT FOUND</div>
 </template>
 
 
@@ -10,4 +10,7 @@ export default {
 </script>
 
 <style scoped>
+div {
+  font-size: 150px;
+}
 </style>
