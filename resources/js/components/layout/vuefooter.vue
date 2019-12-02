@@ -1,5 +1,5 @@
 <template>
-  <div class="flex px-64 pt-12 text-white" id="footer">
+  <div class="w-full flex px-64 pt-12 text-white" id="footer">
     <div class="w-1/2 h-48">
       <div class="text-xl">
         <div class="pb-3 text-5xl text-green-100 logo">Cure Procrastination</div>
