@@ -2127,12 +2127,122 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Homepage",
   computed: {},
   mounted: function mounted() {},
   data: function data() {
-    return {};
+    return {
+      currentPage: "home"
+    };
   }
 });
 
@@ -35349,7 +35459,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#index[data-v-7f033e59] {\n}\n#slidebar button[data-v-7f033e59] {\n  border: 2px rgb(182, 231, 208);\n  background-color: rgb(182, 231, 208);\n  border-radius: 100%;\n  height: 10px;\n  width: 10px;\n  margin: 10px;\n}\n#content[data-v-7f033e59] {\n  background-image: linear-gradient(45deg, rgb(55, 96, 144), rgb(65, 130, 200));\n  height: 390px;\n}\n#main_img[data-v-7f033e59] {\n  max-width: 100%;\n  max-height: 100%;\n  opacity: 0.9;\n}\n", ""]);
+exports.push([module.i, "#slidebar button[data-v-7f033e59] {\n  border: 2px rgb(182, 231, 208);\n  background-color: rgb(182, 231, 208);\n  border-radius: 100%;\n  height: 10px;\n  width: 10px;\n  margin: 10px;\n}\n#content[data-v-7f033e59] {\n  background-image: linear-gradient(45deg, rgb(55, 96, 144), rgb(65, 130, 200));\n  height: 390px;\n}\n#main_img[data-v-7f033e59] {\n  max-width: 100%;\n  max-height: 100%;\n  opacity: 0.9;\n}\n#clock[data-v-7f033e59] {\n  background-size: cover;\n}\n#todolist[data-v-7f033e59] {\n  background-size: cover;\n  text-shadow: 2px 2px 5px rgb(48, 79, 90);\n}\n#home_articles[data-v-7f033e59] {\n  background-size: cover;\n  text-shadow: 2px 2px 5px rgb(43, 94, 72);\n}\n#home_relax[data-v-7f033e59] {\n  background-size: cover;\n  color: rgb(4, 33, 47);\n}\n#home_relax span[data-v-7f033e59] {\n  color: rgb(227, 242, 242);\n  background-color: rgba(36, 79, 81, 0.7);\n  border: 2px solid rgba(36, 79, 81, 0.7);\n  border-radius: 20px;\n  background-clip: padding-box;\n  box-shadow: 0px 0px 15px 3px rgba(36, 79, 81, 0.7);\n}\n", ""]);
 
 // exports
 
@@ -68152,7 +68262,7 @@ var render = function() {
             ? _c(
                 "div",
                 {
-                  staticClass: "w-full pt-8 px-56 text-white text-center",
+                  staticClass: "w-full pt-8 px-8 text-white text-center",
                   attrs: { id: "setting" }
                 },
                 [
@@ -68438,61 +68548,247 @@ var render = function() {
         "div",
         { staticClass: "flex justify-center", attrs: { id: "content" } },
         [
-          _c("div", { staticClass: "w-1/2 text-center p-3" }, [
-            _c("div", { staticClass: "text-3xl text-teal-200" }, [
-              _vm._v("Dedicated to helping you")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "font-black text-5xl text-teal-100" }, [
-              _vm._v("Cure your Procrastination")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "p-2 text-lg text-white" }, [
-              _c("button", { staticClass: "mx-3" }, [
-                _c("img", {
-                  staticClass: "h-32",
-                  attrs: { src: "storage/defaults/alarm.svg", alt: "" }
-                }),
-                _vm._v("Clock\n        ")
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "mx-3" }, [
-                _c("img", {
-                  staticClass: "h-32",
-                  attrs: { src: "storage/defaults/today.svg", alt: "" }
-                }),
-                _vm._v("To Do List\n        ")
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "mx-3" }, [
-                _c("img", {
-                  staticClass: "h-32",
-                  attrs: { src: "storage/defaults/relax.svg", alt: "" }
-                }),
-                _vm._v("Relax\n        ")
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "mx-3" }, [
-                _c("img", {
-                  staticClass: "h-32",
-                  attrs: { src: "storage/defaults/read.svg", alt: "" }
-                }),
-                _vm._v("Articles\n        ")
+          _vm.currentPage == "home"
+            ? _c("div", { staticClass: "w-1/2 text-center pt-8" }, [
+                _c("div", { staticClass: "text-3xl text-teal-200" }, [
+                  _vm._v("Dedicated to helping you")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "font-black text-5xl text-teal-100" },
+                  [_vm._v("Cure your Procrastination")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "p-2 text-lg text-white" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-3 focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          _vm.currentPage = "clock"
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "h-32",
+                        attrs: { src: "storage/defaults/alarm.svg", alt: "" }
+                      }),
+                      _vm._v("Clock\n        ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-3 focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          _vm.currentPage = "todo"
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "h-32",
+                        attrs: { src: "storage/defaults/today.svg", alt: "" }
+                      }),
+                      _vm._v("To Do List\n        ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-3 focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          _vm.currentPage = "relax"
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "h-32",
+                        attrs: { src: "storage/defaults/relax.svg", alt: "" }
+                      }),
+                      _vm._v("Relax\n        ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "mx-3 focus:outline-none",
+                      on: {
+                        click: function($event) {
+                          _vm.currentPage = "articles"
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "h-32",
+                        attrs: { src: "storage/defaults/read.svg", alt: "" }
+                      }),
+                      _vm._v("Articles\n        ")
+                    ]
+                  )
+                ])
               ])
-            ])
-          ]),
+            : _vm._e(),
           _vm._v(" "),
-          _c("div", {
-            staticClass: "w-1/2 h-1/2",
-            style: {
-              backgroundImage: "url(" + "storage/defaults/work.jpg" + ")"
-            },
-            attrs: { id: "main_img" }
-          })
+          _vm.currentPage == "home"
+            ? _c("div", {
+                staticClass: "w-1/2 h-1/2",
+                style: {
+                  backgroundImage: "url(" + "storage/defaults/work.jpg" + ")"
+                },
+                attrs: { id: "main_img" }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.currentPage == "clock"
+            ? _c(
+                "div",
+                {
+                  staticClass: "w-full h-full m-0 text-right py-4 px-8",
+                  style: {
+                    backgroundImage: "url(" + "storage/defaults/clock.jpg" + ")"
+                  },
+                  attrs: { id: "clock" }
+                },
+                [
+                  _c("div", { staticClass: "text-6xl text-blue-800" }, [
+                    _vm._v("Tomato Clock")
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.currentPage == "todo"
+            ? _c(
+                "div",
+                {
+                  staticClass: "w-full h-full m-0 text-center py-4 px-8",
+                  style: {
+                    backgroundImage: "url(" + "storage/defaults/todo2.jpg" + ")"
+                  },
+                  attrs: { id: "todolist" }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-6xl text-blue-200 font-bold" },
+                    [_vm._v("To Do List")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3)
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.currentPage == "relax"
+            ? _c(
+                "div",
+                {
+                  staticClass: "w-full h-full m-0 text-right py-2 px-8",
+                  style: {
+                    backgroundImage: "url(" + "storage/defaults/relax.jpg" + ")"
+                  },
+                  attrs: { id: "home_relax" }
+                },
+                [_vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.currentPage == "articles"
+            ? _c(
+                "div",
+                {
+                  staticClass: "w-full h-full m-0 text-left py-2 px-8",
+                  style: {
+                    backgroundImage: "url(" + "storage/defaults/read.jpg" + ")"
+                  },
+                  attrs: { id: "home_articles" }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-6xl text-green-200 font-bold" },
+                    [_vm._v("Articles")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _vm._m(8)
+                ]
+              )
+            : _vm._e()
         ]
       ),
       _vm._v(" "),
-      _vm._m(0)
+      _c(
+        "div",
+        {
+          staticClass: "flex justify-center items-center",
+          attrs: { id: "slidebar" }
+        },
+        [
+          _c("button", {
+            staticClass: "focus:outline-none",
+            on: {
+              click: function($event) {
+                _vm.currentPage = "home"
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "focus:outline-none",
+            on: {
+              click: function($event) {
+                _vm.currentPage = "clock"
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "focus:outline-none",
+            on: {
+              click: function($event) {
+                _vm.currentPage = "todo"
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "focus:outline-none",
+            on: {
+              click: function($event) {
+                _vm.currentPage = "relax"
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "focus:outline-none",
+            on: {
+              click: function($event) {
+                _vm.currentPage = "articles"
+              }
+            }
+          })
+        ]
+      )
     ]
   )
 }
@@ -68501,22 +68797,168 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "flex justify-center items-center",
-        attrs: { id: "slidebar" }
-      },
-      [
-        _c("button"),
-        _vm._v(" "),
-        _c("button"),
-        _vm._v(" "),
-        _c("button"),
-        _vm._v(" "),
-        _c("button")
-      ]
-    )
+    return _c("div", { staticClass: "text-2xl text-blue-900" }, [
+      _vm._v(
+        "\n        Can not manage your working time and break time?\n        "
+      ),
+      _c("br"),
+      _vm._v("This customizable clock and help you with that.\n        "),
+      _c("br"),
+      _vm._v(
+        "The best feature is that you can choosing alarm sound.\n        "
+      ),
+      _c("br"),
+      _vm._v("No more annoying alarm clock ring.\n      ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-3" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "m-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        },
+        [_c("a", { attrs: { href: "/clock" } }, [_vm._v("Try it now")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "m-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        },
+        [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://en.wikipedia.org/wiki/Pomodoro_Technique"
+              }
+            },
+            [_vm._v("Wikipedia")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-2xl text-blue-200 font-bold" }, [
+      _vm._v(
+        "\n        The most straight way to stop procrastination is\n        "
+      ),
+      _c("br"),
+      _vm._v("just start do what you should do.\n        "),
+      _c("br"),
+      _vm._v("But as we know,\n        "),
+      _c("br"),
+      _vm._v("it sounds simple and it's the hardest part.\n        "),
+      _c("br"),
+      _vm._v(
+        "Maybe try writing down your quests first. Hope this can help!\n      "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-3" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "m-2 bg-blue-100 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        },
+        [_c("a", { attrs: { href: "/todo" } }, [_vm._v("Try it now")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-4xl font-bold" }, [
+      _c("span", [_vm._v("Relax And Refill Energy")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-2xl font-bold" }, [
+      _c("span", [
+        _vm._v("\n          Another excuese to take a break?\n          "),
+        _c("br"),
+        _vm._v("Watching cute cats can increases productivity!\n          "),
+        _c("br"),
+        _vm._v("Come back here whenever you're tired.\n          "),
+        _c("br"),
+        _vm._v(
+          "Have fun with cats and you're ready for next fighting!\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-3" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "m-2 bg-blue-100 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        },
+        [
+          _c("a", { attrs: { href: "/relax" } }, [
+            _vm._v("Make Sure Working First")
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-2xl text-green-200 font-bold" }, [
+      _vm._v(
+        "\n        Procrastination is not only a term to be a excuse for being lazy.\n        "
+      ),
+      _c("br"),
+      _vm._v("There are many research and science explanation\n        "),
+      _c("br"),
+      _vm._v("To fight procrastination,\n        "),
+      _c("br"),
+      _vm._v("You have to know the enemy, know yourself.\n        "),
+      _c("br"),
+      _vm._v(
+        "Don't forget use the methods that you learn in real life!\n      "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-3" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "m-2 bg-blue-100 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        },
+        [_c("a", { attrs: { href: "/articles" } }, [_vm._v("Start Learning")])]
+      )
+    ])
   }
 ]
 render._withStripped = true

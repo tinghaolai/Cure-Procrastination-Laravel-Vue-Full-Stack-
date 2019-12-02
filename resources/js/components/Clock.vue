@@ -53,7 +53,7 @@
         <!-- Setting -->
         <div
           id="setting"
-          class="w-full pt-8 px-56 text-white text-center"
+          class="w-full pt-8 px-8 text-white text-center"
           v-if="currentPage == 'setting'"
         >
           <div class="text-black">
