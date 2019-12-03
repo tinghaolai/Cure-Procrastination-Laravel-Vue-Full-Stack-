@@ -92,7 +92,7 @@ export default {
   data: function() {
     return {
       time_origin_format: null,
-      time: null,
+      time: "0:0",
       thing: null,
       todoItems: [
         /*
