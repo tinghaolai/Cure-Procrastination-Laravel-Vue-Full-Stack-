@@ -39,6 +39,7 @@ In .env file, you can change `QUEUE_CONNECTION=sync` to `QUEUE_CONNECTION=sync`,
 
 ## Usage
 
+### Normal User Browsing
 ```bash
 # Adding factory data to articles
 php artisan add:testdata
@@ -46,5 +47,12 @@ php artisan add:testdata
 # Cleaning all data
 php artisan refresh:tables
 
+# Start server
+php artisan serve
 
+# Auto compile front-end files
+npm run watch
 ```
+### Administrator Browsing
+
+To access administrator region, go to url: `127.0.0.1:8000/articleadmin/`, the website will ask you to login, you can register any account to browse administrator region, but default administrator e-mail address is `admin@admin`, you'll be able to do the change to website only if you use this account to login.
