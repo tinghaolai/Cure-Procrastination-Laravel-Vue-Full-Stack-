@@ -61,9 +61,51 @@ To access administrator region, go to url: `127.0.0.1:8000/articleadmin/`, the w
 Introduce the basic features and fubctions about the website.
 ### Normal Users
 #### 1. Tomato Clock
+
+![Clock](https://i.imgur.com/NV0VO2e.jpg)
+
 Base on Pomodoro Technique, a customizable clock that help users managing time.
+
+#### 2. Count Down To Do List
+
+![Todo](https://i.imgur.com/3MBwyMY.jpg)
+
+A to do list with cound down reminder, another time managing tool, comparing to normal time schedule, it's more flexible and easy to change the plan.
+
+#### 3. Cat Photo Gallery
+
+![Gallery](https://i.imgur.com/KjxfQti.jpg)
+
+A place let users take a break when get too tired. The gallery showing cat photographs that fetched from thecatapi.com. 
+
+#### 4. Blog
+
+![Blog](https://i.imgur.com/EEgyZED.jpg)
+
+A simple blog system to store some articles about procrastination, or other research that help us have a better life.
 
 
 ### Administrator
 
+![Admin](https://i.imgur.com/7U4F7UC.jpg)
 
+An plain design system to let administrator to editing the articles.
+
+> Make it pretty to be user friendly will be next update!
+
+- Access
+  - Logged users
+    - can only browse the system.
+  - Administrator
+    - full functionality.
+    - defaul email account: `admin@admin`
+- Functions:
+  - Add/Delete Tags
+  - Add Article
+    - Upload image
+    - Tags choosing
+  - Edit Article
+  - Delete Article
+    - Soft delete
+      - Recover
+    - Permanently delete
