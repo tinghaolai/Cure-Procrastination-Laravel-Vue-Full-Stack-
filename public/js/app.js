@@ -1988,8 +1988,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var track;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2018,6 +2016,7 @@ var track;
   },
   methods: {
     recordTime: function recordTime(e) {
+      console.log(e);
       var m_s_stage = e.split(":");
       this.work_break_Interval[m_s_stage[2]] = Number(m_s_stage[0]) * 60 + Number(m_s_stage[1]);
       this.reset();
@@ -68288,14 +68287,7 @@ var render = function() {
                             displayFormat: "mm : ss",
                             returnFormat: "m:s:0"
                           },
-                          on: { formatedTime: _vm.recordTime },
-                          model: {
-                            value: _vm.time,
-                            callback: function($$v) {
-                              _vm.time = $$v
-                            },
-                            expression: "time"
-                          }
+                          on: { formatedTime: _vm.recordTime }
                         })
                       ],
                       1
@@ -68324,14 +68316,7 @@ var render = function() {
                               displayFormat: "mm : ss",
                               returnFormat: "m:s:1"
                             },
-                            on: { formatedTime: _vm.recordTime },
-                            model: {
-                              value: _vm.time,
-                              callback: function($$v) {
-                                _vm.time = $$v
-                              },
-                              expression: "time"
-                            }
+                            on: { formatedTime: _vm.recordTime }
                           },
                           [_vm._v(">")]
                         )

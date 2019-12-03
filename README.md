@@ -56,3 +56,14 @@ npm run watch
 ### Administrator Browsing
 
 To access administrator region, go to url: `127.0.0.1:8000/articleadmin/`, the website will ask you to login, you can register any account to browse administrator region, but default administrator e-mail address is `admin@admin`, you'll be able to do the change to website only if you use this account to login.
+
+## Features
+Introduce the basic features and fubctions about the website.
+### Normal Users
+#### 1. Tomato Clock
+Base on Pomodoro Technique, a customizable clock that help users managing time.
+
+
+### Administrator
+
+

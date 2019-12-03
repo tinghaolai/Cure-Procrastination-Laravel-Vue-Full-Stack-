@@ -61,7 +61,6 @@
               <span v-text="'Working Time: ' + work_break_Interval[0]"></span>
               <Timeselector
                 class="Timeselector"
-                v-model="time"
                 :interval="{h:1, m:1, s:1}"
                 :displayHours="false"
                 :displaySeconds="true"
@@ -74,7 +73,6 @@
               <span v-text="'Break Time: ' + work_break_Interval[1]"></span>
               <Timeselector
                 class="Timeselector"
-                v-model="time"
                 :interval="{h:1, m:1, s:1}"
                 :displayHours="false"
                 :displaySeconds="true"
@@ -159,6 +157,7 @@ export default {
   },
   methods: {
     recordTime(e) {
+      console.log(e);
       let m_s_stage = e.split(":");
       this.work_break_Interval[m_s_stage[2]] =
         Number(m_s_stage[0]) * 60 + Number(m_s_stage[1]);
