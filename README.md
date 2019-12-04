@@ -112,6 +112,9 @@ An plain design system to let administrator to editing the articles.
 
 ## Project file structure
 
+### Diagram
+![Diagram](https://i.imgur.com/bhZHYOP.png)
+
 ### Routing
 
 `web.php` used to let url corresponding to controller and controller's function.
