@@ -76,7 +76,7 @@ A to do list with cound down reminder, another time managing tool, comparing to 
 
 ![Gallery](https://i.imgur.com/KjxfQti.jpg)
 
-A place let users take a break when get too tired. The gallery showing cat photographs that fetched from thecatapi.com. 
+A place let users take a break when get too tired. The gallery showing cat photographs that fetched from [TheCatAPI](https://thecatapi.com/). 
 
 #### 4. Blog
 
