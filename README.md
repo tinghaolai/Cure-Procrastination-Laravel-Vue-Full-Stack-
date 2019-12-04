@@ -25,8 +25,10 @@ php artisan storage:link
 
 ```bash
 # Create file to connect local database
-# Please reference to .env.example and your own database connection
-touch .env
+cp .env.example .env
+
+# Please fill in DB section about your own database
+vim .env
 
 # create tables
 php artisan migrate
