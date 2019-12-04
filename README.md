@@ -109,3 +109,177 @@ An plain design system to let administrator to editing the articles.
     - Soft delete
       - Recover
     - Permanently delete
+
+## Project file structure
+
+### Routing
+
+`web.php` used to let url corresponding to controller and controller's function.
+* CRUD
+* Webpage view
+* Connect to view single page application
+  * `Route::get('/{any}', 'AppController@index')->where('any', '.*');`
+
+### Controller
+
+Model part of Model-view-controller
+
+#### CommentController
+
+CRUD for comments table.
+
+#### TagController
+
+CRUD for comments table.
+
+#### ArticleadminController
+
+* Article administrator region controll
+    * View - using Laravel blade templates
+    * CRUD for articles in Blog region
+      * Using repository pattern
+        * ArticleadminRepository.php
+        * ArticleadminRepositoryInterface.php
+
+### Eloquent (Model)
+
+Access to database.
+
+#### Relationship
+
+Adding Eloquent relationship so that model can call the function to automatically add data to relate table.
+
+e.g. `$article->tags()->attach($tag_id);`
+
+##### Many-To-Many Relationship
+
+Articles and Tags are using `create_taggables.php` to have many-to-many relationship.
+
+### Create Tables
+
+`php artisan migrate` to create tables.
+
+### Factory
+
+Laravel factory to produce fake data.
+Usage: `php artisan tinker`
+e.g. `factory(App\Article::class,100)->create();`
+
+### Artisan Commands
+
+- `AutoAddingDataForTesting.php` for adding test data
+  - Usage: `php artisan add:testdata`
+- `RefreshTables` for deleting all data
+  - Usage: `php artisan refresh:tables`
+
+
+### Repository Pattern
+
+Withdraw the logic part from controller and make it clean.
+
+
+### View
+#### Laravel Blade Templates 
+
+View for controllers to display the webpages, files folder `resources\views`.
+
+* Layout - used for most templates
+  * under `\layouts` folder
+  * using vue component inside blade template
+* Blog region
+  * under `\artcle` folder
+  * using vue component inside blade template
+* Administrator region
+  * under `articleadmin` folder
+* Applications
+  * under `\app` folder
+  * Most user part directly view using vue-router
+  * `index.blade.php`
+    * Create vue component that implement single page application for views of website application except Blog.
+
+#### View Component 
+
+Usage for laravel blade templates. files route:  `\resources\js\components`.
+
+* Layout - vue component for layout
+  * under `layout` folder
+* Blog - vue component for Blog region
+  * under `article` folder
+* Administrator - vue component for administrator region
+  * under `articleadmin`
+* Applications - vue component for Applications region
+  * under `\`'
+  * Clock, To-Do-List, Gallery-API(relax.vue), Homepage, 404not-found(NotFound.vue)
+  
+
+#### View Router
+
+Used to implement vue single page application. Router isolate file: `\resources\js\router.js`
+
+### Webpack
+
+`webpack.mix.js` setting files to compile and optimize.
+
+* \resources\js\app.js
+  * Main Vue object rendered.
+* \resources\sass\app.scss
+  * Main Sass file include other component's sass file
+
+#### Sass
+
+- _variables.scss
+  - store base color of website
+- _layout.scss
+  - style sheet for layout
+- _articles.scss
+  - style sheet for index of Blog
+- _article.scss
+  - style sheet for article viewing of Blog
+- _todo.scss
+  - style sheet for To-Do-List application
+- _clock.scss
+  - style shhet for Tomato-Clock application
+
+### .env
+
+Setting to connect database.
+
+`QUEUE_CONNECTION=database` used to let SQL operation executed asynchronous.
+
+
+### RepositoriesServiceProvider.php
+
+Used to bind interface file and actually implement class.
+
+* `ArticleRepositoryInterface.php`
+* `ArticleAdminRepositoryInterface.php`
+
+### Viewed Event
+
+Counting the viewed time for each article.
+
+1. When article viewed, ArticleController call the function to emit Event: `ArticleViewedEvent`
+2. `AddViewedCountListener` is registered in `EventServicePorvider.php`
+3. Listener call the function from `ArticleRepository.php` through binding of `RepositoriesServiceProvider.php`.
+4. `AddViewedCountListener.php` has implement `ShouldQueue`, SQL operation will be stored in jobs table.
+5. `php artisan queue:listen` to execute operations.
+
+
+### Middleware for Administraor Region
+
+* `Authenticate.php` used to check if user if Signed in.
+* `AdminMiddleware` When senting CRUD request, this middleware check if current user belongs to administrator account.
+
+
+
+### View::composer 
+
+`AppServiceProvider.php` bind tags table data to blade templates.
+
+### Others
+#### SEO friendly URL
+#### Seeder
+#### Unit Test
+#### Laravel Localization (Currently Not Using)
+#### Eager Loading
+#### Soft Delete
