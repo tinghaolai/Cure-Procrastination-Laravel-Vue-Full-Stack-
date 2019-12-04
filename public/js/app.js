@@ -69683,11 +69683,20 @@ var staticRenderFns = [
           _c("div", { staticClass: "mt-3" }, [
             _c("i", {
               staticClass: "fa fa-github",
-              staticStyle: { "font-size": "36px" },
-              attrs: { href: "." }
+              staticStyle: { "font-size": "36px" }
             }),
             _vm._v(" "),
-            _c("a", { attrs: { href: "" } }, [_vm._v("Github")]),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href:
+                    "https://github.com/tinghaolai/Cure-Procrastination-Laravel-Vue-Full-Stack-",
+                  target: "_blank"
+                }
+              },
+              [_vm._v("Github")]
+            ),
             _vm._v(" "),
             _c("button")
           ])

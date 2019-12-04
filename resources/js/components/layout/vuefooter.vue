@@ -20,8 +20,8 @@
         and adding more features to origin thought.
       </div>
       <div class="mt-3">
-        <i href="." class="fa fa-github" style="font-size:36px"></i>
-        <a href>Github</a>
+        <i class="fa fa-github" style="font-size:36px"></i>
+        <a href="https://github.com/tinghaolai/Cure-Procrastination-Laravel-Vue-Full-Stack-" target="_blank">Github</a>
         <button></button>
       </div>
     </div>
