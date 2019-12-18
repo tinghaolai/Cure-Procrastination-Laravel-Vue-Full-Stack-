@@ -2415,6 +2415,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var track;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2432,17 +2443,19 @@ var track;
       time_origin_format: null,
       time: "0:0",
       thing: null,
-      todoItems: [
-        /*
-        {
-          thing: "123456789wefwegww",
-          time: "8:00",
-          time_left: 0
-        },
-        { thing: "234567890", time: "18:00", time_left: 0 },
-        { thing: "345678901", time: "1:00", time_left: 0 }
-        */
-      ],
+      todoItems: [{
+        thing: "123456789wefwegww",
+        time: "8:00",
+        time_left: 0
+      }, {
+        thing: "234567890",
+        time: "18:00",
+        time_left: 0
+      }, {
+        thing: "345678901",
+        time: "1:00",
+        time_left: 0
+      }],
       timestamp: "1970-01-01 00:00:00"
     };
   },
@@ -2460,15 +2473,7 @@ var track;
 
     },
     addTodoItem: function addTodoItem() {
-      var h_m = this.time.split(":");
-      var sec = Number(h_m[0]) * 3600 + Number(h_m[1]) * 60;
-      var today = new Date();
-      var time_left = sec - today.getHours() * 3600 - today.getMinutes() * 60 - today.getSeconds();
-
-      if (time_left < 0) {
-        time_left += 86400;
-      }
-
+      var time_left = this.countTimeLeft();
       this.todoItems.push({
         thing: this.thing,
         time: this.time,
@@ -2488,6 +2493,23 @@ var track;
     },
     clearQuest: function clearQuest(event) {
       this.todoItems.splice(event.currentTarget.id, 1);
+    },
+    changeDeadLine: function changeDeadLine(event) {
+      console.log(this.todoItems[event.currentTarget.id].time);
+      this.todoItems[event.currentTarget.id].time = this.time;
+      this.todoItems[event.currentTarget.id].time_left = this.countTimeLeft();
+    },
+    countTimeLeft: function countTimeLeft() {
+      var h_m = this.time.split(":");
+      var sec = Number(h_m[0]) * 3600 + Number(h_m[1]) * 60;
+      var today = new Date();
+      var time_left = sec - today.getHours() * 3600 - today.getMinutes() * 60 - today.getSeconds();
+
+      if (time_left < 0) {
+        time_left += 86400;
+      }
+
+      return time_left;
     }
   }
 });
@@ -69128,6 +69150,16 @@ var render = function() {
               on: { click: _vm.addTodoItem }
             },
             [_vm._v("Add")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow",
+              on: { click: _vm.addTodoItem }
+            },
+            [_vm._v("Save Schedule")]
           )
         ]
       ),
@@ -69147,7 +69179,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "done text-base mx-2 font-bold py-2 px-4 rounded-full h-16 w-16 flex items-center justify-center",
+                      "done focus:outline-none stext-base mx-2 font-bold py-2 px-4 rounded-full h-16 w-16 flex items-center justify-center",
                     attrs: { id: index },
                     on: {
                       click: function($event) {
@@ -69158,14 +69190,34 @@ var render = function() {
                   [_vm._v("Done")]
                 ),
                 _vm._v(" "),
+                _c("timeselector", {
+                  attrs: {
+                    interval: { h: 1, m: 1, s: 1 },
+                    returnFormat: "H:m"
+                  },
+                  on: { formatedTime: _vm.recordTime }
+                }),
+                _vm._v(" "),
                 _c(
-                  "span",
+                  "button",
                   {
                     staticClass:
-                      "text-lg inline-flex items-center px-4 py-2 m-3 deadline"
+                      "focus:outline-none bg-red-300 text-base mx-2 font-bold py-2 px-4 rounded-full h-16 w-16 flex items-center justify-center",
+                    attrs: { id: index },
+                    on: {
+                      click: function($event) {
+                        return _vm.changeDeadLine($event)
+                      }
+                    }
                   },
-                  [_vm._v(_vm._s(item.time))]
+                  [_vm._v("Change")]
                 ),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass:
+                    "text-lg inline-flex items-center px-4 py-2 m-3 deadline",
+                  domProps: { textContent: _vm._s(item.time) }
+                }),
                 _vm._v(" "),
                 _c("span", { staticClass: "mx-2 inline-block w-3/4" }, [
                   _c(
@@ -69231,7 +69283,8 @@ var render = function() {
                     ]
                   )
                 ])
-              ]
+              ],
+              1
             )
           }),
           0
