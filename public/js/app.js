@@ -2426,6 +2426,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 var track;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2510,6 +2515,24 @@ var track;
       }
 
       return time_left;
+    },
+    saveCookie: function saveCookie() {
+      document.cookie = "schedule=" + JSON.stringify(this.todoItems);
+    },
+    readCookie: function readCookie() {
+      var ca = document.cookie.split(";");
+
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+
+        while (c.charAt(0) == " ") {
+          c = c.substring(1, c.length);
+        }
+
+        if (c.indexOf("schedule=") === 0) {
+          this.todoItems = JSON.parse(c.substring(9, c.length));
+        }
+      }
     }
   }
 });
@@ -69157,9 +69180,19 @@ var render = function() {
             {
               staticClass:
                 "m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow",
-              on: { click: _vm.addTodoItem }
+              on: { click: _vm.saveCookie }
             },
             [_vm._v("Save Schedule")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow",
+              on: { click: _vm.readCookie }
+            },
+            [_vm._v("Load Schedule")]
           )
         ]
       ),

@@ -30,9 +30,14 @@
       >Add</button>
 
       <button
-        @click="addTodoItem"
+        @click="saveCookie"
         class="m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
       >Save Schedule</button>
+
+      <button
+        @click="readCookie"
+        class="m-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+      >Load Schedule</button>
     </div>
 
     <div>
@@ -178,6 +183,19 @@ export default {
         time_left += 86400;
       }
       return time_left;
+    },
+    saveCookie() {
+      document.cookie = "schedule=" + JSON.stringify(this.todoItems);
+    },
+    readCookie() {
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf("schedule=") === 0) {
+          this.todoItems = JSON.parse(c.substring(9, c.length));
+        }
+      }
     }
   }
 };
