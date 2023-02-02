@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"bootstrap-vue": "^2.0.4",
-		"npm-check-updates": "^3.2.2",
+		"npm-check-updates": "^16.6.3",
 		"tailwindcss": "^1.1.3",
 		"vue-gallery-slideshow": "^1.5.0",
 		"vue-router": "^3.1.3",
